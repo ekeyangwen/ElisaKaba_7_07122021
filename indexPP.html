@@ -12,11 +12,12 @@
       rel="stylesheet"
     />
     <script src="https://kit.fontawesome.com/08db705dca.js"></script>
-    <link rel="stylesheet" href="./style.css" />
+
+    <link rel="stylesheet" href="./stylePP.css" />
   </head>
   <body>
     <header>
-      <a href="./index.html">
+      <a href="./indexPP.html">
         <img id="logo" src="./img/logo.png" alt="Logo Petit Petits Plats" />
       </a>
       <section id="recherche">
@@ -31,7 +32,30 @@
       </section>
     </header>
     <section id="main"></section>
-    <script type="module" src="./src/index.js"></script>
+    <section class="recette">
+      <img id="recetteImg" src="" />
+      <section id="recetteDescription">
+        <section id="titreListe">
+          <h1 id="titre"></h1>
+          <ul class="ingredients">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </section>
+        <section class="tempsRecette">
+          <div class="clock">
+            <i class="far fa-clock"></i>
+            <div class="temps"></div>
+          </div>
+          <div class="decription"></div>
+        </section>
+      </section>
+    </section>
+    <script type="module" src="./src/indexPP.js"></script>
     <script type="module" src="./src/recettes.js"></script>
   </body>
 </html>

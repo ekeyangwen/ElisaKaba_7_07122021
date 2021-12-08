@@ -39,17 +39,3 @@ export class recipe {
         `;
   }
 }
-
-// export class ingredient {
-//   constructor(data) {
-
-//   }
-
-//   createIngredients() {
-//     return `
-//     <ul class="ingredient">${this.ingredient}
-//       <span class="qtite">${this.quantity}</span>
-//       <span class="unit">${this.unit}</span>
-//     </ul>
-//     `;
-//   }
