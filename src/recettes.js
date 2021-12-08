@@ -12,29 +12,29 @@ export class recipe {
 
   createRecipe() {
     return `
-          <section class="recette">
-      <img id="recetteImg" src="" />
+    <section class="recette">
+     <div id="recetteImg"></div>
+     <div id="legendeRecette">
       <section id="recetteDescription">
-        <section id="titreListe">
+        <div id="titreListe">
           <h1 id="titre">${this.name}</h1>
+          </div>
+          <section class="tempsRecette">
+          <div class="clock">
+            <i class="far fa-clock"></i>
+            <div class="temps">${this.time}</div>
+          </div>        
+        </section>
+      </section>
           <div class="ingredients">
-            <ul class="ingredients"> ${this.ingredients
+            <ul class="listeIngredients"> ${this.ingredients
               .map(
                 (ingredient) => `<li class="ingredientTab>${ingredient}</li>`
               )
               .join("")}
-            </ul>
-        </section>
-        </section>
-        <section class="tempsRecette">
-          <div class="clock">
-            <i class="far fa-clock"></i>
-            <div class="temps">${this.time}</div>
-          </div>
-       
-          <div class="decription">${this.description}</div>
-        </section>
-      </section>
+            </ul>            
+            <div class="description">${this.description}</div>
+         </div>
     </section>
         `;
   }
