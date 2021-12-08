@@ -18,9 +18,13 @@ export class recipe {
         <section id="titreListe">
           <h1 id="titre">${this.name}</h1>
           <div class="ingredients">
-            <ul class="ingredient">
-            <li>${this.ingredients} ${this.unit}</li>
-          </ul></section>
+            <ul class="ingredients"> ${this.ingredients
+              .map(
+                (ingredient) => `<li class="ingredientTab>${ingredient}</li>`
+              )
+              .join("")}
+            </ul>
+        </section>
         </section>
         <section class="tempsRecette">
           <div class="clock">
@@ -38,11 +42,14 @@ export class recipe {
 
 // export class ingredient {
 //   constructor(data) {
-//     this.ingredient = data.ingredient;
-//     this.unit = data.unit;
+
 //   }
 
 //   createIngredients() {
-// return ``;
+//     return `
+//     <ul class="ingredient">${this.ingredient}
+//       <span class="qtite">${this.quantity}</span>
+//       <span class="unit">${this.unit}</span>
+//     </ul>
+//     `;
 //   }
-// }
