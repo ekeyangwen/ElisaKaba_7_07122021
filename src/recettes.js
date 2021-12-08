@@ -26,16 +26,24 @@ export class recipe {
           </div>        
         </section>
       </section>
-          <div class="ingredients">
-            <ul class="listeIngredients"> ${this.ingredients
-              .map(
-                (ingredient) => `<li class="ingredientTab>${ingredient}</li>`
-              )
-              .join("")}
-            </ul>            
-            <div class="description">${this.description}</div>
-         </div>
+          <div class="description">${this.description}</div>
+   
     </section>
         `;
+  }
+}
+export class oneIngredient {
+  constructor(data) {
+    this.ingredient = data.ingredient;
+    this.quantity = data.quantity;
+    this.unit = data.unit;
+  }
+
+  createIngredient() {
+    return `
+<div class="ingredients">
+            <ul class="listeIngredients"> ${this.ingredient} ${this.quantity} ${this.unit}</ul> 
+          </div>         
+`;
   }
 }
