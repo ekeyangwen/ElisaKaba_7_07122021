@@ -11,13 +11,20 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://kit.fontawesome.com/08db705dca.js"></script>
-    <link rel="stylesheet" href="./PetitsPlats.css" />
+
+    <link rel="stylesheet" href="./stylePP.css" />
   </head>
   <body>
     <header>
-      <a href="./index.html">
-        <img id="logo" src="./images/logo.png" alt="Logo Petit Petits Plats" />
+      <a href="./indexPP.html">
+        <img id="logo" src="./img/logo.png" alt="Logo Petit Petits Plats" />
       </a>
       <section id="recherche">
         <input
@@ -30,29 +37,8 @@
         <button id="loupeBtn"><i class="fas fa-search"></i></button>
       </section>
     </header>
-
-    <section class="recette">
-      <img id="recetteImg" src="" />
-      <section id="recetteDescription">
-        <section id="titreListe">
-          <h1 id="titre"></h1>
-          <ul class="ingredients">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </section>
-        <section class="tempsRecette">
-          <div class="clock">
-            <i class="far fa-clock"></i>
-            <div class="temps"></div>
-          </div>
-          <div class="decription"></div>
-        </section>
-      </section>
-    </section>
+    <section id="main"></section>
+    <script type="module" src="./src/indexPP.js"></script>
+    <script type="module" src="./src/recettes.js"></script>
   </body>
 </html>
