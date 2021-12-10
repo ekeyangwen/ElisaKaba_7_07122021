@@ -35,22 +35,22 @@ export class recipe {
   }
 }
 
-export class oneIngredient {
-  constructor(ingredients) {
-    this.ingredient = ingredients.ingredient;
-    this.quantity = ingredients.quantity;
-    this.unit = ingredients.unit;
-  }
-  // export class oneIngredient {
-  //   constructor(data) {
-  //
-  //   }
+// export class oneIngredient {
+//   constructor(data) {
+//     this.ingredient = data.ingredient;
+//     this.quantity = data.quantity;
+//     this.unit = data.unit;
+//   }
+//   // export class oneIngredient {
+//   //   constructor(data) {
+//   //
+//   //   }
 
-  createIngredient() {
-    return `
+//   createIngredient() {
+//     return `
 
-   <ul class="listeIngredients"> ${this.ingredient} ${this.quantity} ${this.unit}</ul>
+//    <ul class="listeIngredients"> ${this.ingredient} ${this.quantity} ${this.unit}</ul>
 
-  `;
-  }
-}
+//   `;
+//   }
+// }
