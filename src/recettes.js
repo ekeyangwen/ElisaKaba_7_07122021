@@ -3,6 +3,10 @@ export class recipe {
     this.id = data.id;
     this.name = data.name;
     this.servings = data.servings;
+    // this.ingredients = data.ingredients;
+    this.ingredient = data.ingredient;
+    this.quantity = data.quantity;
+    this.unit = data.unit;
     this.time = data.time;
     this.description = data.description;
     this.appliance = data.appliance;
@@ -11,35 +15,39 @@ export class recipe {
 
   createRecipe() {
     return `
-    <section class="recette">
+    <section class="recette"> 
      <div id="recetteImg"></div>
-     <div id="legendeRecette">
-      <section id="recetteAndTime">
-        <div id="titreListe">
-          <h1 id="titre">${this.name}</h1>
-          </div>
-          <section class="tempsRecette">
-          <div class="clock">
+      <div id="legendeRecette">
+     <h1 id="titre">${this.name}</h1>
+     <section id= "listeIngredientsTemps">
+     <div class="ingredients"></div>
+     <section id="recetteAndTime">  
+      <section class="tempsRecette">
+        <div class="clock">
             <i class="far fa-clock"></i>
-            <div class="temps">${this.time}</div>
-          </div>        
-        </section>
+         <div class="temps">${this.time}</div>
+        </div>        
       </section>
-      <section id= "recetteDesciption">
-        <div class="ingredients"></div>
+      <section id= "recetteDescription">    
         <div class="description">${this.description}</div>
-          
-    </section>
+      </section>
+      </section
     </section>
         `;
+  }
+
+  createIngredients() {
+    return `
+     <ul class="listeIngredients"> ${this.ingredient} : ${this.quantity} ${this.unit} </ul> 
+    `;
   }
 }
 
 // export class oneIngredient {
 //   constructor(data) {
 //     this.ingredient = data.ingredient;
-//     this.quantity = data.quantity;
-//     this.unit = data.unit;
+//     // this.quantity = data.quantity;
+//     // this.unit = data.unit;
 //   }
 //   // export class oneIngredient {
 //   //   constructor(data) {
@@ -49,7 +57,7 @@ export class recipe {
 //   createIngredient() {
 //     return `
 
-//    <ul class="listeIngredients"> ${this.ingredient} ${this.quantity} ${this.unit}</ul>
+//    <ul class="listeIngredients"> ${this.ingredient}</ul>
 
 //   `;
 //   }

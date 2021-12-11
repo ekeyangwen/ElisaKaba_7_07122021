@@ -1,5 +1,5 @@
 import { recipe } from "./recettes.js";
-// import { oneIngredient } from "./recettes.js";
+
 const url = "./src/Recipes.json";
 let newRecette;
 
@@ -16,29 +16,46 @@ fetch(url)
       main.innerHTML += newRecette.createRecipe();
     }
 
-    // console.log(data);
-    // console.log(data.recipes.length);
     let i = 0;
 
     for (let ingredient of data.recipes[i].ingredients) {
-      console.log(ingredient);
-
-      for (i; i < data.recipes.length; i++) {
-        console.log(data.recipes[i].ingredients);
-        console.log(data.recipes.length);
-        // let newIngredient = new oneIngredient(ingredient[i]);
-        // console.log(newIngredient);
-        // let liste = document.querySelector(".ingredients");
-        // liste.innerHTML += newIngredient.createIngredient();
-      }
+      let singleIngredient = new recipe(ingredient);
+      let listes = document.querySelectorAll(".ingredients");
+      listes.forEach((liste) => {
+        liste.innerHTML += singleIngredient.createIngredients();
+      });
     }
   });
-// fonction pour récupérer les ingrédients
-// .then((data) => {
-//   for (let ingredient in data.ingredients) {
-//     console.log(ingredient);
-//     let singleIngredient = new oneIngredient(ingredient);
-//     let liste = document.querySelector(".listeIngredients");
-//     liste.innerHTML += singleIngredient.createIngredient();
-//   }
-// });
+
+let rechercheValue = document.getElementById("barreRecherche");
+rechercheValue.addEventListener("click", effacerMessage);
+rechercheValue.onblur = afficherMessage;
+
+function effacerMessage() {
+  if (rechercheValue.value === rechercheValue.defaultValue) {
+    rechercheValue.value = "";
+  }
+}
+
+function afficherMessage() {
+  if (rechercheValue.value === "") {
+    rechercheValue.value = rechercheValue.defaultValue;
+  }
+}
+
+let main = document.getElementById("main");
+let descriptions = document.querySelectorAll(".description");
+let recettes = document.querySelectorAll(".recette");
+let loupeBtn = document.getElementById("loupeBtn");
+
+loupeBtn.addEventListener("click", rechercher);
+
+function rechercher() {
+  console.log(rechercheValue.value);
+
+  descriptions.forEach((description) => {
+    if (description.value.includes(rechercheValue.value)) {
+      alert("including!");
+    }
+  });
+}
