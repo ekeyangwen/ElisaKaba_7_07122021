@@ -11,69 +11,110 @@ const getData = async () =>
 const afficherRecette = (data) => {
   for (let recette of data.recipes) {
     newRecette = new recipe(recette);
-    // console.log(newRecette);
     let main = document.getElementById("main");
     main.innerHTML += newRecette.createRecipe();
   }
 
+  // let eachRecette = data.recipes.filter((recipe) => recipe.id);
+  // console.log(eachRecette);
+
   //récuoération des ingredients
   let i = 0;
-  for (i; i < data.recipes[i].ingredients.length; i++) {
-    for (let ingredient of data.recipes[i].ingredients) {
-      // console.log(ingredient);
-      let singleIngredient = new recipe(ingredient);
-      // console.log(singleIngredient);
-      let listes = document.querySelectorAll(".ingredients");
-      listes.forEach((liste) => {
-        liste.innerHTML += singleIngredient.createIngredients();
-      });
+  // for (i; i < data.recipes[i].ingredients.length; ++i) {
+  for (let ingredient of data.recipes[i].ingredients) {
+    console.log(ingredient);
+    let singleIngredient = new recipe(ingredient);
+    let listes = document.querySelectorAll(".ingredients");
+    listes.forEach((liste) => {
+      liste.innerHTML += singleIngredient.createIngredients();
+    });
+  }
+  // suppression des qtite et units inexistantes
+  let points = document.querySelectorAll(".points");
+  let quantity = document.querySelectorAll(".quantity");
+  let units = document.querySelectorAll(".units");
+  quantity.forEach((qtite) => {
+    if (qtite.innerHTML === "undefined") {
+      qtite.style.display = "none";
     }
-    // suppression des qtite et units inexistantes
-    let points = document.querySelectorAll(".points");
-    let quantity = document.querySelectorAll(".quantity");
-    let units = document.querySelectorAll(".units");
-    quantity.forEach((qtite) => {
+    points.forEach((point) => {
       if (qtite.innerHTML === "undefined") {
-        qtite.style.display = "none";
-        points.forEach((point) => {
-          point.style.display = "none";
-        });
+        point.style.display = "none";
+      } else {
+        point.style.display = "block";
       }
     });
+  });
 
-    units.forEach((unit) => {
-      if (unit.innerHTML === "undefined") {
-        unit.style.display = "none";
+  units.forEach((unit) => {
+    if (unit.innerHTML === "undefined") {
+      unit.style.display = "none";
+    }
+  });
+  // }
+};
+
+// fonction pour changer l'apparence de la barre de recherche (focus/perte de focus)
+const styleBarreRecherche = () => {
+  let rechercheValue = document.getElementById("barreRecherche");
+  let loupeBtn = document.getElementById("loupeBtn");
+  loupeBtn.addEventListener("click", effacerMessage);
+  rechercheValue.addEventListener("click", effacerMessage);
+  rechercheValue.onblur = afficherMessage;
+
+  function effacerMessage() {
+    if (rechercheValue.value === rechercheValue.defaultValue) {
+      rechercheValue.value = "";
+    }
+  }
+
+  function afficherMessage() {
+    if (rechercheValue.value === "")
+      rechercheValue.value = rechercheValue.defaultValue;
+  }
+};
+
+const recherche = () => {
+  let ingredients = document.querySelectorAll(".listeIngredients");
+  let descriptions = document.querySelectorAll(".description");
+  let titre = document.querySelectorAll(".titre");
+  let recettes = document.querySelectorAll(".recette");
+
+  let rechercheValue = document.getElementById("barreRecherche");
+
+  loupeBtn.addEventListener("click", function (e) {
+    e.preventDefault(rechercheValue.value);
+    chooseRecipe(rechercheValue);
+    console.log(rechercheValue.value);
+  });
+
+  function chooseRecipe(rechercheValue) {
+    let includeTitre = titre.forEach((title) => {
+      title.innerHTML.includes(rechercheValue.value);
+    });
+
+    let includeDescription = descriptions.forEach((description) => {
+      description.innerHTML.includes(rechercheValue.value);
+    });
+
+    let includesIngredients = ingredients.forEach((ingredient) => {
+      ingredient.innerHTML.includes(rechercheValue.value);
+    });
+
+    recettes.forEach((recette) => {
+      console.log(recette);
+      if (
+        includeTitre == true ||
+        includeDescription == true ||
+        includesIngredients == true
+      ) {
+        recette.style.display = "flex";
       } else {
-        points.forEach((point) => {
-          point.style.display = "flex";
-        });
+        recette.style.display = "none";
       }
     });
   }
 };
-
-let rechercheValue = document.getElementById("barreRecherche");
-rechercheValue.addEventListener("click", effacerMessage);
-rechercheValue.onblur = afficherMessage;
-
-function effacerMessage() {
-  if (rechercheValue.value === rechercheValue.defaultValue) {
-    rechercheValue.value = "";
-  }
-}
-
-function afficherMessage() {
-  if (rechercheValue.value === "") {
-    rechercheValue.value = rechercheValue.defaultValue;
-  }
-}
-
-let main = document.getElementById("main");
-let descriptions = document.querySelectorAll(".description");
-let legende = document.getElementById("legendeRecette");
-let loupeBtn = document.getElementById("loupeBtn");
-let titre = document.getElementById("titre");
 
 // loupeBtn.addEventListener("click", rechercher);
 
@@ -128,6 +169,8 @@ let titre = document.getElementById("titre");
 async function init() {
   const data = await getData();
   afficherRecette(data);
+  styleBarreRecherche();
+  recherche();
 }
 
 init();

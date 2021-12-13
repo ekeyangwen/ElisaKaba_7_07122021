@@ -39,6 +39,12 @@ header {
   margin-top: 30px;
 }
 
+#barreRecherche:focus {
+  color: black;
+  font-weight: 700;
+  border: none;
+}
+
 #loupeBtn {
   margin-left: -60px;
   margin-top: 30px;
@@ -66,7 +72,7 @@ header {
   margin: 19px;
 }
 
-#recetteImg {
+.recetteImg {
   height: 178px;
   width: 100%;
   padding: 10px;
@@ -74,7 +80,7 @@ header {
   background-color: #c7bebe;
 }
 
-#legendeRecette {
+.legendeRecette {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -86,11 +92,11 @@ header {
   padding: 10px;
 }
 
-#listeIngredientsTemps {
+.listeIngredientsTemps {
   display: flex;
 }
 
-#recetteAndTime {
+.recetteAndTime {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -99,7 +105,7 @@ header {
   width: 100%;
 }
 
-#titre {
+.titre {
   font-family: Lato;
   font-size: 16px;
   font-style: normal;
@@ -151,7 +157,7 @@ header {
   margin-top: -3px;
 }
 
-#recetteDescription {
+.recetteDescription {
   display: flex;
   width: 100%;
   justify-content: center;

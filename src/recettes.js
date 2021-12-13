@@ -15,19 +15,19 @@ export class recipe {
   createRecipe() {
     return `
     <section class="recette"> 
-     <div id="recetteImg"></div>
-      <div id="legendeRecette">
-     <h1 id="titre">${this.name}</h1>
-     <section id= "listeIngredientsTemps">
+     <div class="recetteImg"></div>
+      <div class="legendeRecette">
+     <h1 class="titre">${this.name}</h1>
+     <section class= "listeIngredientsTemps">
      <div class="ingredients"></div>
-     <section id="recetteAndTime">  
+     <section class="recetteAndTime">  
       <section class="tempsRecette">
         <div class="clock">
             <i class="far fa-clock"></i>
          <div class="temps">${this.time}</div>
         </div>        
       </section>
-      <section id= "recetteDescription">    
+      <section class= "recetteDescription">    
         <div class="description">${this.description}</div>
       </section>
       </section
