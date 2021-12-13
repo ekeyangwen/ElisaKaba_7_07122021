@@ -3,7 +3,6 @@ export class recipe {
     this.id = data.id;
     this.name = data.name;
     this.servings = data.servings;
-    // this.ingredients = data.ingredients;
     this.ingredient = data.ingredient;
     this.quantity = data.quantity;
     this.unit = data.unit;
@@ -38,27 +37,7 @@ export class recipe {
 
   createIngredients() {
     return `
-     <ul class="listeIngredients"> ${this.ingredient} : ${this.quantity} ${this.unit} </ul> 
+     <ul class="listeIngredients"> ${this.ingredient} <span class ="points">:</span> <span class="quantity">${this.quantity}</span> <span class="units">${this.unit}</span> </ul> 
     `;
   }
 }
-
-// export class oneIngredient {
-//   constructor(data) {
-//     this.ingredient = data.ingredient;
-//     // this.quantity = data.quantity;
-//     // this.unit = data.unit;
-//   }
-//   // export class oneIngredient {
-//   //   constructor(data) {
-//   //
-//   //   }
-
-//   createIngredient() {
-//     return `
-
-//    <ul class="listeIngredients"> ${this.ingredient}</ul>
-
-//   `;
-//   }
-// }
