@@ -3,9 +3,7 @@ export class recipe {
     this.id = data.id;
     this.name = data.name;
     this.servings = data.servings;
-    this.ingredient = data.ingredient;
-    this.quantity = data.quantity;
-    this.unit = data.unit;
+    this.ingredients = data.ingredients;
     this.time = data.time;
     this.description = data.description;
     this.appliance = data.appliance;
@@ -19,7 +17,16 @@ export class recipe {
       <div class="legendeRecette">
      <h1 class="titre">${this.name}</h1>
      <section class= "listeIngredientsTemps">
-     <div class="ingredients"></div>
+     <ul class="ingredients">${this.ingredients
+       .map((ingredient) => {
+         let ingredientContent = ingredient.ingredient;
+         let quantityContent = ingredient.quantity
+           ? `:${ingredient.quantity}`
+           : "";
+         let unitContent = ingredient.unit ? ingredient.unit : "";
+         return `<li class="ingredientsTab">${ingredientContent} ${quantityContent}${unitContent}</li>`;
+       })
+       .join("")}</ul>
      <section class="recetteAndTime">  
       <section class="tempsRecette">
         <div class="clock">
@@ -33,11 +40,5 @@ export class recipe {
       </section
     </section>
         `;
-  }
-
-  createIngredients() {
-    return `
-     <ul class="listeIngredients"> ${this.ingredient} <span class ="points">:</span> <span class="quantity">${this.quantity}</span> <span class="units">${this.unit}</span> </ul> 
-    `;
   }
 }

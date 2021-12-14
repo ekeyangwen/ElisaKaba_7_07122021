@@ -14,102 +14,67 @@ const afficherRecette = (data) => {
     let main = document.getElementById("main");
     main.innerHTML += newRecette.createRecipe();
   }
-
-  // let eachRecette = data.recipes.filter((recipe) => recipe.id);
-  // console.log(eachRecette);
-
-  //récuoération des ingredients
-  let i = 0;
-  // for (i; i < data.recipes[i].ingredients.length; ++i) {
-  for (let ingredient of data.recipes[i].ingredients) {
-    console.log(ingredient);
-    let singleIngredient = new recipe(ingredient);
-    let listes = document.querySelectorAll(".ingredients");
-    listes.forEach((liste) => {
-      liste.innerHTML += singleIngredient.createIngredients();
-    });
-  }
-  // suppression des qtite et units inexistantes
-  let points = document.querySelectorAll(".points");
-  let quantity = document.querySelectorAll(".quantity");
-  let units = document.querySelectorAll(".units");
-  quantity.forEach((qtite) => {
-    if (qtite.innerHTML === "undefined") {
-      qtite.style.display = "none";
-    }
-    points.forEach((point) => {
-      if (qtite.innerHTML === "undefined") {
-        point.style.display = "none";
-      } else {
-        point.style.display = "block";
-      }
-    });
-  });
-
-  units.forEach((unit) => {
-    if (unit.innerHTML === "undefined") {
-      unit.style.display = "none";
-    }
-  });
-  // }
 };
 
-// fonction pour changer l'apparence de la barre de recherche (focus/perte de focus)
-const styleBarreRecherche = () => {
-  let rechercheValue = document.getElementById("barreRecherche");
-  let loupeBtn = document.getElementById("loupeBtn");
-  loupeBtn.addEventListener("click", effacerMessage);
-  rechercheValue.addEventListener("click", effacerMessage);
-  rechercheValue.onblur = afficherMessage;
-
-  function effacerMessage() {
-    if (rechercheValue.value === rechercheValue.defaultValue) {
-      rechercheValue.value = "";
-    }
-  }
-
-  function afficherMessage() {
-    if (rechercheValue.value === "")
-      rechercheValue.value = rechercheValue.defaultValue;
-  }
-};
-
+// fonction de recherche
 const recherche = () => {
   let ingredients = document.querySelectorAll(".listeIngredients");
   let descriptions = document.querySelectorAll(".description");
   let titre = document.querySelectorAll(".titre");
   let recettes = document.querySelectorAll(".recette");
-
   let rechercheValue = document.getElementById("barreRecherche");
 
-  loupeBtn.addEventListener("click", function (e) {
-    e.preventDefault(rechercheValue.value);
+  loupeBtn.addEventListener("keyup", function (e) {
+    e.preventDefault(rechercheValue.value.toLowerCase());
     chooseRecipe(rechercheValue);
-    console.log(rechercheValue.value);
+    console.log(rechercheValue.value.toLowerCase());
   });
 
   function chooseRecipe(rechercheValue) {
     let includeTitre = titre.forEach((title) => {
-      title.innerHTML.includes(rechercheValue.value);
+      title.innerHTML
+        .toLowerCase()
+        .includes(rechercheValue.value.toLowerCase());
+      // console.log(rechercheValue.value.toLowerCase());
+      // console.log(title.innerHTML.toLowerCase());
+      // console.log(
+      //   title.innerHTML
+      //     .toLowerCase()
+      //     .includes(rechercheValue.value.toLowerCase())
+      // );
     });
+    // console.log(includeTitre);
 
     let includeDescription = descriptions.forEach((description) => {
-      description.innerHTML.includes(rechercheValue.value);
+      description.innerHTML
+        .toLowerCase()
+        .includes(rechercheValue.value.toLowerCase());
+      // console.log(description.innerHTML);
     });
+    // console.log(includeDescription);
 
-    let includesIngredients = ingredients.forEach((ingredient) => {
-      ingredient.innerHTML.includes(rechercheValue.value);
+    let includeIngredients = ingredients.forEach((ingredient) => {
+      ingredient.innerHTML
+        .toLowerCase()
+        .includes(rechercheValue.value.toLowerCase());
+      // console.log(
+      //   ingredient.innerHTML
+      //     .toLowerCase()
+      //     .includes(rechercheValue.value.toLowerCase())
+      // );
     });
 
     recettes.forEach((recette) => {
-      console.log(recette);
+      console.log("Hello");
       if (
-        includeTitre == true ||
-        includeDescription == true ||
-        includesIngredients == true
+        includeTitre === false ||
+        includeDescription === false ||
+        includeIngredients === false
       ) {
-        recette.style.display = "flex";
-      } else {
+        console.log(includeTitre === false);
+        recette.style.display = "none";
+      }
+      if (includeTitre === true) {
         recette.style.display = "none";
       }
     });
@@ -169,7 +134,6 @@ const recherche = () => {
 async function init() {
   const data = await getData();
   afficherRecette(data);
-  styleBarreRecherche();
   recherche();
 }
 

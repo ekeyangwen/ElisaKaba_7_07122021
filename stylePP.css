@@ -168,6 +168,7 @@ header {
   line-height: 12px;
   letter-spacing: 0em;
   text-align: left;
+  margin-top: 10px;
 }
 
 #titre {
@@ -177,7 +178,7 @@ header {
 
 .tempsRecette {
   width: 20%;
-  margin-top: -35px;
+  margin-top: -55px;
   margin-left: 170px;
 }
 
