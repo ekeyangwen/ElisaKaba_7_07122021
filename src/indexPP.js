@@ -17,69 +17,113 @@ const afficherRecette = (data) => {
 };
 
 // fonction de recherche
-const recherche = () => {
+const recherche = (data) => {
   let ingredients = document.querySelectorAll(".listeIngredients");
   let descriptions = document.querySelectorAll(".description");
   let titre = document.querySelectorAll(".titre");
   let recettes = document.querySelectorAll(".recette");
   let rechercheValue = document.getElementById("barreRecherche");
+  let input = document.querySelector("input");
 
-  loupeBtn.addEventListener("keyup", function (e) {
-    e.preventDefault(rechercheValue.value.toLowerCase());
-    chooseRecipe(rechercheValue);
-    console.log(rechercheValue.value.toLowerCase());
-  });
+  rechercheValue.addEventListener("keyup", Verif);
 
-  function chooseRecipe(rechercheValue) {
-    let includeTitre = titre.forEach((title) => {
-      title.innerHTML
-        .toLowerCase()
-        .includes(rechercheValue.value.toLowerCase());
-      // console.log(rechercheValue.value.toLowerCase());
-      // console.log(title.innerHTML.toLowerCase());
-      // console.log(
-      //   title.innerHTML
-      //     .toLowerCase()
-      //     .includes(rechercheValue.value.toLowerCase())
-      // );
-    });
-    // console.log(includeTitre);
+  function Verif() {
+    if (input.value.length >= 3) {
+      console.log(input.value);
+      console.log("hello");
+      chooseRecipe();
+    }
+  }
 
-    let includeDescription = descriptions.forEach((description) => {
-      description.innerHTML
-        .toLowerCase()
-        .includes(rechercheValue.value.toLowerCase());
-      // console.log(description.innerHTML);
-    });
-    // console.log(includeDescription);
+  // let includeTitre = titre.forEach((title) => {
+  //   title.innerHTML.toLowerCase().includes(rechercheValue.value.toLowerCase());
+  // });
 
-    let includeIngredients = ingredients.forEach((ingredient) => {
-      ingredient.innerHTML
-        .toLowerCase()
-        .includes(rechercheValue.value.toLowerCase());
-      // console.log(
-      //   ingredient.innerHTML
-      //     .toLowerCase()
-      //     .includes(rechercheValue.value.toLowerCase())
-      // );
-    });
+  // let includeDescription = descriptions.forEach((description) => {
+  //   description.innerHTML
+  //     .toLowerCase()
+  //     .includes(rechercheValue.value.toLowerCase());
+  // });
 
-    recettes.forEach((recette) => {
-      console.log("Hello");
-      if (
-        includeTitre === false ||
-        includeDescription === false ||
-        includeIngredients === false
-      ) {
-        console.log(includeTitre === false);
-        recette.style.display = "none";
+  // let includeIngredients = ingredients.forEach((ingredient) => {
+  //   ingredient.innerHTML
+  //     .toLowerCase()
+  //     .includes(rechercheValue.value.toLowerCase());
+  // });
+
+  function chooseRecipe() {
+    console.log("Hello");
+    data.recipes.forEach((recipe) => {
+      let descriptionContent = recipe.description;
+      let titleContent = recipe.name;
+      console.log(recipe.name);
+      let includeDescription = descriptionContent.includes(input.value);
+      let includeTitle = titleContent.includes(input.value);
+      //  let ingredientContent = ingredient.ingredient;
+      //  let quantityContent = ingredient.quantity ? `:${ingredient.quantity}` : "";
+      // console.log(descriptionContent);
+      console.log(includeDescription);
+      if (includeDescription === true || includeTitle === true) {
+        // console.log(includeDescription);
+        recettes.forEach((recette) => {
+          recette.style.display = "flex";
+        });
+      } else {
+        recettes.forEach((recette) => {
+          recette.style.display = "none";
+        });
       }
-      if (includeTitre === true) {
-        recette.style.display = "none";
-      }
-    });
+    }); // }
   }
 };
+// chooseRecipe();
+// let includeTitre = titre.forEach((title) => {
+//   title.innerHTML
+//     .toLowerCase()
+//     .includes(rechercheValue.value.toLowerCase());
+//   // console.log(rechercheValue.value.toLowerCase());
+//   // console.log(title.innerHTML.toLowerCase());
+//   // console.log(
+//   //   title.innerHTML
+//   //     .toLowerCase()
+//   //     .includes(rechercheValue.value.toLowerCase())
+//   // );
+// });
+// // console.log(includeTitre);
+
+// let includeDescription = descriptions.forEach((description) => {
+//   description.innerHTML
+//     .toLowerCase()
+//     .includes(rechercheValue.value.toLowerCase());
+//   // console.log(description.innerHTML);
+// });
+// // console.log(includeDescription);
+
+// let includeIngredients = ingredients.forEach((ingredient) => {
+//   ingredient.innerHTML
+//     .toLowerCase()
+//     .includes(rechercheValue.value.toLowerCase());
+// console.log(
+//   ingredient.innerHTML
+//     .toLowerCase()
+//     .includes(rechercheValue.value.toLowerCase())
+// );
+// });
+
+//   recettes.forEach((recette) => {
+//     console.log("Hello");
+//     if (
+//       includeTitre === false ||
+//       includeDescription === false ||
+//       includeIngredients === false
+//     ) {
+//       console.log(includeTitre === false);
+//       recette.style.display = "none";
+//     }
+//     if (includeTitre === true) {
+//       recette.style.display = "none";
+//     }
+//   });
 
 // loupeBtn.addEventListener("click", rechercher);
 
@@ -134,7 +178,7 @@ const recherche = () => {
 async function init() {
   const data = await getData();
   afficherRecette(data);
-  recherche();
+  recherche(data);
 }
 
 init();
