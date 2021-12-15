@@ -68,6 +68,7 @@ header {
 }
 
 .recette {
+  display: block;
   width: 30%;
   margin: 19px;
 }
