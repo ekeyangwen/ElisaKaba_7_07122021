@@ -73,6 +73,10 @@ header {
   margin: 19px;
 }
 
+.hiddenRecipe {
+  display: none;
+}
+
 .recetteImg {
   height: 178px;
   width: 100%;

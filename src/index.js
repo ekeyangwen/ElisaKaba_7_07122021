@@ -50,43 +50,40 @@ const recherche = (data) => {
   // });
 
   function chooseRecipe() {
-    console.log("Hello");
     data.recipes.forEach((recipe) => {
       let descriptionContent = recipe.description.toLowerCase();
       let titleContent = recipe.name.toLowerCase();
-      let ingredientContent = recipe.ingredients.map((ingredient) => {
-        // console.log(ingredient);
-        let ingredientContent = ingredient.ingredient.toLowerCase();
+      //   // let ingredientContent = recipe.ingredients.map((ingredient) => {
+      //   // console.log(ingredient);
+      //   // let ingredientContent = ingredient.ingredient.toLowerCase();
 
-        let inputValue = input.value.toLowerCase();
-        // console.log(recipe);
-        let includeDescription = descriptionContent.includes(inputValue);
-        let includeTitle = titleContent.includes(inputValue);
-        let includeIngredient = ingredientContent.includes(inputValue);
-        console.log(ingredientContent);
-        // console.log(inputValue);
-        if (
-          includeDescription === false ||
-          includeTitle === false ||
-          includeIngredient === false
-        ) {
-          console.log(includeIngredient);
-          recettes.forEach((recette) => {
-            // console.log(recette);
-            recette.style.display = "none";
-          });
+      let inputValue = input.value.toLowerCase();
+      // console.log(recipe);
+      let includeDescription = descriptionContent.includes(inputValue);
+      let includeTitle = titleContent.includes(inputValue);
+      console.log(includeTitle);
+      //   console.log(titleContent);
+      //   console.log(inputValue);
+      // const include = includeDescription === true || includeTitle === true;
+      //   // includeIngredient === true;
+      //   if (include === true) {
+      //     // console.log(includeIngredient);
+      //     recettes.forEach((recette) => {
+      //       // console.log(recette);
+      //       recette.classList.toggle("hiddenRecipe");
+      //     });
+      //   }
+      //   // }); // }
+      // });
+
+      recettes.forEach(function (e) {
+        if (includeDescription === false || includeTitle === false) {
+          e.classList.add("hiddenRecipe");
+          // console.log(include);
+        } else {
+          e.classList.remove("hiddenRecipe");
         }
-        if (
-          includeDescription === true ||
-          includeTitle === true ||
-          includeIngredient === true
-        ) {
-          // console.log(includeTitle);
-          recettes.forEach((recette) => {
-            recette.style.display = "block";
-          });
-        }
-      }); // }
+      });
     });
   }
 };
