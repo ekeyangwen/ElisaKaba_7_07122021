@@ -24,7 +24,7 @@ export class recipe {
            ? `:${ingredient.quantity}`
            : "";
          let unitContent = ingredient.unit ? ingredient.unit : "";
-         return `<li class="ingredientsTab">${ingredientContent} ${quantityContent}${unitContent}</li>`;
+         return `<li class="ingredientsTab"><span class="gras">${ingredientContent}</span> ${quantityContent}${unitContent}</li>`;
        })
        .join("")}</ul>
      <section class="recetteAndTime">  
