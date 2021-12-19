@@ -55,8 +55,8 @@ const afficherRechercherRecettes = (data) => {
       console.log(result);
       let listeRecettes = document.getElementById("listeRecettes");
       console.log(listeRecettes);
-      listeRecettes.innerHTML += results.afficherResult();
       main.innerHTML = "";
+      main.innerHTML = result.name;
     });
   }
 };
