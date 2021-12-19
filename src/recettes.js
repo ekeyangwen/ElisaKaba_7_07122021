@@ -41,4 +41,8 @@ export class recipe {
     </section>
         `;
   }
+
+  afficherResult() {
+    return `<div class="resultRecherche">${result}</div`;
+  }
 }

@@ -232,6 +232,14 @@ header {
   background-color: #ed6454;
 }
 
+.hiddenchoice {
+  display: none;
+}
+
+.filter {
+  display: none;
+}
+
 #tri {
   height: 69px;
   width: 100%;
