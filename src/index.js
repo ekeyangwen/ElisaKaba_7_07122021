@@ -52,8 +52,11 @@ const afficherRechercherRecettes = (data) => {
 
     results.forEach((result) => {
       // displayRecette(result);
-      main.innerHTML = "";
       console.log(result);
+      let listeRecettes = document.getElementById("listeRecettes");
+      console.log(listeRecettes);
+      listeRecettes.innerHTML += results.afficherResult();
+      main.innerHTML = "";
     });
   }
 };
