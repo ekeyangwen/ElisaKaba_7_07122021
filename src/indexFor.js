@@ -1,5 +1,5 @@
 import { recipe } from "./recettes.js";
-import { oneIngredient } from "./recettes.js";
+
 const url = "./src/Recipes.json";
 let newRecette;
 
@@ -20,13 +20,13 @@ fetch(url)
     // console.log(data.recipes.length);
     let i = 0;
 
-    for (let ingredient of data.recipes[i].ingredients) {
-      for (i; i < data.recipes.length; i++) {
-        let newIngredient = new oneIngredient(ingredient[i]);
-        let liste = document.querySelector(".ingredients");
-        liste.innerHTML += newIngredient.createIngredient();
-      }
-    }
+    // for (let ingredient of data.recipes[i].ingredients) {
+    //   for (i; i < data.recipes.length; i++) {
+    //     let newIngredient = new oneIngredient(ingredient[i]);
+    //     let liste = document.querySelector(".ingredients");
+    //     liste.innerHTML += newIngredient.createIngredient();
+    //   }
+    // }
   });
 // fonction pour récupérer les ingrédients
 // .then((data) => {
