@@ -23,7 +23,7 @@ const getData = async () =>
 const afficherRechercherRecettes = (data) => {
   recipes = data.recipes;
   // fonction pour créer les fiches recettes
-  function displayRecette(data) {
+  function displayRecette() {
     recipes.forEach((recette) => {
       newRecette = new recipe(recette);
       let listeRecettes = document.getElementById("listeRecettes");
@@ -48,16 +48,17 @@ const afficherRechercherRecettes = (data) => {
 
   function recherche(value, results) {
     results = recipes.filter((item) => item.name.toLowerCase().includes(value));
-    let main = document.getElementById("main");
-
+    console.log(results);
     results.forEach((result) => {
-      // displayRecette(result);
-      console.log(result);
-      let listeRecettes = document.getElementById("listeRecettes");
-      console.log(listeRecettes);
-      listeRecettes.innerHTML += results.afficherResult();
-      main.innerHTML = "";
+      let main = document.getElementById("main");
+      recipes.forEach((recette) => {
+        newRecette = new recipe(recette);
+        main.innerHTML = "";
+        main.innerHTML = result.name;
+      });
     });
+
+    // recette.innerHTML += result.afficherResult();
   }
 };
 // let ingredients = document.getElementById("choixTriIngredients");
