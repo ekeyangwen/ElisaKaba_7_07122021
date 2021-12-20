@@ -10,20 +10,11 @@ let results;
 const getData = async () =>
   await fetch(url).then((response) => response.json());
 
-// const recetteFilter = (data) => {
-//   let paramsString = window.location.search;
-//   let searchParams = new URLSearchParams(paramsString);
-//   searchParams.getAll("=");
-//   searchParams.forEach((params) => {
-//     idRecette = data.recipes.filter((info) => info.id == params);
-//   });
-//   return { idRecette };
-// };
-
 const afficherRechercherRecettes = (data) => {
   recipes = data.recipes;
+
   // fonction pour créer les fiches recettes
-  function displayRecette(data) {
+  function displayRecette(recipes) {
     recipes.forEach((recette) => {
       newRecette = new recipe(recette);
       let listeRecettes = document.getElementById("listeRecettes");
@@ -31,8 +22,7 @@ const afficherRechercherRecettes = (data) => {
     });
   }
 
-  console.log(recipes);
-  displayRecette(data);
+  displayRecette(recipes);
 
   let rechercheValue = document.getElementById("barreRecherche");
   rechercheValue.addEventListener("keyup", Verif);
@@ -45,86 +35,21 @@ const afficherRechercherRecettes = (data) => {
       console.log(value);
     }
   }
-
+  let main = document.getElementById("main");
   function recherche(value, results) {
     results = recipes.filter((item) => item.name.toLowerCase().includes(value));
-    let main = document.getElementById("main");
 
+    main.innerHTML = "";
     results.forEach((result) => {
-      // displayRecette(result);
-      console.log(result);
-      let listeRecettes = document.getElementById("listeRecettes");
-      console.log(listeRecettes);
-      main.innerHTML = "";
-      main.innerHTML = result.name;
+      let newResults = new recipe(result);
+      main.innerHTML += newResults.createRecipe();
     });
   }
 };
-// let ingredients = document.getElementById("choixTriIngredients");
-// // ingredients.addEventListener("click", chooseRecipe(value, recipes));
-// console.log(recipes);
-// // function chooseRecipe(value, recipes) {
-// //   let main = document.getElementById("main");
-// //   const mediaTries = recipes.sort((a, b) => {
-// //     if (value == a.ingredient) {
-// //       main.innerHTML = "";
-// //       return b.ingredient;
-// //       // } else if (value == a.appliance) {
-// //       //   main.innerHTML = "";
-// //       //   return b.appliance;
-// //       // } else if (value == a.ustensils) {
-// //       //   main.innerHTML = "";
-// //       //   return b.ustensils;
-// //       // } else if (value == a.description) {
-// //       //   main.innerHTML = "";
-// //       //   return b.description;
-// //       // }
-// //     }
-// //   });
-// }
-//  afficherRecette(resultRecherche);
-
-/* function recherche() {
-     let names = recipes.map((element) => element.name.toLowerCase().split(" "));
-     names.forEach((name) => { */
-//       // console.log(name.includes(value));
-//     });
-//     let appliances = recipes.map((element) =>
-//       element.appliance.toLowerCase().split(" ")
-//     );
-//     // console.log(appliances);
-//   }
-// };
-
-// function triRecettes(recipes) {}
-
-// triRecettes();
-
-// fonction de tri
-// function chooseRecipe(rechercheValue, recettesAtrier) {
-//   let titre = document.querySelectorAll(".titre");
-//   const recettesTriees = recettesAtrier.sort((a, b) => {
-//     if (titre.include(rechercheValue)) {
-//       return console.log(recettesTriees);
-//     }
-//   });
-
-//   afficherRecette(recettesTriees);
-//   chooseRecipe();
-// }
-
-// const recherche = (data) => {
-//   let ingredients = document.querySelectorAll(".listeIngredients");
-//   let descriptions = document.querySelectorAll(".description");
-//   let recettes = document.querySelectorAll(".recette");
-
-//   let titre = document.querySelectorAll(".titre");
-// };
 
 // fonction globale d'intialisation de toutes les fonctions
 async function init() {
   const data = await getData();
-  // recetteFilter(data);
   afficherRechercherRecettes(data);
 }
 
