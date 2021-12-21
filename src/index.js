@@ -45,15 +45,35 @@ const afficherRechercherRecettes = (recipes) => {
   }
 };
 const generateFilters = (recipes) => {
-  let ingredient = [];
+  let ingredientsT = [];
   let appliance = [];
-  let ustensils = [];
+  let ustensilsT = [];
 
   recipes.forEach((recette) => {
     appliance.push(recette.appliance);
   });
+  const filteredAppliance = appliance.filter(function (ele, pos) {
+    return appliance.indexOf(ele) == pos;
+  });
 
-  console.log(appliance);
+  recipes.filter((elem) => {
+    elem.ingredients.map((ingredient) => {
+      let ingredientMap = ingredient.ingredient;
+      ingredientsT.push(ingredientMap);
+    });
+  });
+
+  const filteredIngredients = ingredientsT.filter(function (ele, pos) {
+    return ingredientsT.indexOf(ele) == pos;
+  });
+  recipes.filter((content) => {
+    content.ustensils.map((ustensil) => {
+      ustensilsT.push(ustensil);
+    });
+  });
+  const filteredUstensils = ustensilsT.filter(function (ele, pos) {
+    return ustensilsT.indexOf(ele) == pos;
+  });
 };
 
 // fonction globale d'intialisation de toutes les fonctions
