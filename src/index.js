@@ -1,28 +1,20 @@
 import { recipe } from "./recettes.js";
+import { recipes } from "./Recipes.js";
 
-const url = "./src/Recipes.json";
-let newRecette;
-let idRecette;
-let recipes;
 let value;
 let results;
-// récupération des données JSON
-const getData = async () =>
-  await fetch(url).then((response) => response.json());
 
-const afficherRechercherRecettes = (data) => {
-  recipes = data.recipes;
+function displayRecette(recipes) {
+  listeRecettes.innerHTML = "";
+  recipes.forEach((recette) => {
+    let newRecette = new recipe(recette);
+    let listeRecettes = document.getElementById("listeRecettes");
 
+    listeRecettes.innerHTML += newRecette.createRecipe();
+  });
+}
+const afficherRechercherRecettes = (recipes) => {
   // fonction pour créer les fiches recettes
-  function displayRecette(recipes) {
-    recipes.forEach((recette) => {
-      newRecette = new recipe(recette);
-      let listeRecettes = document.getElementById("listeRecettes");
-      listeRecettes.innerHTML += newRecette.createRecipe();
-    });
-  }
-
-  displayRecette(recipes);
 
   let rechercheValue = document.getElementById("barreRecherche");
   rechercheValue.addEventListener("keyup", Verif);
@@ -31,26 +23,44 @@ const afficherRechercherRecettes = (data) => {
     let input = document.querySelector("input");
     value = input.value.toLowerCase();
     if (value.length >= 3) {
-      recherche(value, idRecette);
+      recherche(value);
       console.log(value);
     }
   }
-  let main = document.getElementById("main");
-  function recherche(value, results) {
-    results = recipes.filter((item) => item.name.toLowerCase().includes(value));
 
-    main.innerHTML = "";
-    results.forEach((result) => {
-      let newResults = new recipe(result);
-      main.innerHTML += newResults.createRecipe();
-    });
+  function recherche(value) {
+    results = recipes.filter(
+      (items) =>
+        items.name.toLowerCase().includes(value) ||
+        items.description.toLowerCase().includes(value) ||
+        items.ingredients.map((ingredient) => {
+          let ingredientMap = ingredient.ingredient;
+          console.log(ingredientMap.toLowerCase());
+          ingredientMap.toLowerCase().includes(value);
+        })
+    );
+
+    displayRecette(results);
+    console.log(results);
   }
+};
+const generateFilters = (recipes) => {
+  let ingredient = [];
+  let appliance = [];
+  let ustensils = [];
+
+  recipes.forEach((recette) => {
+    appliance.push(recette.appliance);
+  });
+
+  console.log(appliance);
 };
 
 // fonction globale d'intialisation de toutes les fonctions
 async function init() {
-  const data = await getData();
-  afficherRechercherRecettes(data);
+  displayRecette(recipes);
+  afficherRechercherRecettes(recipes);
+  generateFilters(recipes);
 }
 
 init();
