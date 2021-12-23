@@ -9,7 +9,6 @@ function displayRecette(recipes) {
   recipes.forEach((recette) => {
     let newRecette = new recipe(recette);
     let listeRecettes = document.getElementById("listeRecettes");
-
     listeRecettes.innerHTML += newRecette.createRecipe();
   });
 }
@@ -24,36 +23,39 @@ const afficherRechercherRecettes = (recipes) => {
     value = input.value.toLowerCase();
     if (value.length >= 3) {
       recherche(value);
-      console.log(value);
     }
   }
-
+  // console.log(recipes.ingredient);
+  // const ingredientsMap = items.ingredients.map((ingredient) => {
+  //   console.log(ingredient);
+  //   return ingredient;
+  // });
   function recherche(value) {
-    results = recipes.filter(
-      (items) =>
-        items.name.toLowerCase().includes(value) ||
+    results = recipes.filter((items) => {
+      items.name.toLowerCase().includes(value) ||
+        // console.log(items.name);
         items.description.toLowerCase().includes(value) ||
         items.ingredients.map((ingredient) => {
           let ingredientMap = ingredient.ingredient;
-          console.log(ingredientMap.toLowerCase());
-          ingredientMap.toLowerCase().includes(value);
-        })
-    );
-
-    displayRecette(results);
+          let mapIncludes = ingredientMap.toLowerCase().includes(value);
+          return mapIncludes;
+        });
+    });
     console.log(results);
+    displayRecette(results);
   }
 };
+
 const generateFilters = (recipes) => {
   let ingredientsT = [];
-  let appliance = [];
+  let applianceT = [];
   let ustensilsT = [];
 
   recipes.forEach((recette) => {
-    appliance.push(recette.appliance);
+    applianceT.push(recette.appliance);
   });
-  const filteredAppliance = appliance.filter(function (ele, pos) {
-    return appliance.indexOf(ele) == pos;
+  const filteredAppliance = applianceT.filter(function (ele, pos) {
+    return applianceT.indexOf(ele) == pos;
   });
 
   recipes.filter((elem) => {
@@ -66,6 +68,8 @@ const generateFilters = (recipes) => {
   const filteredIngredients = ingredientsT.filter(function (ele, pos) {
     return ingredientsT.indexOf(ele) == pos;
   });
+  // console.log(filteredIngredients);
+
   recipes.filter((content) => {
     content.ustensils.map((ustensil) => {
       ustensilsT.push(ustensil);
