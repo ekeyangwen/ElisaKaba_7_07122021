@@ -4,6 +4,7 @@ import { recipes } from "./Recipes.js";
 let value;
 let results;
 
+// fonction pour créer les fiches recettes
 function displayRecette(recipes) {
   listeRecettes.innerHTML = "";
   recipes.forEach((recette) => {
@@ -13,8 +14,6 @@ function displayRecette(recipes) {
   });
 }
 const afficherRechercherRecettes = (recipes) => {
-  // fonction pour créer les fiches recettes
-
   let rechercheValue = document.getElementById("barreRecherche");
   rechercheValue.addEventListener("keyup", Verif);
 
@@ -23,25 +22,23 @@ const afficherRechercherRecettes = (recipes) => {
     value = input.value.toLowerCase();
     if (value.length >= 3) {
       recherche(value);
-      console.log(value);
     }
   }
 
   function recherche(value) {
-    results = recipes.filter((items) => {
-      items.name.toLowerCase().includes(value) ||
-        // console.log(items.name)
-        items.description.toLowerCase().includes(value);
-      // console.log(items.description);
-      // items.ingredients.map((ingredient) => {
-      //   console.log(ingredient);
-      //   let ingredientMap = ingredient.ingredient;
-      //   console.log(ingredientMap);
-      //   let mapIncludes = ingredientMap.toLowerCase().includes(value);
-      //   console.log(mapIncludes);
-      //   return mapIncludes;
-      // });
-    });
+    results = recipes.filter(
+      (items) =>
+        items.name.toLowerCase().includes(value) ||
+        items.description.toLowerCase().includes(value) ||
+        items.ingredients.forEach((ingredient) => {
+          console.log(ingredient);
+          let ingredientMap = ingredient.ingredient;
+          let mapIncludes = ingredientMap.toLowerCase().includes(value);
+          console.log(mapIncludes);
+          return ingredientMap;
+        })
+    );
+
     console.log(results);
     displayRecette(results);
   }
@@ -57,7 +54,7 @@ const generateFilters = (recipes) => {
   const filteredAppliance = applianceT.filter(function (ele, pos) {
     return applianceT.indexOf(ele) == pos;
   });
-
+  // console.log(filteredAppliance);
   recipes.filter((elem) => {
     elem.ingredients.map((ingredient) => {
       let ingredientMap = ingredient.ingredient;
@@ -120,11 +117,19 @@ const generateFilters = (recipes) => {
   }
 };
 
+const resultsFilter = () => {
+  let choix = document.getElementById("choixTriIngredients");
+  choix.addEventListener("change", afficherChange);
+  function afficherChange() {
+    console.log("changed");
+  }
+};
 // fonction globale d'intialisation de toutes les fonctions
 async function init() {
   displayRecette(recipes);
   afficherRechercherRecettes(recipes);
   generateFilters(recipes);
+  resultsFilter(recipes);
 }
 
 init();
