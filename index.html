@@ -19,26 +19,51 @@
     />
     <script src="https://kit.fontawesome.com/08db705dca.js"></script>
 
-    <link rel="stylesheet" href="./stylePP.css" />
+    <link rel="stylesheet" href=" ./style.css" />
   </head>
   <body>
     <header>
-      <a href="./indexPP.html">
+      <a href="./index.html">
         <img id="logo" src="./img/logo.png" alt="Logo Petit Petits Plats" />
       </a>
       <section id="recherche">
         <input
           id="barreRecherche"
-          type="text"
+          type="search"
           name="recherche"
-          value="Rechercher un ingrédient, appareil, ustensiles ou une recette"
+          placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
         />
 
         <button id="loupeBtn"><i class="fas fa-search"></i></button>
       </section>
     </header>
-    <section id="main"></section>
-    <script type="module" src="./src/indexPP.js"></script>
+    <section id="main">
+      <section id="tri">
+        <label for="choixTriIngredients" class="trier"></label>
+        <select name="triIngredients" id="choixTriIngredients">
+          <option value="Ingredients" class="choix" data-choisi="false">
+            Ingredients
+          </option>
+        </select>
+        <label for="choixTriAppareil" class="trier"></label>
+
+        <select name="triAppareil" id="choixTriAppareil">
+          <option value="Appareil" class="choix" data-choisi="false">
+            Appareil
+          </option>
+        </select>
+        <label for="choixTriUstensiles" class="trier"></label>
+
+        <select name="triUstensiles" id="choixTriUstensiles">
+          <option value="Ustensiles" class="choix" data-choisi="false">
+            Ustensiles
+          </option>
+        </select>
+      </section>
+      <section id="listeRecettes"></section>
+    </section>
+    <script type="module" src="./src/Recipes.js"></script>
+    <script type="module" src="./src/index.js"></script>
     <script type="module" src="./src/recettes.js"></script>
   </body>
 </html>
