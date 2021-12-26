@@ -30,7 +30,10 @@ export class recipe {
      <section class="recetteAndTime">  
       <section class="tempsRecette">
         <div class="clock">
-            <i class="far fa-clock"></i>
+             <img
+            src="./img/cadran.png"
+            alt="bouton loupe pour lancer la recherche"
+          />
          <div class="temps">${this.time}</div>
         </div>        
       </section>
