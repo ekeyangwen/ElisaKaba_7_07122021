@@ -34,36 +34,73 @@
           placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
         />
 
-        <button id="loupeBtn"><i class="fas fa-search"></i></button>
+        <button id="loupeBtn">
+          <img
+            src="./img/loupe.png"
+            alt="bouton loupe pour lancer la recherche"
+          />
+        </button>
       </section>
     </header>
     <section id="main">
       <section id="tri">
-        <label for="choixTriIngredients" class="trier"></label>
-        <select name="triIngredients" id="choixTriIngredients">
-          <option value="Ingredients" class="choix" data-choisi="false">
-            Ingredients
-          </option>
-        </select>
-        <label for="choixTriAppareil" class="trier"></label>
+        <div class="inputTag"></div>
+        <div class="input">
+          <input
+            name="triIngredients"
+            id="choixTriIngredients"
+            type="search"
+            placeholder="Ingrédients"
+            list="inputIngredients"
+          />
+          <datalist id="inputIngredients"></datalist>
 
-        <select name="triAppareil" id="choixTriAppareil">
-          <option value="Appareil" class="choix" data-choisi="false">
-            Appareil
-          </option>
-        </select>
-        <label for="choixTriUstensiles" class="trier"></label>
-
-        <select name="triUstensiles" id="choixTriUstensiles">
-          <option value="Ustensiles" class="choix" data-choisi="false">
-            Ustensiles
-          </option>
-        </select>
+          <button id="triBtnIngredients">
+            <img
+              src="./img/fleche_bas.png"
+              alt="bouton loupe pour lancer la recherche"
+            />
+          </button>
+        </div>
+        <div class="inputTag"></div>
+        <div class="input">
+          <input
+            name="triAppareils"
+            id="choixTriAppareil"
+            type="search"
+            placeholder="Appareil"
+            list="inputAppareils"
+          />
+          <datalist id="inputAppareils"></datalist>
+          <button id="triBtnAppareil">
+            <img
+              src="./img/fleche_bas.png"
+              alt="bouton loupe pour lancer la recherche"
+            />
+          </button>
+        </div>
+        <div class="inputTag"></div>
+        <div class="input">
+          <input
+            name="triUstensiles"
+            id="choixTriUstensiles"
+            type="search"
+            placeholder="Ustensiles"
+            list="inputUstensiles"
+          />
+          <datalist id="inputUstensiles"></datalist>
+          <button id="triBtnUstensiles">
+            <img
+              src="./img/fleche_bas.png"
+              alt="bouton loupe pour lancer la recherche"
+            />
+          </button>
+        </div>
       </section>
       <section id="listeRecettes"></section>
     </section>
     <script type="module" src="./src/Recipes.js"></script>
-    <script type="module" src="./src/index.js"></script>
     <script type="module" src="./src/recettes.js"></script>
+    <script type="module" src="./src/index.js"></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 body {
   max-width: 1440px;
+  height: 100vh;
   margin: auto;
 }
 
@@ -7,6 +8,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 #logo {
@@ -19,11 +21,10 @@ header {
 #recherche {
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 85%;
 }
 
 #barreRecherche {
-  height: 45px;
   width: 100%;
   border-radius: 5px;
   background-color: #e7e7e7;
@@ -63,6 +64,7 @@ header {
 #main {
   display: flex;
   width: 100%;
+  height: 100%;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -206,30 +208,72 @@ header {
   margin-left: 75px;
 }
 
-#choixTriIngredients,
-#choixTriAppareil,
-#choixTriUstensiles {
+/* #choixTriAppareil,
+#choixTriUstensiles,
+#choixTriIngredients {
   height: 100%;
   width: 170px;
   border-radius: 5px;
-  background-color: #3282f7;
-  font-family: Lato;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 22px;
   letter-spacing: 0em;
   text-align: center;
-  color: #ffff;
+
+  border: none;
   margin: 10px;
-}
+  color: #fff;
+} */
 
 #choixTriAppareil {
   background-color: #68d9a4;
 }
-
 #choixTriUstensiles {
   background-color: #ed6454;
+}
+#choixTriIngredients {
+  background-color: #3282f7;
+}
+
+.input {
+  display: flex;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  margin: 10px;
+}
+#choixTriUstensiles,
+#choixTriAppareil,
+#choixTriIngredients {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+  border: none;
+}
+
+#triBtnIngredients {
+  background-color: #3282f7;
+  border: none;
+}
+
+#triBtnAppareil {
+  background-color: #68d9a4;
+  border: none;
+}
+
+#triBtnUstensiles {
+  background-color: #ed6454;
+  border: none;
+}
+#choixTriUstensiles::placeholder,
+#choixTriAppareil::placeholder,
+#choixTriIngredients::placeholder {
+  color: #fff;
+  background-color: inherit;
 }
 
 .hiddenchoice {
@@ -241,8 +285,9 @@ header {
 }
 
 #tri {
-  height: 69px;
-  width: 100%;
+  display: flex;
+  height: 10%;
+  width: 85%;
   border-radius: 5px;
   border: none;
   font-family: Lato;
@@ -253,11 +298,11 @@ header {
   letter-spacing: 0em;
   padding: 15px;
   margin-top: 30px;
-  margin-left: 117px;
+  padding-left: 0px;
 }
 
 #listeRecettes {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -8px;
+  width: 85%;
 }

@@ -26,121 +26,110 @@ const afficherRechercherRecettes = (recipes) => {
   }
 
   function recherche(value) {
-    for (let items of recipes) {
-      console.log(items.name);
-      let name = items.name;
-      console.log(name.toLowerCase().includes(value));
-    }
+    results = recipes.filter(
+      (items) =>
+        items.name.toLowerCase().includes(value) ||
+        items.description.toLowerCase().includes(value) ||
+        items.ingredients.forEach((ingredient) => {
+          console.log(ingredient);
+          let ingredientMap = ingredient.ingredient;
+          let mapIncludes = ingredientMap.toLowerCase().includes(value);
+          console.log(mapIncludes);
+        })
+    );
+
+    console.log(results);
+    displayRecette(results);
   }
-  //   let nameInclude = items.name.toLowerCase().includes(value);
-  //   if (nameInclude) {
-  // displayRecette(nameItem);
-  // }
 };
 
-// results = recipes.filter(
-//   (items) =>
-//     items.name.toLowerCase().includes(value) ||
-//     items.description.toLowerCase().includes(value) ||
-//     items.ingredients.forEach((ingredient) => {
-//       console.log(ingredient);
-//       let ingredientMap = ingredient.ingredient;
-//       let mapIncludes = ingredientMap.toLowerCase().includes(value);
-//       console.log(mapIncludes);
-//       return ingredientMap;
-//     })
-// );
+const generateFilters = (recipes) => {
+  let ingredientsT = [];
+  let applianceT = [];
+  let ustensilsT = [];
 
-// displayRecette(results);
+  recipes.forEach((recette) => {
+    applianceT.push(recette.appliance);
+  });
+  const filteredAppliance = applianceT.filter(function (ele, pos) {
+    return applianceT.indexOf(ele) == pos;
+  });
+  // console.log(filteredAppliance);
+  recipes.filter((elem) => {
+    elem.ingredients.map((ingredient) => {
+      let ingredientMap = ingredient.ingredient;
+      ingredientsT.push(ingredientMap);
+    });
+  });
 
-// };
-// const generateFilters = (recipes) => {
-//   let ingredientsT = [];
-//   let applianceT = [];
-//   let ustensilsT = [];
+  const filteredIngredients = ingredientsT.filter(function (ele, pos) {
+    return ingredientsT.indexOf(ele) == pos;
+  });
+  // console.log(filteredIngredients);
 
-//   recipes.forEach((recette) => {
-//     applianceT.push(recette.appliance);
-//   });
-//   const filteredAppliance = applianceT.filter(function (ele, pos) {
-//     return applianceT.indexOf(ele) == pos;
-//   });
-//   // console.log(filteredAppliance);
-//   recipes.filter((elem) => {
-//     elem.ingredients.map((ingredient) => {
-//       let ingredientMap = ingredient.ingredient;
-//       ingredientsT.push(ingredientMap);
-//     });
-//   });
+  recipes.filter((content) => {
+    content.ustensils.map((ustensil) => {
+      ustensilsT.push(ustensil);
+    });
+  });
+  const filteredUstensils = ustensilsT.filter(function (ele, pos) {
+    return ustensilsT.indexOf(ele) == pos;
+  });
+  // console.log(filteredUstensils);
 
-//   const filteredIngredients = ingredientsT.filter(function (ele, pos) {
-//     return ingredientsT.indexOf(ele) == pos;
-//   });
-//   // console.log(filteredIngredients);
+  let BtnIngredient = document.getElementById("triBtnIngredients");
+  BtnIngredient.addEventListener("click", AfficherInputIngredients);
 
-//   recipes.filter((content) => {
-//     content.ustensils.map((ustensil) => {
-//       ustensilsT.push(ustensil);
-//     });
-//   });
-//   const filteredUstensils = ustensilsT.filter(function (ele, pos) {
-//     return ustensilsT.indexOf(ele) == pos;
-//   });
-//   // console.log(filteredUstensils);
+  function AfficherInputIngredients() {
+    const list = document.getElementById("inputIngredients");
 
-//   let BtnIngredient = document.getElementById("triBtnIngredients");
-//   BtnIngredient.addEventListener("click", AfficherInputIngredients);
+    filteredIngredients.forEach((item) => {
+      let option = document.createElement("option");
+      option.value = item;
+      list.appendChild(option);
+    });
+  }
 
-//   function AfficherInputIngredients() {
-//     const list = document.getElementById("inputIngredients");
+  let BtnAppareils = document.getElementById("triBtnAppareil");
+  BtnAppareils.addEventListener("click", AfficherInputAppareils);
 
-//     filteredIngredients.forEach((item) => {
-//       let option = document.createElement("option");
-//       option.value = item;
-//       list.appendChild(option);
-//     });
-//   }
+  function AfficherInputAppareils() {
+    const list = document.getElementById("inputAppareils");
 
-//   let BtnAppareils = document.getElementById("triBtnAppareil");
-//   BtnAppareils.addEventListener("click", AfficherInputAppareils);
+    filteredAppliance.forEach((item) => {
+      let option = document.createElement("option");
+      option.value = item;
+      list.appendChild(option);
+    });
+  }
 
-//   function AfficherInputAppareils() {
-//     const list = document.getElementById("inputAppareils");
+  let BtnUstensiles = document.getElementById("triBtnUstensiles");
+  BtnUstensiles.addEventListener("click", AfficherInputUstensiles);
 
-//     filteredAppliance.forEach((item) => {
-//       let option = document.createElement("option");
-//       option.value = item;
-//       list.appendChild(option);
-//     });
-//   }
+  function AfficherInputUstensiles() {
+    const list = document.getElementById("inputUstensiles");
 
-//   let BtnUstensiles = document.getElementById("triBtnUstensiles");
-//   BtnUstensiles.addEventListener("click", AfficherInputUstensiles);
+    filteredUstensils.forEach((item) => {
+      let option = document.createElement("option");
+      option.value = item;
+      list.appendChild(option);
+    });
+  }
+};
 
-//   function AfficherInputUstensiles() {
-//     const list = document.getElementById("inputUstensiles");
-
-//     filteredUstensils.forEach((item) => {
-//       let option = document.createElement("option");
-//       option.value = item;
-//       list.appendChild(option);
-//     });
-//   }
-// };
-
-// const resultsFilter = () => {
-//   let choix = document.getElementById("choixTriIngredients");
-//   choix.addEventListener("change", afficherChange);
-//   function afficherChange() {
-//     console.log("changed");
-//   }
-
+const resultsFilter = () => {
+  let choix = document.getElementById("choixTriIngredients");
+  choix.addEventListener("change", afficherChange);
+  function afficherChange() {
+    console.log("changed");
+  }
+};
 // fonction globale d'intialisation de toutes les fonctions
 async function init() {
   displayRecette(recipes);
   afficherRechercherRecettes(recipes);
-  // generateFilters(recipes);
-  // resultsFilter(recipes);
+  generateFilters(recipes);
+  resultsFilter(recipes);
 }
 
 init();
