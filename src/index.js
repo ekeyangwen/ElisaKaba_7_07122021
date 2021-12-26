@@ -1,39 +1,19 @@
 import { recipe } from "./recettes.js";
+import { recipes } from "./Recipes.js";
 
-const url = "./src/Recipes.json";
-let newRecette;
-let idRecette;
-let recipes;
 let value;
 let results;
-// récupération des données JSON
-const getData = async () =>
-  await fetch(url).then((response) => response.json());
 
-// const recetteFilter = (data) => {
-//   let paramsString = window.location.search;
-//   let searchParams = new URLSearchParams(paramsString);
-//   searchParams.getAll("=");
-//   searchParams.forEach((params) => {
-//     idRecette = data.recipes.filter((info) => info.id == params);
-//   });
-//   return { idRecette };
-// };
-
-const afficherRechercherRecettes = (data) => {
-  recipes = data.recipes;
-  // fonction pour créer les fiches recettes
-  function displayRecette() {
-    recipes.forEach((recette) => {
-      newRecette = new recipe(recette);
-      let listeRecettes = document.getElementById("listeRecettes");
-      listeRecettes.innerHTML += newRecette.createRecipe();
-    });
+// fonction pour créer les fiches recettes
+function displayRecette(recipes) {
+  listeRecettes.innerHTML = "";
+  for (let recette of recipes) {
+    let newRecette = new recipe(recette);
+    let listeRecettes = document.getElementById("listeRecettes");
+    listeRecettes.innerHTML += newRecette.createRecipe();
   }
-
-  console.log(recipes);
-  displayRecette(data);
-
+}
+const afficherRechercherRecettes = (recipes) => {
   let rechercheValue = document.getElementById("barreRecherche");
   rechercheValue.addEventListener("keyup", Verif);
 
@@ -41,92 +21,126 @@ const afficherRechercherRecettes = (data) => {
     let input = document.querySelector("input");
     value = input.value.toLowerCase();
     if (value.length >= 3) {
-      recherche(value, idRecette);
-      console.log(value);
+      recherche(value);
     }
   }
 
-  function recherche(value, results) {
-    results = recipes.filter((item) => item.name.toLowerCase().includes(value));
-    console.log(results);
-    results.forEach((result) => {
-      let main = document.getElementById("main");
-      recipes.forEach((recette) => {
-        newRecette = new recipe(recette);
-        main.innerHTML = "";
-        main.innerHTML = result.name;
-      });
-    });
-
-    // recette.innerHTML += result.afficherResult();
+  function recherche(value) {
+    for (let items of recipes) {
+      console.log(items.name);
+      let name = items.name;
+      console.log(name.toLowerCase().includes(value));
+    }
   }
+  //   let nameInclude = items.name.toLowerCase().includes(value);
+  //   if (nameInclude) {
+  // displayRecette(nameItem);
+  // }
 };
-// let ingredients = document.getElementById("choixTriIngredients");
-// // ingredients.addEventListener("click", chooseRecipe(value, recipes));
-// console.log(recipes);
-// // function chooseRecipe(value, recipes) {
-// //   let main = document.getElementById("main");
-// //   const mediaTries = recipes.sort((a, b) => {
-// //     if (value == a.ingredient) {
-// //       main.innerHTML = "";
-// //       return b.ingredient;
-// //       // } else if (value == a.appliance) {
-// //       //   main.innerHTML = "";
-// //       //   return b.appliance;
-// //       // } else if (value == a.ustensils) {
-// //       //   main.innerHTML = "";
-// //       //   return b.ustensils;
-// //       // } else if (value == a.description) {
-// //       //   main.innerHTML = "";
-// //       //   return b.description;
-// //       // }
-// //     }
-// //   });
-// }
-//  afficherRecette(resultRecherche);
 
-/* function recherche() {
-     let names = recipes.map((element) => element.name.toLowerCase().split(" "));
-     names.forEach((name) => { */
-//       // console.log(name.includes(value));
+// results = recipes.filter(
+//   (items) =>
+//     items.name.toLowerCase().includes(value) ||
+//     items.description.toLowerCase().includes(value) ||
+//     items.ingredients.forEach((ingredient) => {
+//       console.log(ingredient);
+//       let ingredientMap = ingredient.ingredient;
+//       let mapIncludes = ingredientMap.toLowerCase().includes(value);
+//       console.log(mapIncludes);
+//       return ingredientMap;
+//     })
+// );
+
+// displayRecette(results);
+
+// };
+// const generateFilters = (recipes) => {
+//   let ingredientsT = [];
+//   let applianceT = [];
+//   let ustensilsT = [];
+
+//   recipes.forEach((recette) => {
+//     applianceT.push(recette.appliance);
+//   });
+//   const filteredAppliance = applianceT.filter(function (ele, pos) {
+//     return applianceT.indexOf(ele) == pos;
+//   });
+//   // console.log(filteredAppliance);
+//   recipes.filter((elem) => {
+//     elem.ingredients.map((ingredient) => {
+//       let ingredientMap = ingredient.ingredient;
+//       ingredientsT.push(ingredientMap);
 //     });
-//     let appliances = recipes.map((element) =>
-//       element.appliance.toLowerCase().split(" ")
-//     );
-//     // console.log(appliances);
+//   });
+
+//   const filteredIngredients = ingredientsT.filter(function (ele, pos) {
+//     return ingredientsT.indexOf(ele) == pos;
+//   });
+//   // console.log(filteredIngredients);
+
+//   recipes.filter((content) => {
+//     content.ustensils.map((ustensil) => {
+//       ustensilsT.push(ustensil);
+//     });
+//   });
+//   const filteredUstensils = ustensilsT.filter(function (ele, pos) {
+//     return ustensilsT.indexOf(ele) == pos;
+//   });
+//   // console.log(filteredUstensils);
+
+//   let BtnIngredient = document.getElementById("triBtnIngredients");
+//   BtnIngredient.addEventListener("click", AfficherInputIngredients);
+
+//   function AfficherInputIngredients() {
+//     const list = document.getElementById("inputIngredients");
+
+//     filteredIngredients.forEach((item) => {
+//       let option = document.createElement("option");
+//       option.value = item;
+//       list.appendChild(option);
+//     });
+//   }
+
+//   let BtnAppareils = document.getElementById("triBtnAppareil");
+//   BtnAppareils.addEventListener("click", AfficherInputAppareils);
+
+//   function AfficherInputAppareils() {
+//     const list = document.getElementById("inputAppareils");
+
+//     filteredAppliance.forEach((item) => {
+//       let option = document.createElement("option");
+//       option.value = item;
+//       list.appendChild(option);
+//     });
+//   }
+
+//   let BtnUstensiles = document.getElementById("triBtnUstensiles");
+//   BtnUstensiles.addEventListener("click", AfficherInputUstensiles);
+
+//   function AfficherInputUstensiles() {
+//     const list = document.getElementById("inputUstensiles");
+
+//     filteredUstensils.forEach((item) => {
+//       let option = document.createElement("option");
+//       option.value = item;
+//       list.appendChild(option);
+//     });
 //   }
 // };
 
-// function triRecettes(recipes) {}
-
-// triRecettes();
-
-// fonction de tri
-// function chooseRecipe(rechercheValue, recettesAtrier) {
-//   let titre = document.querySelectorAll(".titre");
-//   const recettesTriees = recettesAtrier.sort((a, b) => {
-//     if (titre.include(rechercheValue)) {
-//       return console.log(recettesTriees);
-//     }
-//   });
-
-//   afficherRecette(recettesTriees);
-//   chooseRecipe();
-// }
-
-// const recherche = (data) => {
-//   let ingredients = document.querySelectorAll(".listeIngredients");
-//   let descriptions = document.querySelectorAll(".description");
-//   let recettes = document.querySelectorAll(".recette");
-
-//   let titre = document.querySelectorAll(".titre");
-// };
+// const resultsFilter = () => {
+//   let choix = document.getElementById("choixTriIngredients");
+//   choix.addEventListener("change", afficherChange);
+//   function afficherChange() {
+//     console.log("changed");
+//   }
 
 // fonction globale d'intialisation de toutes les fonctions
 async function init() {
-  const data = await getData();
-  // recetteFilter(data);
-  afficherRechercherRecettes(data);
+  displayRecette(recipes);
+  afficherRechercherRecettes(recipes);
+  // generateFilters(recipes);
+  // resultsFilter(recipes);
 }
 
 init();
