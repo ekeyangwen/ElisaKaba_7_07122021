@@ -48,9 +48,9 @@ const generateFilters = (recipes) => {
   let applianceT = [];
   let ustensilsT = [];
 
-  recipes.forEach((recette) => {
+  for (let recette of recipes) {
     applianceT.push(recette.appliance);
-  });
+  }
   const filteredAppliance = applianceT.filter(function (ele, pos) {
     return applianceT.indexOf(ele) == pos;
   });
@@ -83,11 +83,11 @@ const generateFilters = (recipes) => {
   function AfficherInputIngredients() {
     const list = document.getElementById("inputIngredients");
 
-    filteredIngredients.forEach((item) => {
+    for (let item of filteredIngredients) {
       let option = document.createElement("option");
       option.value = item;
       list.appendChild(option);
-    });
+    }
   }
 
   let BtnAppareils = document.getElementById("triBtnAppareil");
@@ -96,11 +96,11 @@ const generateFilters = (recipes) => {
   function AfficherInputAppareils() {
     const list = document.getElementById("inputAppareils");
 
-    filteredAppliance.forEach((item) => {
+    for (let item of filteredAppliance) {
       let option = document.createElement("option");
       option.value = item;
       list.appendChild(option);
-    });
+    }
   }
 
   let BtnUstensiles = document.getElementById("triBtnUstensiles");
@@ -109,11 +109,11 @@ const generateFilters = (recipes) => {
   function AfficherInputUstensiles() {
     const list = document.getElementById("inputUstensiles");
 
-    filteredUstensils.forEach((item) => {
+    for (let item of filteredUstensils) {
       let option = document.createElement("option");
       option.value = item;
       list.appendChild(option);
-    });
+    }
   }
 };
 
