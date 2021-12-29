@@ -118,8 +118,12 @@ const generateFilters = (recipes) => {
 };
 
 const resultsFilter = () => {
-  let choix = document.getElementById("choixTriIngredients");
-  choix.addEventListener("change", afficherChange);
+  let choixingredient = document.getElementById("choixTriIngredients");
+  let choixappliance = document.getElementById("choixTriAppareil");
+  let choixustensils = document.getElementById("choixTriUstensiles");
+  choixingredient.addEventListener("keyup", afficherChange);
+  choixappliance.addEventListener("keyup", afficherChange);
+  choixustensils.addEventListener("change", afficherChange);
   function afficherChange() {
     console.log("changed");
   }
