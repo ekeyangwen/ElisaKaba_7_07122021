@@ -306,3 +306,9 @@ header {
   flex-wrap: wrap;
   width: 85%;
 }
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+  background-color: inherit;
+  opacity: 0;
+}
