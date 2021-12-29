@@ -61,7 +61,7 @@ const generateFilters = (recipes) => {
   for (let recette of recipes) {
     applianceT.push(recette.appliance);
   }
-  const filteredAppliance = new set(applianceT);
+  const filteredAppliance = new Set(applianceT);
   recipes.filter((elem) => {
     elem.ingredients.map((ingredient) => {
       let ingredientMap = ingredient.ingredient;
@@ -69,14 +69,14 @@ const generateFilters = (recipes) => {
     });
   });
 
-  const filteredIngredients = new set(ingredientsT);
+  const filteredIngredients = new Set(ingredientsT);
 
   recipes.filter((content) => {
     content.ustensils.map((ustensil) => {
       ustensilsT.push(ustensil);
     });
   });
-  const filteredUstensils = new set(ustensilsT);
+  const filteredUstensils = new Set(ustensilsT);
 
   let BtnIngredient = document.getElementById("triBtnIngredients");
   BtnIngredient.addEventListener("click", AfficherInputIngredients);
