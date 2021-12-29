@@ -2,7 +2,7 @@ import { recipe } from "./recettes.js";
 import { recipes } from "./Recipes.js";
 
 let value;
-let results;
+let results = [];
 
 // fonction pour créer les fiches recettes
 function displayRecette(recipes) {
@@ -26,17 +26,39 @@ const afficherRechercherRecettes = (recipes) => {
   }
 
   function recherche(value) {
-    results = recipes.filter(
-      (items) =>
-        items.name.toLowerCase().includes(value) ||
-        items.description.toLowerCase().includes(value) ||
-        items.ingredients.forEach((ingredient) => {
-          console.log(ingredient);
-          let ingredientMap = ingredient.ingredient;
-          let mapIncludes = ingredientMap.toLowerCase().includes(value);
-          console.log(mapIncludes);
-        })
-    );
+    // Boucle ForEach 1er algo
+    // results = recipes.filter(
+    //   (items) =>
+    //     items.name.toLowerCase().includes(value) ||
+    //     items.ingredients.forEach((ingredient) => {
+    //       console.log(ingredient);
+    //       let ingredientMap = ingredient.ingredient;
+    //       let mapIncludes = ingredientMap.toLowerCase().includes(value);
+    //       console.log(mapIncludes);
+    //     })
+    // );
+
+    for (let i = 0; i < recipes.length; i++) {
+      let nameIncluded = recipes[i].name.toLowerCase().includes(value);
+      let descriptionIncluded = recipes[i].description
+        .toLowerCase()
+        .includes(value);
+      let ingredientIncluded = false;
+      for (let j = 0; j < recipes[i].ingredients.length; j++) {
+        if (
+          recipes[i].ingredients[j].ingredient.toLowerCase().includes(value)
+        ) {
+          ingredientIncluded = true;
+        }
+      }
+      if (
+        nameIncluded == true ||
+        descriptionIncluded == true ||
+        ingredientIncluded == true
+      ) {
+        results.push(recipes[i]);
+      }
+    }
 
     console.log(results);
     displayRecette(results);
