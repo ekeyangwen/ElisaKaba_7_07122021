@@ -35,7 +35,6 @@ const afficherRechercherRecettes = (recipes) => {
           let ingredientMap = ingredient.ingredient;
           let mapIncludes = ingredientMap.toLowerCase().includes(value);
           console.log(mapIncludes);
-          return ingredientMap;
         })
     );
 
