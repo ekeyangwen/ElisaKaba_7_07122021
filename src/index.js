@@ -50,10 +50,8 @@ const generateFilters = (recipes) => {
   recipes.forEach((recette) => {
     applianceT.push(recette.appliance);
   });
-  const filteredAppliance = applianceT.filter(function (ele, pos) {
-    return applianceT.indexOf(ele) == pos;
-  });
-  // console.log(filteredAppliance);
+  const filteredAppliance = new Set(applianceT);
+
   recipes.filter((elem) => {
     elem.ingredients.map((ingredient) => {
       let ingredientMap = ingredient.ingredient;
@@ -61,20 +59,14 @@ const generateFilters = (recipes) => {
     });
   });
 
-  const filteredIngredients = ingredientsT.filter(function (ele, pos) {
-    return ingredientsT.indexOf(ele) == pos;
-  });
-  // console.log(filteredIngredients);
+  const filteredIngredients = new Set(ingredientsT);
 
   recipes.filter((content) => {
     content.ustensils.map((ustensil) => {
       ustensilsT.push(ustensil);
     });
   });
-  const filteredUstensils = ustensilsT.filter(function (ele, pos) {
-    return ustensilsT.indexOf(ele) == pos;
-  });
-  // console.log(filteredUstensils);
+  const filteredUstensils = new Set(ustensilsT);
 
   let BtnIngredient = document.getElementById("triBtnIngredients");
   BtnIngredient.addEventListener("click", AfficherInputIngredients);
