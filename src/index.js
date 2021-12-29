@@ -60,12 +60,15 @@ const generateFilters = (recipes) => {
 
   for (let recette of recipes) {
     applianceT.push(recette.appliance);
+    applianceT.sort();
   }
   const filteredAppliance = new Set(applianceT);
+  console.log(filteredAppliance);
   recipes.filter((elem) => {
     elem.ingredients.map((ingredient) => {
       let ingredientMap = ingredient.ingredient;
       ingredientsT.push(ingredientMap);
+      ingredientsT.sort();
     });
   });
 
@@ -74,6 +77,7 @@ const generateFilters = (recipes) => {
   recipes.filter((content) => {
     content.ustensils.map((ustensil) => {
       ustensilsT.push(ustensil);
+      ustensilsT.sort();
     });
   });
   const filteredUstensils = new Set(ustensilsT);
@@ -82,25 +86,39 @@ const generateFilters = (recipes) => {
   BtnIngredient.addEventListener("click", AfficherInputIngredients);
 
   function AfficherInputIngredients() {
-    const list = document.getElementById("inputIngredients");
+    const triIngredients = document.getElementById("triIngredientsInput");
 
-    for (let item of filteredIngredients) {
-      let option = document.createElement("option");
-      option.value = item;
-      list.appendChild(option);
+    if (triIngredients.innerHTML == "") {
+      for (let item of filteredIngredients) {
+        let list = document.createElement("li");
+        list.classList.add("liste");
+        list.style.listStyle = "none";
+        list.innerHTML = item;
+        triIngredients.appendChild(list);
+      }
+    } else {
+      triIngredients.innerHTML = "";
     }
   }
 
   let BtnAppareils = document.getElementById("triBtnAppareil");
   BtnAppareils.addEventListener("click", AfficherInputAppareils);
+  let input = document.querySelector("input");
+  input.addEventListener("keyup", AfficherInputAppareils);
 
   function AfficherInputAppareils() {
-    const list = document.getElementById("inputAppareils");
+    const triAppliance = document.getElementById("triApplianceInput");
 
-    for (let item of filteredAppliance) {
-      let option = document.createElement("option");
-      option.value = item;
-      list.appendChild(option);
+    if (triAppliance.innerHTML == "") {
+      for (let item of filteredAppliance) {
+        let list = document.createElement("li");
+        list.classList.add("liste");
+        list.style.listStyle = "none";
+        list.innerHTML = item;
+        triAppliance.appendChild(list);
+      }
+    } else {
+      triAppliance.innerHTML = "";
     }
   }
 
@@ -108,12 +126,18 @@ const generateFilters = (recipes) => {
   BtnUstensiles.addEventListener("click", AfficherInputUstensiles);
 
   function AfficherInputUstensiles() {
-    const list = document.getElementById("inputUstensiles");
+    const triUstensiles = document.getElementById("triUstensilesInput");
 
-    for (let item of filteredUstensils) {
-      let option = document.createElement("option");
-      option.value = item;
-      list.appendChild(option);
+    if (triUstensiles.innerHTML == "") {
+      for (let item of filteredUstensils) {
+        let list = document.createElement("li");
+        list.classList.add("liste");
+        list.style.listStyle = "none";
+        list.innerHTML = item;
+        triUstensiles.appendChild(list);
+      }
+    } else {
+      triUstensiles.innerHTML = "";
     }
   }
 };

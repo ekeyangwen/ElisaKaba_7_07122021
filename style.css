@@ -232,27 +232,32 @@ header {
 #choixTriUstensiles {
   background-color: #ed6454;
 }
-#choixTriIngredients {
-  background-color: #3282f7;
-}
 
-.input {
-  display: flex;
-  height: 100%;
-  border-radius: 5px;
+.inputUstensiles {
+  background-color: inherit;
   border: none;
-  margin: 10px;
-}
-#choixTriUstensiles,
-#choixTriAppareil,
-#choixTriIngredients {
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 22px;
   letter-spacing: 0em;
   text-align: center;
+}
+
+#choixTriIngredients {
+  background-color: #3282f7;
+}
+
+#choixTriUstensiles,
+#choixTriAppareil,
+#choixTriIngredients {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
   border: none;
+  margin: 10px;
+  border: none;
+  color: #fff;
 }
 
 #triBtnIngredients {
@@ -269,9 +274,9 @@ header {
   background-color: #ed6454;
   border: none;
 }
-#choixTriUstensiles::placeholder,
-#choixTriAppareil::placeholder,
-#choixTriIngredients::placeholder {
+
+input::placeholder {
+  border: none;
   color: #fff;
   background-color: inherit;
 }
@@ -311,4 +316,36 @@ input::-webkit-calendar-picker-indicator {
   display: none;
   background-color: inherit;
   opacity: 0;
+}
+
+.triInput {
+  list-style: none;
+}
+aside {
+  z-index: 10;
+}
+
+.listIngredients {
+  background-color: #3282f7;
+}
+
+.listAppareils {
+  background-color: #68d9a4;
+}
+
+.listUstensiles {
+  background-color: #ed6454;
+}
+#triApplianceInput {
+  background-color: #68d9a4;
+  color: #fff;
+}
+
+#triIngredientsInput {
+  background-color: #3282f7;
+  color: #fff;
+}
+#triUstensilesInput {
+  background-color: #ed6454;
+  color: #fff;
 }
