@@ -26,18 +26,6 @@ const afficherRechercherRecettes = (recipes) => {
   }
 
   function recherche(value) {
-    // Boucle ForEach 1er algo
-    // results = recipes.filter(
-    //   (items) =>
-    //     items.name.toLowerCase().includes(value) ||
-    //     items.ingredients.forEach((ingredient) => {
-    //       console.log(ingredient);
-    //       let ingredientMap = ingredient.ingredient;
-    //       let mapIncludes = ingredientMap.toLowerCase().includes(value);
-    //       console.log(mapIncludes);
-    //     })
-    // );
-
     for (let i = 0; i < recipes.length; i++) {
       let nameIncluded = recipes[i].name.toLowerCase().includes(value);
       let descriptionIncluded = recipes[i].description
@@ -73,10 +61,7 @@ const generateFilters = (recipes) => {
   for (let recette of recipes) {
     applianceT.push(recette.appliance);
   }
-  const filteredAppliance = applianceT.filter(function (ele, pos) {
-    return applianceT.indexOf(ele) == pos;
-  });
-  // console.log(filteredAppliance);
+  const filteredAppliance = new set(applianceT);
   recipes.filter((elem) => {
     elem.ingredients.map((ingredient) => {
       let ingredientMap = ingredient.ingredient;
@@ -84,20 +69,14 @@ const generateFilters = (recipes) => {
     });
   });
 
-  const filteredIngredients = ingredientsT.filter(function (ele, pos) {
-    return ingredientsT.indexOf(ele) == pos;
-  });
-  // console.log(filteredIngredients);
+  const filteredIngredients = new set(ingredientsT);
 
   recipes.filter((content) => {
     content.ustensils.map((ustensil) => {
       ustensilsT.push(ustensil);
     });
   });
-  const filteredUstensils = ustensilsT.filter(function (ele, pos) {
-    return ustensilsT.indexOf(ele) == pos;
-  });
-  // console.log(filteredUstensils);
+  const filteredUstensils = new set(ustensilsT);
 
   let BtnIngredient = document.getElementById("triBtnIngredients");
   BtnIngredient.addEventListener("click", AfficherInputIngredients);
