@@ -130,7 +130,7 @@ const generateFilters = (recipes) => {
 
     if (triUstensiles.innerHTML == "") {
       for (let item of filteredUstensils) {
-        let list = document.createElement("li");
+        list = document.createElement("li");
         list.classList.add("liste");
         list.style.listStyle = "none";
         list.innerHTML = item;
@@ -140,15 +140,13 @@ const generateFilters = (recipes) => {
       triUstensiles.innerHTML = "";
     }
   }
-};
 
-const resultsFilter = () => {
   let choixingredient = document.getElementById("choixTriIngredients");
   let choixappliance = document.getElementById("choixTriAppareil");
   let choixustensils = document.getElementById("choixTriUstensiles");
   choixingredient.addEventListener("keyup", afficherChange);
   choixappliance.addEventListener("keyup", afficherChange);
-  choixustensils.addEventListener("change", afficherChange);
+  choixustensils.addEventListener("keyup", afficherChange);
   function afficherChange() {
     console.log("changed");
   }
@@ -158,7 +156,7 @@ async function init() {
   displayRecette(recipes);
   afficherRechercherRecettes(recipes);
   generateFilters(recipes);
-  resultsFilter(recipes);
+  // resultsFilter(recipes);
 }
 
 init();

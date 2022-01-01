@@ -233,7 +233,9 @@ header {
   background-color: #ed6454;
 }
 
-.inputUstensiles {
+#inputUstensiles,
+#inputIngredients,
+#inputAppareils {
   background-color: inherit;
   border: none;
   font-size: 18px;
@@ -242,6 +244,12 @@ header {
   line-height: 22px;
   letter-spacing: 0em;
   text-align: center;
+}
+
+#inputUstensiles::placeholder,
+#inputIngredients::placeholder,
+#inputAppareils::placeholder {
+  color: #fff;
 }
 
 #choixTriIngredients {
@@ -275,9 +283,9 @@ header {
   border: none;
 }
 
-input::placeholder {
+#barreRecherche::placeholder {
   border: none;
-  color: #fff;
+  color: grey;
   background-color: inherit;
 }
 
@@ -321,6 +329,7 @@ input::-webkit-calendar-picker-indicator {
 .triInput {
   list-style: none;
 }
+
 aside {
   z-index: 10;
 }
@@ -344,6 +353,7 @@ aside {
 #triIngredientsInput {
   background-color: #3282f7;
   color: #fff;
+  z-index: 20;
 }
 #triUstensilesInput {
   background-color: #ed6454;
