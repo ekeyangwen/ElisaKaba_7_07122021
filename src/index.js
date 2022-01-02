@@ -130,7 +130,7 @@ const generateFilters = (recipes) => {
 
     if (triUstensiles.innerHTML == "") {
       for (let item of filteredUstensils) {
-        list = document.createElement("li");
+        let list = document.createElement("li");
         list.classList.add("liste");
         list.style.listStyle = "none";
         list.innerHTML = item;
