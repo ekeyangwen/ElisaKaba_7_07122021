@@ -17,7 +17,6 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/08db705dca.js"></script>
 
     <link rel="stylesheet" href=" ./style.css" />
   </head>
@@ -44,57 +43,60 @@
     </header>
     <section id="main">
       <section id="tri">
-        <div class="inputTag"></div>
-        <div class="input">
+        <div id="ingredientsTag"></div>
+        <div id="choixTriIngredients">
           <input
             name="triIngredients"
-            id="choixTriIngredients"
+            id="inputIngredients"
             type="search"
             placeholder="Ingrédients"
-            list="inputIngredients"
           />
-          <datalist id="inputIngredients"></datalist>
-
-          <button id="triBtnIngredients">
-            <img
-              src="./img/fleche_bas.png"
-              alt="bouton loupe pour lancer la recherche"
-            />
-          </button>
+          <aside class="listIngredients">
+            <button id="triBtnIngredients">
+              <img
+                class="imgFlechBas"
+                src="./img/fleche_bas.png"
+                alt="bouton flèche pour faire descendre menu déroulant"
+              />
+            </button>
+            <ul id="triIngredientsInput"></ul>
+          </aside>
         </div>
-        <div class="inputTag"></div>
-        <div class="input">
+        <div id="choixTriAppareil">
           <input
             name="triAppareils"
-            id="choixTriAppareil"
+            id="inputAppareils"
             type="search"
             placeholder="Appareil"
-            list="inputAppareils"
           />
-          <datalist id="inputAppareils"></datalist>
-          <button id="triBtnAppareil">
-            <img
-              src="./img/fleche_bas.png"
-              alt="bouton loupe pour lancer la recherche"
-            />
-          </button>
+          <aside class="listAppareils">
+            <button id="triBtnAppareil">
+              <img
+                class="imgFlechBas"
+                src="./img/fleche_bas.png"
+                alt="bouton flèche pour faire descendre menu déroulant"
+              />
+            </button>
+            <ul id="triApplianceInput"></ul>
+          </aside>
         </div>
-        <div class="inputTag"></div>
-        <div class="input">
+        <div id="choixTriUstensiles">
           <input
             name="triUstensiles"
-            id="choixTriUstensiles"
-            type="search"
+            id="inputUstensiles"
+            type="text"
             placeholder="Ustensiles"
-            list="inputUstensiles"
           />
-          <datalist id="inputUstensiles"></datalist>
-          <button id="triBtnUstensiles">
-            <img
-              src="./img/fleche_bas.png"
-              alt="bouton loupe pour lancer la recherche"
-            />
-          </button>
+          <aside class="listUstensiles">
+            <button id="triBtnUstensiles">
+              <img
+                class="imgFlechBas"
+                src="./img/fleche_bas.png"
+                alt="bouton flèche pour faire descendre menu déroulant"
+              />
+            </button>
+            <ul id="triUstensilesInput"></ul>
+          </aside>
         </div>
       </section>
       <section id="listeRecettes"></section>
