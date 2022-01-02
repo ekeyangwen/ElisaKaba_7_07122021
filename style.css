@@ -226,11 +226,38 @@ header {
   color: #fff;
 } */
 
-#choixTriAppareil {
+#appareil,
+#ingredients,
+#ustensiles {
+  display: flex;
+  flex-direction: column;
+}
+
+#choixTriAppareil,
+#appareilsTag {
   background-color: #68d9a4;
 }
-#choixTriUstensiles {
+
+#choixTriUstensiles,
+#unstensilesTag {
   background-color: #ed6454;
+}
+
+#unstensilesTag,
+#ingredientsTag,
+#appareilsTag {
+  display: none;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+  height: 37px;
+  width: 107px;
+  border-radius: 5px;
 }
 
 #inputUstensiles,
@@ -252,7 +279,8 @@ header {
   color: #fff;
 }
 
-#choixTriIngredients {
+#choixTriIngredients,
+#ingredientsTag {
   background-color: #3282f7;
 }
 

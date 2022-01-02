@@ -141,15 +141,29 @@ const generateFilters = (recipes) => {
     }
   }
 
-  let choixingredient = document.getElementById("choixTriIngredients");
-  let choixappliance = document.getElementById("choixTriAppareil");
-  let choixustensils = document.getElementById("choixTriUstensiles");
-  choixingredient.addEventListener("keyup", afficherChange);
-  choixappliance.addEventListener("keyup", afficherChange);
-  choixustensils.addEventListener("keyup", afficherChange);
-  function afficherChange() {
-    console.log("changed");
-  }
+  let ulUstensils = document.getElementById("triUstensilesInput");
+  ulUstensils.addEventListener("click", function (event) {
+    let target = event.target;
+    let Utag = document.getElementById("unstensilesTag");
+    Utag.innerHTML = target.innerHTML;
+    Utag.style.display = "block";
+  });
+
+  let ulIngredients = document.getElementById("triIngredientsInput");
+  ulIngredients.addEventListener("click", function (event) {
+    let target = event.target;
+    let Itag = document.getElementById("ingredientsTag");
+    Itag.innerHTML = target.innerHTML;
+    Itag.style.display = "block";
+  });
+
+  let ulAppareils = document.getElementById("triApplianceInput");
+  ulAppareils.addEventListener("click", function (event) {
+    let target = event.target;
+    let Atag = document.getElementById("appareilsTag");
+    Atag.innerHTML = target.innerHTML;
+    Atag.style.display = "block";
+  });
 };
 // fonction globale d'intialisation de toutes les fonctions
 async function init() {
