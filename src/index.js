@@ -123,6 +123,7 @@ const generateFilters = (recipes) => {
         list.classList.add("liste");
         list.style.listStyle = "none";
         list.innerHTML = item;
+        // console.log(list.innerHTML);
         triUstensiles.appendChild(list);
       }
     } else {
@@ -131,19 +132,51 @@ const generateFilters = (recipes) => {
   }
 };
 
-const resultsFilter = () => {
-  let choix = document.getElementById("choixTriIngredients");
-  choix.addEventListener("change", afficherChange);
-  function afficherChange() {
-    console.log("changed");
-  }
-};
+let ulUstensils = document.getElementById("triUstensilesInput");
+ulUstensils.addEventListener("click", function (event) {
+  let target = event.target;
+  let Utag = document.getElementById("unstensilesTag");
+  Utag.innerHTML = target.innerHTML;
+  Utag.style.display = "block";
+});
+
+let ulIngredients = document.getElementById("triIngredientsInput");
+ulIngredients.addEventListener("click", function (event) {
+  let target = event.target;
+  let Itag = document.getElementById("ingredientsTag");
+  Itag.innerHTML = target.innerHTML;
+  Itag.style.display = "block";
+});
+
+let ulAppareils = document.getElementById("triApplianceInput");
+ulAppareils.addEventListener("click", function (event) {
+  let target = event.target;
+  let Atag = document.getElementById("appareilsTag");
+  Atag.innerHTML = target.innerHTML;
+  Atag.style.display = "block";
+});
+// const resultsFilter = () => {
+//   let listes = document.querySelectorAll(".liste");
+//   listes.forEach((liste) => {
+//     console.log(liste);
+//     liste.addEventListener("click", afficherChange);
+//   });
+
+//   function afficherChange() {
+//     let listes = document.querySelectorAll(".liste");
+//     listes.forEach((liste) => {
+//       console.log(liste.innerHTML);
+//
+//     });
+//   }
+//   function fillTag() {}
+
 // fonction globale d'intialisation de toutes les fonctions
 async function init() {
   displayRecette(recipes);
   afficherRechercherRecettes(recipes);
   generateFilters(recipes);
-  resultsFilter(recipes);
+  // resultsFilter(recipes);
 }
 
 init();
