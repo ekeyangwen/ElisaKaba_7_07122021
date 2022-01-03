@@ -138,11 +138,15 @@ const generateFilters = (recipes) => {
 
     let value = event.path[0].innerHTML;
 
-    let UstItem = ustensilsT.filter((item) =>
-      item.toLowerCase().includes(value)
-    );
-    console.log(UstItem);
-    displayRecette(UstItem);
+    // recipes.forEach((recipe) => {
+    //   let UstResults = recipes.forEach.ustensils
+    //     .toLowerCase()
+    //     .includes(value.toLowerCase());
+    //   // console.log(ustensil)
+
+    //   console.log(UstResults);
+    //   displayRecette(UstResults);
+    // });
   });
 
   let ulIngredients = document.getElementById("triIngredientsInput");
@@ -154,7 +158,13 @@ const generateFilters = (recipes) => {
 
     let value = event.path[0].innerHTML;
 
-    let IngItem = ingredientsT.filter((item) => item.includes(value));
+    let IngItem = recipes.filter((items) =>
+      items.ingredients.forEach((ingredient) => {
+        let ingredientMap = ingredient.ingredient;
+        console.log(ingredientMap);
+        ingredientMap.toLowerCase().includes(value.toLowerCase());
+      })
+    );
     console.log(IngItem);
     displayRecette(IngItem);
   });
@@ -168,7 +178,9 @@ const generateFilters = (recipes) => {
 
     let value = event.path[0].innerHTML;
 
-    let AppItem = applianceT.filter((items) => items.includes(value));
+    let AppItem = recipes.filter((recipe) =>
+      recipe.appliance.toLowerCase().includes(value.toLowerCase())
+    );
     console.log(AppItem);
     displayRecette(AppItem);
   });
