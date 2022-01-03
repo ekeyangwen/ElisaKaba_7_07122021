@@ -208,24 +208,6 @@ header {
   margin-left: 75px;
 }
 
-/* #choixTriAppareil,
-#choixTriUstensiles,
-#choixTriIngredients {
-  height: 100%;
-  width: 170px;
-  border-radius: 5px;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: center;
-
-  border: none;
-  margin: 10px;
-  color: #fff;
-} */
-
 #choixTriAppareil,
 #appareilsTag {
   background-color: #68d9a4;
