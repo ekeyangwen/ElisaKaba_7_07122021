@@ -26,7 +26,7 @@ export const generateFilters = (recipes) => {
     if (triIngredients.innerHTML == "") {
       for (let item of filteredIngredients) {
         let list = document.createElement("li");
-        list.classList.add("liste");
+        list.classList.add("listeIng");
         list.innerHTML = item;
         triIngredients.appendChild(list);
       }
@@ -53,7 +53,7 @@ export const generateFilters = (recipes) => {
     if (triAppliance.innerHTML == "") {
       for (let elem of filteredAppliance) {
         let list = document.createElement("li");
-        list.classList.add("liste");
+        list.classList.add("listeApp");
         list.innerHTML = elem;
         triAppliance.appendChild(list);
       }
@@ -82,7 +82,7 @@ export const generateFilters = (recipes) => {
     if (triUstensiles.innerHTML == "") {
       for (let content of filteredUstensils) {
         let list = document.createElement("li");
-        list.classList.add("liste");
+        list.classList.add("listeUst");
         list.innerHTML = content;
         triUstensiles.appendChild(list);
       }

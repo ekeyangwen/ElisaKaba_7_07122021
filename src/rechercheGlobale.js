@@ -1,7 +1,7 @@
 import { recipes } from "./Recipes.js";
 import { displayRecette } from "./index.js";
 
-let value;
+export let value;
 let results;
 
 const afficherRechercherRecettes = (recipes) => {
@@ -13,8 +13,11 @@ const afficherRechercherRecettes = (recipes) => {
     value = input.value.toLowerCase();
     if (value.length >= 3) {
       recherche(value);
+    } else if (value.length == 0) {
+      displayRecette(recipes);
     }
   }
+
   function recherche(value) {
     results = recipes.filter(
       (items) =>
@@ -28,6 +31,9 @@ const afficherRechercherRecettes = (recipes) => {
 
     console.log(results);
     displayRecette(results);
+    if (results.length == 0) {
+      alert("Nous ne trouvons pas de résultat!");
+    }
   }
 };
 

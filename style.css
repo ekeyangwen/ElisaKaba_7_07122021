@@ -265,7 +265,6 @@ header {
 }
 
 #triBtnAppareil {
-  cursor: grab;
   background-color: #68d9a4;
   border: none;
 }
@@ -361,7 +360,17 @@ aside {
   z-index: 20;
 }
 
-.liste {
+.listeIng,
+.listeApp,
+.listeUst {
+  font-family: Lato;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  cursor: pointer;
   width: 30%;
   list-style: none;
 }
