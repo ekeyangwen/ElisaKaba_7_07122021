@@ -44,64 +44,68 @@
     <section id="main">
       <section id="tri">
         <div id="ingredients">
-          <div id="ingredientsTag"></div>
           <div id="choixTriIngredients">
-            <input
-              name="triIngredients"
-              id="inputIngredients"
-              type="search"
-              placeholder="Ingrédients"
-            />
-            <button id="triBtnIngredients">
-              <img
-                class="imgFlechBas"
-                src="./img/fleche_bas.png"
-                alt="bouton flèche pour faire descendre menu déroulant"
+            <form class="ingredientsForm">
+              <input
+                name="triIngredients"
+                id="inputIngredients"
+                type="search"
+                placeholder="Ingrédients"
               />
-            </button>
-            <aside class="listIngredients">
+              <button id="triBtnIngredients">
+                <img
+                  class="imgFlechBas"
+                  src="./img/fleche_bas.png"
+                  alt="bouton flèche pour faire descendre menu déroulant"
+                />
+              </button>
+            </form>
+            <aside id="listIngredients">
               <ul id="triIngredientsInput"></ul>
             </aside>
           </div>
         </div>
         <div id="appareils">
-          <div id="appareilsTag"></div>
-          <div id="choixTriAppareil">
-            <input
-              name="triAppareils"
-              id="inputAppareils"
-              type="search"
-              placeholder="Appareil"
-            />
-            <button id="triBtnAppareil">
-              <img
-                class="imgFlechBas"
-                src="./img/fleche_bas.png"
-                alt="bouton flèche pour faire descendre menu déroulant"
+          <div id="choixTriAppareils">
+            <form class="applianceForm">
+              <input
+                name="triAppareils"
+                id="inputAppareils"
+                type="search"
+                placeholder="Appareil"
+                autocomplete="off"
               />
-            </button>
-            <aside class="listAppareils">
-              <ul id="triApplianceInput"></ul>
+              <button id="triBtnAppareil">
+                <img
+                  class="imgFlechBas"
+                  src="./img/fleche_bas.png"
+                  alt="bouton flèche pour faire descendre menu déroulant"
+                />
+              </button>
+            </form>
+            <aside id="listAppareils">
+              <ul id="triAppareilsInput"></ul>
             </aside>
           </div>
         </div>
         <div id="ustensiles">
-          <div id="unstensilesTag"></div>
           <div id="choixTriUstensiles">
-            <input
-              name="triUstensiles"
-              id="inputUstensiles"
-              type="text"
-              placeholder="Ustensiles"
-            />
-            <button id="triBtnUstensiles">
-              <img
-                class="imgFlechBas"
-                src="./img/fleche_bas.png"
-                alt="bouton flèche pour faire descendre menu déroulant"
+            <form id="ustensilsForm">
+              <input
+                name="triUstensiles"
+                id="inputUstensiles"
+                type="search"
+                placeholder="Ustensiles"
               />
-            </button>
-            <aside class="listUstensiles">
+              <button id="triBtnUstensiles">
+                <img
+                  class="imgFlechBas"
+                  src="./img/fleche_bas.png"
+                  alt="bouton flèche pour faire descendre menu déroulant"
+                />
+              </button>
+            </form>
+            <aside id="listUstensiles">
               <ul id="triUstensilesInput"></ul>
             </aside>
           </div>
@@ -112,5 +116,8 @@
     <script type="module" src="./src/Recipes.js"></script>
     <script type="module" src="./src/recettes.js"></script>
     <script type="module" src="./src/index.js"></script>
+    <script type="module" src="./src/rechercheGlobale.js"></script>
+    <script type="module" src="./src/generateFilters.js"></script>
+    <script type="module" src="./src/rechercheTags.js"></script>
   </body>
 </html>
