@@ -17,12 +17,10 @@ inputIng.addEventListener("keyup", function (event) {
 let inputApp = document.querySelector("#inputAppareils");
 inputApp.addEventListener("keyup", function (event) {
   let eventValue = event.target.value;
-  console.log("afficherkeyupAppareils");
 
   let listeAppareil = document.querySelectorAll(".listeApp");
 
   listeAppareil.forEach((appareil) => {
-    console.log(appareil);
     if (appareil.innerHTML.toLowerCase().includes(eventValue.toLowerCase())) {
       appareil.style.display = "block";
     } else {
@@ -35,11 +33,9 @@ let inputUst = document.querySelector("#inputUstensiles");
 
 inputUst.addEventListener("keyup", function (event) {
   let eventValue = event.target.value;
-  console.log("afficherkeyupUstensiles");
 
   let listUstensiles = document.querySelectorAll(".listeUst");
   listUstensiles.forEach((ustensile) => {
-    console.log(ustensile);
     if (ustensile.innerHTML.toLowerCase().includes(eventValue.toLowerCase())) {
       ustensile.style.display = "block";
     } else {

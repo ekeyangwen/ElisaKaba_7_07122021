@@ -1,7 +1,7 @@
 import { recipes } from "./Recipes.js";
 import { displayRecette } from "./index.js";
 
-export let value;
+let value;
 let results;
 
 const afficherRechercherRecettes = (recipes) => {
