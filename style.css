@@ -122,8 +122,9 @@ header {
   text-align: left;
 }
 
-.ingredients {
-  width: 100%;
+#ingredients,
+#appareils,
+#ustensiles {
   font-size: 12px;
   display: flex;
   flex-direction: column;
@@ -136,8 +137,7 @@ header {
   font-weight: 900;
 }
 
-.listeIngredients {
-  width: 100%;
+#listeIngredients {
   margin: 0px;
   font-family: Lato;
   font-size: 12px;
@@ -148,6 +148,7 @@ header {
   text-align: left;
   list-style: none;
   padding: 0px;
+  z-index: inherit;
 }
 
 .description {
@@ -208,31 +209,12 @@ header {
   margin-left: 75px;
 }
 
-#choixTriAppareil,
-#appareilsTag {
+#choixTriAppareils {
   background-color: #68d9a4;
 }
 
-#choixTriUstensiles,
-#unstensilesTag {
+#choixTriUstensiles {
   background-color: #ed6454;
-}
-
-#unstensilesTag,
-#ingredientsTag,
-#appareilsTag {
-  display: none;
-  color: #fff;
-  border: none;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: center;
-  height: 37px;
-  width: 107px;
-  border-radius: 5px;
 }
 
 #inputUstensiles,
@@ -254,8 +236,7 @@ header {
   color: #fff;
 }
 
-#choixTriIngredients,
-#ingredientsTag {
+#choixTriIngredients {
   background-color: #3282f7;
 }
 
@@ -263,16 +244,17 @@ header {
 #ustensiles,
 #appareils {
   height: 69px;
+  width: 300px;
 }
 
 #choixTriUstensiles,
-#choixTriAppareil,
+#choixTriAppareils,
 #choixTriIngredients {
   height: 100%;
   display: flex;
+  flex-direction: column;
   border: none;
   margin: 10px;
-  border: none;
   color: #fff;
   border-radius: 5px;
 }
@@ -340,7 +322,8 @@ input::-webkit-calendar-picker-indicator {
 }
 
 aside {
-  z-index: 10;
+  z-index: 30;
+  width: 700px;
 }
 
 .listIngredients {
@@ -354,17 +337,40 @@ aside {
 .listUstensiles {
   background-color: #ed6454;
 }
-#triApplianceInput {
+#triAppareilsInput {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 20;
   background-color: #68d9a4;
   color: #fff;
 }
 
 #triIngredientsInput {
+  display: flex;
+  flex-wrap: wrap;
   background-color: #3282f7;
   color: #fff;
   z-index: 20;
 }
 #triUstensilesInput {
   background-color: #ed6454;
+  display: flex;
+  flex-wrap: wrap;
   color: #fff;
+  z-index: 20;
+}
+
+.listeIng,
+.listeApp,
+.listeUst {
+  font-family: Lato;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  cursor: pointer;
+  width: 30%;
+  list-style: none;
 }
