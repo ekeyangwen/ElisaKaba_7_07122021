@@ -3,39 +3,46 @@ import { displayRecette } from "./index.js";
 
 let inputApp = document.querySelector("#inputAppareils");
 inputApp.addEventListener("keyup", function (event) {
-  let eventValue = event.target.value;
+  let eventAppValue = event.target.value;
   console.log(event.target.value);
-  rechercheApp(eventValue);
+  rechercheApp(eventAppValue);
 });
+// let listeApp = document.querySelector("#triAppareilsInput");
+// console.log(listeApp);
+// listeApp.forEach((app) => {
+//   app.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     console.log("Appclicked!");
+//   });
+// });
 
-function rechercheApp(eventValue) {
+function rechercheApp(eventAppValue) {
   let tagsAppResults = recipes.filter((items) =>
-    items.appliance.toLowerCase().includes(eventValue)
+    items.appliance.toLowerCase().includes(eventAppValue.toLowerCase())
   );
   console.log(tagsAppResults);
   displayRecette(tagsAppResults);
-  if (eventValue.length == 0) {
+  if (eventAppValue.length == 0) {
     displayRecette(recipes);
   }
 }
 
 let inputUst = document.querySelector("#inputUstensiles");
 inputUst.addEventListener("keyup", function (event) {
-  let eventValue = event.target.value;
+  let eventUstValue = event.target.value;
   console.log(event.target.value);
-  rechercheUst(eventValue);
+  rechercheUst(eventUstValue);
 });
 
-function rechercheUst(eventValue) {
+function rechercheUst(eventUstValue) {
   let tagsUstResults = recipes.filter((items) =>
     items.ustensils.forEach((ustensil) => {
-      ustensil.toLowerCase().includes(eventValue);
+      ustensil.toLowerCase().includes(eventUstValue.toLowerCase());
     })
   );
-
   console.log(tagsUstResults);
   displayRecette(tagsUstResults);
-  if (eventValue.length == 0) {
+  if (eventUstValue.length == 0) {
     displayRecette(recipes);
   }
 }
@@ -51,7 +58,7 @@ function rechercheIng(eventIngvalue) {
   let tagsIngResults = recipes.filter((items) =>
     items.ingredients.forEach((ingredient) => {
       let ingredientMap = ingredient.ingredient;
-      ingredientMap.toLowerCase().includes(eventIngvalue);
+      ingredientMap.toLowerCase().includes(eventIngvalue.toLowerCase());
     })
   );
   console.log(tagsIngResults);

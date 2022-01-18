@@ -236,6 +236,12 @@ header {
   color: #fff;
 }
 
+#inputUstensiles:focus,
+#inputIngredients:focus,
+#inputAppareils:focus {
+  outline: none;
+}
+
 #choixTriIngredients {
   background-color: #3282f7;
 }
@@ -338,6 +344,8 @@ aside {
   background-color: #ed6454;
 }
 #triAppareilsInput {
+  flex-direction: column;
+  width: 375px;
   display: flex;
   flex-wrap: wrap;
   z-index: 20;
@@ -346,6 +354,8 @@ aside {
 }
 
 #triIngredientsInput {
+  flex-direction: column;
+  width: 500px;
   display: flex;
   flex-wrap: wrap;
   background-color: #3282f7;
@@ -353,6 +363,8 @@ aside {
   z-index: 20;
 }
 #triUstensilesInput {
+  flex-direction: column;
+  width: 500px;
   background-color: #ed6454;
   display: flex;
   flex-wrap: wrap;
