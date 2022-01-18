@@ -344,7 +344,6 @@ aside {
   background-color: #ed6454;
 }
 #triAppareilsInput {
-  flex-direction: column;
   width: 375px;
   display: flex;
   flex-wrap: wrap;
@@ -354,7 +353,6 @@ aside {
 }
 
 #triIngredientsInput {
-  flex-direction: column;
   width: 500px;
   display: flex;
   flex-wrap: wrap;
@@ -363,7 +361,6 @@ aside {
   z-index: 20;
 }
 #triUstensilesInput {
-  flex-direction: column;
   width: 500px;
   background-color: #ed6454;
   display: flex;

@@ -1,31 +1,32 @@
-import { recipes } from "./Recipes.js";
-import { displayRecette } from "./index.js";
+// import { recipes } from "./Recipes.js";
+// import { displayRecette } from "./index.js";
 
-let inputApp = document.querySelector("#inputAppareils");
-inputApp.addEventListener("keyup", function (event) {
-  let eventAppValue = event.target.value;
-  console.log(event.target.value);
-  rechercheApp(eventAppValue);
-});
-// let listeApp = document.querySelector("#triAppareilsInput");
-// console.log(listeApp);
-// listeApp.forEach((app) => {
-//   app.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     console.log("Appclicked!");
-//   });
-// });
+const installEventAppliance = () => {
+  console.log("installEvent");
+  // let inputApp = document.querySelector("#inputAppareils");
+  // inputApp.addEventListener("keyup", function (event) {
 
-function rechercheApp(eventAppValue) {
-  let tagsAppResults = recipes.filter((items) =>
-    items.appliance.toLowerCase().includes(eventAppValue.toLowerCase())
-  );
-  console.log(tagsAppResults);
-  displayRecette(tagsAppResults);
-  if (eventAppValue.length == 0) {
-    displayRecette(recipes);
-  }
-}
+  //   console.log(event.target.value);
+  //   rechercheApp(eventAppValue);
+  // });
+  let listeApp = document.querySelectorAll(".listeApp");
+  console.log(listeApp);
+  listeApp.forEach((app) => {
+    console.log(app);
+    app.addEventListener("click", function (e) {
+      let eventAppValue = e.target.innerHTML;
+      console.log(eventAppValue);
+      e.preventDefault();
+
+      let tagsAppResults = recipes.filter((items) =>
+        items.appliance.toLowerCase().includes(eventAppValue.toLowerCase())
+      );
+      console.log(tagsAppResults);
+      displayRecette(tagsAppResults);
+      generateFilters(tagsAppResults);
+    });
+  });
+};
 
 let inputUst = document.querySelector("#inputUstensiles");
 inputUst.addEventListener("keyup", function (event) {

@@ -1,10 +1,10 @@
-import { recipes } from "./Recipes.js";
-import { displayRecette } from "./index.js";
-
+// import { recipes } from "./Recipes.js";
+// import { displayRecette } from "./index.js";
+console.log("loader");
 let value;
 let results;
 
-const afficherRechercherRecettes = (recipes) => {
+function afficherRechercherRecettes(recipes) {
   let rechercheValue = document.getElementById("barreRecherche");
   rechercheValue.addEventListener("keyup", Verif);
 
@@ -35,9 +35,4 @@ const afficherRechercherRecettes = (recipes) => {
       alert("Nous ne trouvons pas de résultat!");
     }
   }
-};
-
-async function init() {
-  afficherRechercherRecettes(recipes);
 }
-init();

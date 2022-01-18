@@ -1,6 +1,6 @@
-import { recipes } from "./Recipes.js";
-
-export const generateFilters = (recipes) => {
+// import { recipes } from "./Recipes.js";
+// export
+const generateFilters = (recipes) => {
   let ingredientsT = [];
   let applianceT = [];
   let ustensilsT = [];
@@ -16,7 +16,7 @@ export const generateFilters = (recipes) => {
   const filteredIngredients = new Set(ingredientsT);
 
   let BtnIngredient = document.getElementById("triBtnIngredients");
-  let inputIng = document.querySelector("#inputIngredients");
+  inputIng = document.querySelector("#inputIngredients");
   BtnIngredient.addEventListener("click", AfficherInputIngredients);
   inputIng.addEventListener("click", AfficherInputIngredients);
 
@@ -60,6 +60,7 @@ export const generateFilters = (recipes) => {
     } else {
       triAppliance.innerHTML = "";
     }
+    installEventAppliance();
   }
 
   recipes.filter((content) => {
@@ -77,7 +78,6 @@ export const generateFilters = (recipes) => {
 
   function AfficherInputUstensiles(e) {
     e.preventDefault();
-    console.log("afficher");
     const triUstensiles = document.getElementById("triUstensilesInput");
     if (triUstensiles.innerHTML == "") {
       for (let content of filteredUstensils) {
@@ -91,9 +91,3 @@ export const generateFilters = (recipes) => {
     }
   }
 };
-
-async function init() {
-  generateFilters(recipes);
-}
-
-init();

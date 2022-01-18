@@ -1,8 +1,8 @@
-import { recipe } from "./recettes.js";
-import { recipes } from "./Recipes.js";
-
+// import { recipe } from "./recettes.js";
+// import { recipes } from "./Recipes.js";
+// export
 // fonction pour créer les fiches recettes
-export function displayRecette(recipes) {
+function displayRecette(recipes) {
   listeRecettes.innerHTML = "";
   recipes.forEach((recette) => {
     let newRecette = new recipe(recette);
@@ -14,6 +14,12 @@ export function displayRecette(recipes) {
 // fonction globale d'intialisation de toutes les fonctions
 async function init() {
   displayRecette(recipes);
+  generateFilters(recipes);
+  installEventAppliance();
+  afficherRechercherRecettes(recipes);
+  addEventKeyupUstensils();
+  addEventKeyupAppliance();
+  addEventKeyupIngredients();
 }
 
 init();
