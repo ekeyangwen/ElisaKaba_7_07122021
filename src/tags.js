@@ -40,13 +40,11 @@ const addEventKeyupUstensils = () => {
     let eventValue = event.target.value;
 
     let listUstensiles = document.querySelectorAll(".listeUst");
-    listUstensiles.forEach((ustensile) => {
-      if (
-        ustensile.innerHTML.toLowerCase().includes(eventValue.toLowerCase())
-      ) {
-        ustensile.style.display = "block";
+    listUstensiles.forEach((ustensil) => {
+      if (ustensil.innerHTML.toLowerCase().includes(eventValue.toLowerCase())) {
+        ustensil.style.display = "block";
       } else {
-        ustensile.style.display = "none";
+        ustensil.style.display = "none";
       }
     });
   });

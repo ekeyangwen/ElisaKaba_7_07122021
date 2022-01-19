@@ -1,5 +1,3 @@
-// import { recipes } from "./Recipes.js";
-// export
 const generateFilters = (recipes) => {
   let ingredientsT = [];
   let applianceT = [];
@@ -33,6 +31,7 @@ const generateFilters = (recipes) => {
     } else {
       triIngredients.innerHTML = "";
     }
+    installEventIngredients();
   }
 
   for (let recette of recipes) {
@@ -89,5 +88,6 @@ const generateFilters = (recipes) => {
     } else {
       triUstensiles.innerHTML = "";
     }
+    installEventUstensils();
   }
 };

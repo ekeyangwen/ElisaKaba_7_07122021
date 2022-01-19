@@ -1,6 +1,3 @@
-// import { recipes } from "./Recipes.js";
-// import { displayRecette } from "./index.js";
-console.log("loader");
 let value;
 let results;
 
