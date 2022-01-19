@@ -31,6 +31,7 @@
           type="search"
           name="recherche"
           placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
+          autocomplete="off"
         />
 
         <button id="loupeBtn">
@@ -42,6 +43,7 @@
       </section>
     </header>
     <section id="main">
+      <div id="appareilsResult"></div>
       <section id="tri">
         <div id="ingredients">
           <div id="choixTriIngredients">
@@ -115,12 +117,12 @@
       </section>
       <section id="listeRecettes"></section>
     </section>
-    <script src="./src/Recipes.js"></script>
-    <script src="./src/recettes.js"></script>
+    <script src="./src/variables.js"></script>
+    <script src="./src/data.js"></script>
+    <script src="./src/Recipe.js"></script>
     <script src="./src/rechercheGlobale.js"></script>
     <script src="./src/generateFilters.js"></script>
     <script src="./src/rechercheTags.js"></script>
-
     <script src="./src/tags.js"></script>
     <script src="./src/index.js"></script>
   </body>

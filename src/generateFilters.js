@@ -1,11 +1,7 @@
-const generateFilters = (recipes) => {
-  let ingredientsT = [];
-  let applianceT = [];
-  let ustensilsT = [];
-
+const generateFiltersForIngredients = (recipes) => {
   recipes.filter((elem) => {
     elem.ingredients.map((ingredient) => {
-      let ingredientMap = ingredient.ingredient;
+      ingredientMap = ingredient.ingredient;
       ingredientsT.push(ingredientMap);
       ingredientsT.sort();
     });
@@ -13,36 +9,37 @@ const generateFilters = (recipes) => {
 
   const filteredIngredients = new Set(ingredientsT);
 
-  let BtnIngredient = document.getElementById("triBtnIngredients");
   inputIng = document.querySelector("#inputIngredients");
+  BtnIngredient = document.querySelector("#triBtnIngredients");
   BtnIngredient.addEventListener("click", AfficherInputIngredients);
   inputIng.addEventListener("click", AfficherInputIngredients);
 
   function AfficherInputIngredients(e) {
     e.preventDefault();
-    const triIngredients = document.getElementById("triIngredientsInput");
     if (triIngredients.innerHTML == "") {
-      for (let item of filteredIngredients) {
-        let list = document.createElement("li");
-        list.classList.add("listeIng");
-        list.innerHTML = item;
-        triIngredients.appendChild(list);
+      for (item of filteredIngredients) {
+        listIng = document.createElement("li");
+        listIng.classList.add("listeIng");
+        listIng.innerHTML = item;
+        triIngredients.appendChild(listIng);
       }
     } else {
       triIngredients.innerHTML = "";
     }
     installEventIngredients();
   }
+};
 
-  for (let recette of recipes) {
+const generateFiltersForAppliance = (recipes) => {
+  for (recette of recipes) {
     applianceT.push(recette.appliance);
     applianceT.sort();
   }
 
   const filteredAppliance = new Set(applianceT);
 
-  let BtnAppareils = document.getElementById("triBtnAppareil");
-  let inputApp = document.querySelector("#inputAppareils");
+  inputApp = document.querySelector("#inputAppareils");
+  BtnAppareils = document.getElementById("triBtnAppareil");
   BtnAppareils.addEventListener("click", AfficherInputAppareils);
   inputApp.addEventListener("click", AfficherInputAppareils);
 
@@ -50,8 +47,8 @@ const generateFilters = (recipes) => {
     e.preventDefault();
     const triAppliance = document.getElementById("triAppareilsInput");
     if (triAppliance.innerHTML == "") {
-      for (let elem of filteredAppliance) {
-        let list = document.createElement("li");
+      for (elem of filteredAppliance) {
+        list = document.createElement("li");
         list.classList.add("listeApp");
         list.innerHTML = elem;
         triAppliance.appendChild(list);
@@ -61,7 +58,9 @@ const generateFilters = (recipes) => {
     }
     installEventAppliance();
   }
+};
 
+const generateFiltersForUstensils = (recipes) => {
   recipes.filter((content) => {
     content.ustensils.map((ustensil) => {
       ustensilsT.push(ustensil);
@@ -70,8 +69,6 @@ const generateFilters = (recipes) => {
   });
   const filteredUstensils = new Set(ustensilsT);
 
-  let BtnUstensiles = document.getElementById("triBtnUstensiles");
-  let inputUst = document.querySelector("#inputUstensiles");
   BtnUstensiles.addEventListener("click", AfficherInputUstensiles);
   inputUst.addEventListener("click", AfficherInputUstensiles);
 
@@ -79,8 +76,8 @@ const generateFilters = (recipes) => {
     e.preventDefault();
     const triUstensiles = document.getElementById("triUstensilesInput");
     if (triUstensiles.innerHTML == "") {
-      for (let content of filteredUstensils) {
-        let list = document.createElement("li");
+      for (content of filteredUstensils) {
+        list = document.createElement("li");
         list.classList.add("listeUst");
         list.innerHTML = content;
         triUstensiles.appendChild(list);
