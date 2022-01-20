@@ -10,9 +10,14 @@ const installEventAppliance = () => {
       appareilsResult = document.querySelector("#appareilsResult");
       span = document.createElement("span");
       span.setAttribute("class", "spanAppliance");
-      span.innerHTML = eventAppValue;
       appareilsResult.appendChild(span);
       spanAppliance = document.querySelectorAll(".spanAppliance");
+      p = document.createElement("p");
+      p.setAttribute("class", "pAppliance");
+      p.innerHTML = eventAppValue;
+      spanAppliance.forEach((appliance) => {
+        appliance.appendChild(p);
+      });
       img = document.createElement("img");
       img.src = "./img/croix_fermeture_tag.png";
       img.setAttribute("class", "close");
@@ -33,15 +38,14 @@ const installEventUstensils = () => {
   listUstenstils.forEach((ust) => {
     ust.addEventListener("click", function (e) {
       eventUstValue = e.target.innerHTML;
-      tagsUstResults = recipes.filter((items) =>
-        items.ustensils.forEach((ustensil) => {
-          ustensil.toLowerCase().includes(eventUstValue.toLowerCase());
-        })
+      tagsUstResults = ustensilsT.filter((ustensils) =>
+        ustensils.toLowerCase().includes(eventUstValue.toLowerCase())
       );
       console.log(tagsUstResults);
       displayRecette(tagsUstResults);
     });
   });
+
   displayRecette(recipes);
 };
 
@@ -51,15 +55,16 @@ const installEventIngredients = () => {
     ingredient.addEventListener("click", function (event) {
       eventIngvalue = event.target.innerHTML;
       console.log(eventIngvalue);
-      tagsIngResults = recipes.filter((items) =>
-        items.ingredients.forEach((ingredient) => {
-          ingredientMap = ingredient.ingredient;
-          ingredientMap.toLowerCase().includes(eventIngvalue.toLowerCase());
+      tagsIngResults = ingredientsFiltered.filter((ingredients) =>
+        ingredients.forEach((items) => {
+          items.forEach((item) => {
+            item.toLowerCase().includes(eventIngvalue.toLowerCase());
+          });
         })
       );
-
-      console.log(tagsIngResults);
-      displayRecette(tagsIngResults);
     });
+
+    console.log(tagsIngResults);
+    displayRecette(tagsIngResults);
   });
 };

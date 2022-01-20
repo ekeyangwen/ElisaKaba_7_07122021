@@ -3,6 +3,7 @@
 let ingredientsT = [];
 let applianceT = [];
 let ustensilsT = [];
+let ingredientsFiltered = [];
 let BtnIngredient;
 let listIng;
 let BtnAppareils;
@@ -30,6 +31,7 @@ let tagsIngResults;
 let appareilsResult;
 let pAppliance;
 let close;
+let p;
 
 //variable pour index
 

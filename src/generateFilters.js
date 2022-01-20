@@ -6,9 +6,9 @@ const generateFiltersForIngredients = (recipes) => {
       ingredientsT.sort();
     });
   });
-
   const filteredIngredients = new Set(ingredientsT);
-
+  ingredientsFiltered.push(filteredIngredients);
+  console.log(ingredientsFiltered);
   inputIng = document.querySelector("#inputIngredients");
   BtnIngredient = document.querySelector("#triBtnIngredients");
   BtnIngredient.addEventListener("click", AfficherInputIngredients);

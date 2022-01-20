@@ -18,7 +18,6 @@ async function init() {
   generateFiltersForIngredients(recipes);
   generateFiltersForAppliance(recipes);
   generateFiltersForUstensils(recipes);
-
   addEventKeyupUstensils();
   addEventKeyupAppliance();
   addEventKeyupIngredients();

@@ -26,7 +26,7 @@ function afficherRechercherRecettes(recipes) {
     console.log(results);
     displayRecette(results);
     if (results.length == 0) {
-      alert("Nous ne trouvons pas de résultat!");
+      noResults.style.display = "block";
     }
   }
 }
