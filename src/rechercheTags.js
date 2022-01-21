@@ -7,25 +7,8 @@ const installEventAppliance = () => {
         items.appliance.toLowerCase().includes(eventAppValue.toLowerCase())
       );
       console.log(tagsAppResults);
-      appareilsResult = document.querySelector("#appareilsResult");
-      span = document.createElement("span");
-      span.setAttribute("class", "spanAppliance");
-      appareilsResult.appendChild(span);
-      spanAppliance = document.querySelectorAll(".spanAppliance");
-      p = document.createElement("p");
-      p.setAttribute("class", "pAppliance");
-      p.innerHTML = eventAppValue;
-      spanAppliance.forEach((appliance) => {
-        appliance.appendChild(p);
-      });
-      img = document.createElement("img");
-      img.src = "./img/croix_fermeture_tag.png";
-      img.setAttribute("class", "close");
-      spanAppliance.forEach((appliance) => {
-        appliance.appendChild(img);
-      });
-      // close = document.getElementById("close");
-      // close.style.display = "block";
+      affichageTagsAppliance();
+      supprimerTagsAppliance();
       displayRecette(tagsAppResults);
     });
   });
@@ -38,10 +21,15 @@ const installEventUstensils = () => {
   listUstenstils.forEach((ust) => {
     ust.addEventListener("click", function (e) {
       eventUstValue = e.target.innerHTML;
-      tagsUstResults = ustensilsT.filter((ustensils) =>
-        ustensils.toLowerCase().includes(eventUstValue.toLowerCase())
+      console.log(eventUstValue);
+      tagsUstResults = recipes.filter((items) =>
+        items.ustensils.forEach((ustensil) => {
+          ustensil.toLowerCase().includes(eventUstValue.toLowerCase());
+        })
       );
       console.log(tagsUstResults);
+      affichageTagsUstensiles();
+      supprimerTagsUstensile();
       displayRecette(tagsUstResults);
     });
   });
@@ -50,21 +38,23 @@ const installEventUstensils = () => {
 };
 
 const installEventIngredients = () => {
-  listIngredients = document.querySelectorAll(".listeIng");
-  listIngredients.forEach((ingredient) => {
+  listeIngredients.forEach((ingredient) => {
+    // console.log(ingredient);
     ingredient.addEventListener("click", function (event) {
       eventIngvalue = event.target.innerHTML;
       console.log(eventIngvalue);
-      tagsIngResults = ingredientsFiltered.filter((ingredients) =>
-        ingredients.forEach((items) => {
-          items.forEach((item) => {
-            item.toLowerCase().includes(eventIngvalue.toLowerCase());
-          });
+      tagsIngResults = recipes.filter((items) =>
+        items.ingredients.forEach((ingredient) => {
+          console.log(ingredient);
+          ingredientMap = ingredient.ingredient;
+          console.log(ingredientMap);
+          ingredientMap.toLowerCase().includes(eventIngvalue.toLowerCase());
         })
       );
+      console.log(tagsIngResults);
+      affichageTagsIngredients();
+      supprimerTagsIngredients();
+      displayRecette(tagsIngResults);
     });
-
-    console.log(tagsIngResults);
-    displayRecette(tagsIngResults);
   });
 };

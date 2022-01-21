@@ -21,6 +21,9 @@ async function init() {
   addEventKeyupUstensils();
   addEventKeyupAppliance();
   addEventKeyupIngredients();
+  supprimerTagsAppliance();
+  supprimerTagsIngredient();
+  supprimerTagsUstensile();
 }
 
 init();

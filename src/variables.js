@@ -19,18 +19,18 @@ const triIngredients = document.getElementById("triIngredientsInput");
 
 //variables pour rechercheTags
 
-let listeAppliance;
-let enventAppValue;
+let listeAppliance = document.querySelectorAll(".listeApp");
+let listeIngredients = document.querySelectorAll(".listeIng");
+let listeUstensiles = document.querySelectorAll(".listeUst");
 let tagsAppResults;
 let listUstenstils;
-let eventUstValue;
 let tagsUstResults;
-let listIngredients;
-let eventIngvalue;
 let tagsIngResults;
 let appareilsResult;
 let pAppliance;
-let close;
+let spanAppliance = document.querySelectorAll(".spanAppliance");
+let spanIngredients = document.querySelectorAll(".spanIngredients");
+let close = document.querySelectorAll(".close");
 let p;
 
 //variable pour index
@@ -44,3 +44,5 @@ let value;
 let results;
 let rechercheValue;
 let input;
+
+//variable pour affichageTags

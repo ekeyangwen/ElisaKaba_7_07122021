@@ -7,8 +7,7 @@ const generateFiltersForIngredients = (recipes) => {
     });
   });
   const filteredIngredients = new Set(ingredientsT);
-  ingredientsFiltered.push(filteredIngredients);
-  console.log(ingredientsFiltered);
+
   inputIng = document.querySelector("#inputIngredients");
   BtnIngredient = document.querySelector("#triBtnIngredients");
   BtnIngredient.addEventListener("click", AfficherInputIngredients);
@@ -55,6 +54,7 @@ const generateFiltersForAppliance = (recipes) => {
       }
     } else {
       triAppliance.innerHTML = "";
+      inputApp.innerHTML = "";
     }
     installEventAppliance();
   }
