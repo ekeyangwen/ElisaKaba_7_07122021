@@ -333,16 +333,18 @@ aside {
   width: 700px;
 }
 
-.listIngredients {
+.listIngredients,
+.pIngredients {
   background-color: #3282f7;
 }
 
 .listAppareils,
-.pAppliance {
+.pAppliances {
   background-color: #68d9a4;
 }
 
-.listUstensiles {
+.listUstensiles,
+.pUstensiles {
   background-color: #ed6454;
 }
 #triAppareilsInput {
@@ -374,7 +376,9 @@ aside {
 .listeIng,
 .listeApp,
 .listeUst,
-#appareilsResult {
+#appareilsResult,
+#ingredientsResult,
+#ustensilesResult {
   font-family: Lato;
   font-size: 15px;
   font-style: normal;
@@ -387,7 +391,9 @@ aside {
   list-style: none;
 }
 
-#appareilsResult {
+#appareilsResul,
+#ingredientsResult,
+#ustensilesResultt {
   display: flex;
   width: 100%;
   font-family: Lato;
@@ -404,11 +410,12 @@ aside {
   margin-left: 70px;
 }
 
-.spanAppliance {
+.spanAppliances,
+.spanIngredients,
+.spanUstensiles {
   display: flex;
   background-color: #68d9a4;
   height: 37px;
-  width: 20%;
   border-radius: 5px;
   color: #fff;
   align-items: center;
@@ -417,8 +424,19 @@ aside {
   margin-right: 20px;
 }
 
+.spanIngredients {
+  background-color: #3282f7;
+}
+
+.spanUstensiles {
+  background-color: #ed6454;
+}
+
 .close,
-.pAppliance {
+.pAppliance,
+.pIngredients,
+.pUstensiles {
+  display: flex;
   height: 20px;
   width: 20px;
   margin-left: 2px;
@@ -427,7 +445,9 @@ aside {
   border-radius: 0px;
 }
 
-.pAppliance {
+.pAppliance,
+.pIngredients,
+.pUstensiles {
   width: 100%;
 }
 

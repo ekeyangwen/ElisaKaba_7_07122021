@@ -12,7 +12,7 @@ function displayRecette(recipes) {
 async function init() {
   displayRecette(recipes);
   afficherRechercherRecettes(recipes);
-  installEventAppliance();
+  installEventAppliances();
   installEventUstensils();
   installEventIngredients();
   generateFiltersForIngredients(recipes);

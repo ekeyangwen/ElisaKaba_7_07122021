@@ -30,10 +30,10 @@ const generateFiltersForIngredients = (recipes) => {
 };
 
 const generateFiltersForAppliance = (recipes) => {
-  for (recette of recipes) {
+  recipes.forEach((recette) => {
     applianceT.push(recette.appliance);
     applianceT.sort();
-  }
+  });
 
   const filteredAppliance = new Set(applianceT);
 
@@ -56,7 +56,7 @@ const generateFiltersForAppliance = (recipes) => {
       triAppliance.innerHTML = "";
       inputApp.innerHTML = "";
     }
-    installEventAppliance();
+    installEventAppliances();
   }
 };
 

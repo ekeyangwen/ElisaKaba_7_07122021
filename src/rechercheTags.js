@@ -1,18 +1,18 @@
-const installEventAppliance = () => {
+const installEventAppliances = () => {
   listeAppliance = document.querySelectorAll(".listeApp");
   listeAppliance.forEach((app) => {
     app.addEventListener("click", function (e) {
-      eventAppValue = e.target.innerHTML;
+      eventValue = e.target.innerHTML;
+
       tagsAppResults = recipes.filter((items) =>
-        items.appliance.toLowerCase().includes(eventAppValue.toLowerCase())
+        items.appliance.toLowerCase().includes(eventValue.toLowerCase())
       );
-      console.log(tagsAppResults);
+
       affichageTagsAppliance();
       supprimerTagsAppliance();
       displayRecette(tagsAppResults);
     });
   });
-
   displayRecette(recipes);
 };
 
@@ -20,14 +20,11 @@ const installEventUstensils = () => {
   listUstenstils = document.querySelectorAll(".listeUst");
   listUstenstils.forEach((ust) => {
     ust.addEventListener("click", function (e) {
-      eventUstValue = e.target.innerHTML;
-      console.log(eventUstValue);
-      tagsUstResults = recipes.filter((items) =>
-        items.ustensils.forEach((ustensil) => {
-          ustensil.toLowerCase().includes(eventUstValue.toLowerCase());
-        })
+      eventValue = e.target.innerHTML;
+      tagsUstResults = recipes.filter((recipe) =>
+        recipe.ustensils.includes(eventValue)
       );
-      console.log(tagsUstResults);
+
       affichageTagsUstensiles();
       supprimerTagsUstensile();
       displayRecette(tagsUstResults);
@@ -38,22 +35,16 @@ const installEventUstensils = () => {
 };
 
 const installEventIngredients = () => {
+  listeIngredients = document.querySelectorAll(".listeIng");
   listeIngredients.forEach((ingredient) => {
-    // console.log(ingredient);
-    ingredient.addEventListener("click", function (event) {
-      eventIngvalue = event.target.innerHTML;
-      console.log(eventIngvalue);
-      tagsIngResults = recipes.filter((items) =>
-        items.ingredients.forEach((ingredient) => {
-          console.log(ingredient);
-          ingredientMap = ingredient.ingredient;
-          console.log(ingredientMap);
-          ingredientMap.toLowerCase().includes(eventIngvalue.toLowerCase());
-        })
+    ingredient.addEventListener("click", function (e) {
+      eventValue = e.target.innerHTML;
+      tagsIngResults = recipes.filter((recipe) =>
+        recipe.ingredients.includes(eventValue)
       );
-      console.log(tagsIngResults);
+
       affichageTagsIngredients();
-      supprimerTagsIngredients();
+      supprimerTagsIngredient();
       displayRecette(tagsIngResults);
     });
   });

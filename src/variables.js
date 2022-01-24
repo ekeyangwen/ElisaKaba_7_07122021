@@ -22,16 +22,19 @@ const triIngredients = document.getElementById("triIngredientsInput");
 let listeAppliance = document.querySelectorAll(".listeApp");
 let listeIngredients = document.querySelectorAll(".listeIng");
 let listeUstensiles = document.querySelectorAll(".listeUst");
-let tagsAppResults;
-let listUstenstils;
-let tagsUstResults;
-let tagsIngResults;
+let tagsAppResults = [];
+let tagsUstResults = [];
+let tagsIngResults = [];
 let appareilsResult;
 let pAppliance;
-let spanAppliance = document.querySelectorAll(".spanAppliance");
+let spanAppliances = document.querySelectorAll(".spanAppliances");
+let pAppliances = document.querySelectorAll(".pAppliances");
 let spanIngredients = document.querySelectorAll(".spanIngredients");
+let spanUstensiles = document.querySelectorAll(".spanUstensiles");
+let pUstensiles = document.querySelectorAll(".pUstensiles");
 let close = document.querySelectorAll(".close");
 let p;
+let eventValue = [];
 
 //variable pour index
 

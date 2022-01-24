@@ -2,24 +2,25 @@ const affichageTagsAppliance = () => {
   listeAppliance.forEach(
     (app) =>
       function (e) {
-        eventAppValue = e.target.innerHTML;
+        eventValue = e.target.innerHTML;
       }
   );
+
   appareilsResult = document.querySelector("#appareilsResult");
-  span = document.createElement("span");
-  span.setAttribute("class", "spanAppliance");
-  appareilsResult.appendChild(span);
-  spanAppliance = document.querySelectorAll(".spanAppliance");
-  p = document.createElement("p");
-  p.setAttribute("class", "pAppliance");
-  p.innerHTML = eventAppValue;
-  spanAppliance.forEach((appliance) => {
-    appliance.appendChild(p);
+  spanApp = document.createElement("span");
+  spanApp.setAttribute("class", "spanAppliances");
+  appareilsResult.appendChild(spanApp);
+  pApp = document.createElement("p");
+  pApp.setAttribute("class", "pAppliances");
+  pApp.innerHTML = eventValue;
+  spanAppliances = document.querySelectorAll(".spanAppliances");
+  spanAppliances.forEach((appliance) => {
+    appliance.appendChild(pApp);
   });
   img = document.createElement("img");
   img.src = "./img/croix_fermeture_tag.png";
   img.setAttribute("class", "close");
-  spanAppliance.forEach((appliance) => {
+  spanAppliances.forEach((appliance) => {
     appliance.appendChild(img);
   });
 };
@@ -31,28 +32,28 @@ const supprimerTagsAppliance = () => {
   });
 
   function effacerTagsAppliance() {
-    spanAppliance.forEach((span) => {
+    spanAppliances.forEach((span) => {
       span.style.display = "none";
     });
     displayRecette(recipes);
+    generateFiltersForAppliance(recipes);
   }
 };
 
 const affichageTagsIngredients = () => {
-  console.log("affichage ingredient loaded");
   listeIngredients.forEach(
     (ing) =>
       function (e) {
-        eventIngValue = e.target.innerHTML;
+        eventValue = e.target.innerHTML;
       }
   );
   ingredientsResult = document.querySelector("#ingredientsResult");
   spanIng = document.createElement("span");
   spanIng.setAttribute("class", "spanIngredients");
   ingredientsResult.appendChild(spanIng);
-  pIng = document.createElement("pIng");
+  pIng = document.createElement("p");
   pIng.setAttribute("class", "pIngredients");
-  pIng.innerHTML = eventIngvalue;
+  pIng.innerHTML = eventValue;
   spanIngredients.forEach((ingredient) => {
     ingredient.appendChild(pIng);
   });
@@ -71,28 +72,29 @@ const supprimerTagsIngredient = () => {
   });
 
   function effacerTagsIngredient() {
-    spanAppliance.forEach((span) => {
+    spanIngredients.forEach((span) => {
       span.style.display = "none";
     });
     displayRecette(recipes);
+    generateFiltersForIngredients(recipes);
   }
 };
 
 const affichageTagsUstensiles = () => {
-  console.log("affichage ustensiles loaded");
   listeUstensiles.forEach(
     (ust) =>
       function (e) {
-        eventUstValue = e.target.innerHTML;
+        eventValue = e.target.innerHTML;
       }
   );
   ustensilesResult = document.querySelector("#ustensilesResult");
   spanUst = document.createElement("span");
   spanUst.setAttribute("class", "spanUstensiles");
   ustensilesResult.appendChild(spanUst);
-  pUst = document.createElement("pUst");
-  pUst.setAttribute("class", "pUstredients");
-  pUst.innerHTML = eventUstvalue;
+  pUst = document.createElement("p");
+  pUst.setAttribute("class", "pUstensiles");
+  pUst.innerHTML = eventValue;
+  spanUstensiles = document.querySelectorAll(".spanUstensiles");
   spanUstensiles.forEach((ustensile) => {
     ustensile.appendChild(pUst);
   });
@@ -111,7 +113,7 @@ const supprimerTagsUstensile = () => {
   });
 
   function effacerTagsUstensile() {
-    spanUst.forEach((span) => {
+    spanUstensiles.forEach((span) => {
       span.style.display = "none";
     });
     displayRecette(recipes);
