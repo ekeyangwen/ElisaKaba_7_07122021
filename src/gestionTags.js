@@ -1,11 +1,4 @@
 const affichageTagsAppliance = () => {
-  listeAppliance.forEach(
-    (app) =>
-      function (e) {
-        eventValue = e.target.innerHTML;
-      }
-  );
-
   appareilsResult = document.querySelector("#appareilsResult");
   spanApp = document.createElement("span");
   spanApp.setAttribute("class", "spanAppliances");
@@ -41,12 +34,6 @@ const supprimerTagsAppliance = () => {
 };
 
 const affichageTagsIngredients = () => {
-  listeIngredients.forEach(
-    (ing) =>
-      function (e) {
-        eventValue = e.target.innerHTML;
-      }
-  );
   ingredientsResult = document.querySelector("#ingredientsResult");
   spanIng = document.createElement("span");
   spanIng.setAttribute("class", "spanIngredients");
@@ -54,8 +41,12 @@ const affichageTagsIngredients = () => {
   pIng = document.createElement("p");
   pIng.setAttribute("class", "pIngredients");
   pIng.innerHTML = eventValue;
+  spanIngredients = document.querySelectorAll(".spanIngredients");
   spanIngredients.forEach((ingredient) => {
+    console.log("TEST");
     ingredient.appendChild(pIng);
+    console.log(pIng);
+    console.log(ingredient);
   });
   img = document.createElement("img");
   img.src = "./img/croix_fermeture_tag.png";
@@ -81,12 +72,6 @@ const supprimerTagsIngredient = () => {
 };
 
 const affichageTagsUstensiles = () => {
-  listeUstensiles.forEach(
-    (ust) =>
-      function (e) {
-        eventValue = e.target.innerHTML;
-      }
-  );
   ustensilesResult = document.querySelector("#ustensilesResult");
   spanUst = document.createElement("span");
   spanUst.setAttribute("class", "spanUstensiles");
@@ -117,5 +102,6 @@ const supprimerTagsUstensile = () => {
       span.style.display = "none";
     });
     displayRecette(recipes);
+    generateFiltersForUstensils(recipes);
   }
 };

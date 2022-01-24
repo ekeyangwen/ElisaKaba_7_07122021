@@ -84,6 +84,7 @@ const generateFiltersForUstensils = (recipes) => {
       }
     } else {
       triUstensiles.innerHTML = "";
+      inputIng.innerHTML = "";
     }
     installEventUstensils();
   }
