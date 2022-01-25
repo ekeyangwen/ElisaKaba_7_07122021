@@ -2,7 +2,6 @@ const addEventKeyupIngredients = () => {
   let inputIng = document.querySelector("#inputIngredients");
   inputIng.addEventListener("keyup", function (event) {
     let eventValue = event.target.value;
-    console.log("afficherkeyupIngredients");
 
     let listIngredients = document.querySelectorAll(".listeIng");
 
@@ -11,7 +10,7 @@ const addEventKeyupIngredients = () => {
         ingredient.innerHTML.toLowerCase().includes(eventValue.toLowerCase())
       ) {
         ingredient.style.display = "block";
-        triIngredients.style.width = "240px";
+        // triIngredients.style.width = "240px";
       } else {
         ingredient.style.display = "none";
       }

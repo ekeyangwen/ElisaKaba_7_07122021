@@ -27,6 +27,7 @@ const supprimerTagsAppliance = () => {
   function effacerTagsAppliance() {
     spanAppliances.forEach((span) => {
       span.style.display = "none";
+      triAppliance.innerHTML = "";
     });
     displayRecette(recipes);
     generateFiltersForAppliance(recipes);
@@ -43,10 +44,7 @@ const affichageTagsIngredients = () => {
   pIng.innerHTML = eventValue;
   spanIngredients = document.querySelectorAll(".spanIngredients");
   spanIngredients.forEach((ingredient) => {
-    console.log("TEST");
     ingredient.appendChild(pIng);
-    console.log(pIng);
-    console.log(ingredient);
   });
   img = document.createElement("img");
   img.src = "./img/croix_fermeture_tag.png";

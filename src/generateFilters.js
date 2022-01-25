@@ -44,7 +44,6 @@ const generateFiltersForAppliance = (recipes) => {
 
   function AfficherInputAppareils(e) {
     e.preventDefault();
-    const triAppliance = document.getElementById("triAppareilsInput");
     if (triAppliance.innerHTML == "") {
       for (elem of filteredAppliance) {
         list = document.createElement("li");
@@ -54,7 +53,6 @@ const generateFiltersForAppliance = (recipes) => {
       }
     } else {
       triAppliance.innerHTML = "";
-      inputApp.innerHTML = "";
     }
     installEventAppliances();
   }

@@ -1,3 +1,10 @@
+function noResult() {
+  noResults = document.querySelector("#noResults");
+  if (results.length == 0) {
+    noResults.style.display = "block";
+  }
+}
+
 function afficherRechercherRecettes(recipes) {
   rechercheValue = document.getElementById("barreRecherche");
   rechercheValue.addEventListener("keyup", Verif);
@@ -25,8 +32,6 @@ function afficherRechercherRecettes(recipes) {
 
     console.log(results);
     displayRecette(results);
-    if (results.length == 0) {
-      noResults.style.display = "block";
-    }
+    noResult();
   }
 }

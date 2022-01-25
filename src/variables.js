@@ -16,6 +16,7 @@ let BtnUstensiles = document.getElementById("triBtnUstensiles");
 let inputUst = document.querySelector("#inputUstensiles");
 let content;
 const triIngredients = document.getElementById("triIngredientsInput");
+const triAppliance = document.getElementById("triAppareilsInput");
 
 //variables pour rechercheTags
 
@@ -47,5 +48,6 @@ let value;
 let results;
 let rechercheValue;
 let input;
+let noResults;
 
 //variable pour affichageTags
