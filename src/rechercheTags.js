@@ -41,7 +41,7 @@ const installEventIngredients = () => {
         recipe.ingredients.forEach((ingredient) => {
           ingredientMap = ingredient.ingredient;
         });
-        ingredientMap.includes(eventValue);
+        return ingredientMap.includes(eventValue);
       });
 
       affichageTagsIngredients();
