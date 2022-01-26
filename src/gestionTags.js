@@ -19,18 +19,20 @@ const affichageTagsAppliance = () => {
 };
 
 const supprimerTagsAppliance = () => {
-  let close = document.querySelectorAll(".close");
-  close.forEach((cross) => {
-    cross.addEventListener("click", effacerTagsAppliance);
-  });
-
-  function effacerTagsAppliance() {
-    spanAppliances.forEach((span) => {
-      span.style.display = "none";
-      triAppliance.innerHTML = "";
+  pAppliances = document.querySelectorAll(".pAppliances");
+  pAppliances.forEach((p) => {
+    p.addEventListener("click", function (event) {
+      value = event.target.innerHTML;
+      console.log(value);
+      closed();
     });
-    displayRecette(recipes);
-    generateFiltersForAppliance(recipes);
+  });
+  function closed() {
+    spanAppliances.forEach((span) => {
+      if (span.innerHTML.includes(value)) {
+        span.remove();
+      }
+    });
   }
 };
 
@@ -55,17 +57,20 @@ const affichageTagsIngredients = () => {
 };
 
 const supprimerTagsIngredient = () => {
-  let close = document.querySelectorAll(".close");
-  close.forEach((cross) => {
-    cross.addEventListener("click", effacerTagsIngredient);
-  });
-
-  function effacerTagsIngredient() {
-    spanIngredients.forEach((span) => {
-      span.style.display = "none";
+  pIngredients = document.querySelectorAll(".pIngredients");
+  pIngredients.forEach((p) => {
+    p.addEventListener("click", function (event) {
+      value = event.target.innerHTML;
+      console.log(value);
+      closed();
     });
-    displayRecette(recipes);
-    generateFiltersForIngredients(recipes);
+  });
+  function closed() {
+    spanIngredients.forEach((span) => {
+      if (span.innerHTML.includes(value)) {
+        span.remove();
+      }
+    });
   }
 };
 
@@ -90,16 +95,19 @@ const affichageTagsUstensiles = () => {
 };
 
 const supprimerTagsUstensile = () => {
-  let close = document.querySelectorAll(".close");
-  close.forEach((cross) => {
-    cross.addEventListener("click", effacerTagsUstensile);
-  });
-
-  function effacerTagsUstensile() {
-    spanUstensiles.forEach((span) => {
-      span.style.display = "none";
+  pUstensiles = document.querySelectorAll(".pUstensiles");
+  pUstensiles.forEach((p) => {
+    p.addEventListener("click", function (event) {
+      value = event.target.innerHTML;
+      console.log(value);
+      closed();
     });
-    displayRecette(recipes);
-    generateFiltersForUstensils(recipes);
+  });
+  function closed() {
+    spanUstensiles.forEach((span) => {
+      if (span.innerHTML.includes(value)) {
+        span.remove();
+      }
+    });
   }
 };

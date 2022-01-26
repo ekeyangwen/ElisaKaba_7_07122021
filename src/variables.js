@@ -17,6 +17,7 @@ let inputUst = document.querySelector("#inputUstensiles");
 let content;
 const triIngredients = document.getElementById("triIngredientsInput");
 const triAppliance = document.getElementById("triAppareilsInput");
+let newTabForUstensiles = [];
 
 //variables pour rechercheTags
 
@@ -31,6 +32,7 @@ let pAppliance;
 let spanAppliances = document.querySelectorAll(".spanAppliances");
 let pAppliances = document.querySelectorAll(".pAppliances");
 let spanIngredients = document.querySelectorAll(".spanIngredients");
+let pIngredients = document.querySelectorAll(".pIngredients");
 let spanUstensiles = document.querySelectorAll(".spanUstensiles");
 let pUstensiles = document.querySelectorAll(".pUstensiles");
 let close = document.querySelectorAll(".close");

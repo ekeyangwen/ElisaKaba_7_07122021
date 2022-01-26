@@ -12,9 +12,8 @@ const installEventAppliances = () => {
       supprimerTagsAppliance();
       displayRecette(tagsAppResults);
     });
+    generateFiltersForAppliance(tagsAppResults);
   });
-
-  displayRecette(recipes);
 };
 
 const installEventUstensils = () => {
@@ -22,7 +21,6 @@ const installEventUstensils = () => {
   listUstenstils.forEach((ust) => {
     ust.addEventListener("click", function (e) {
       eventValue = e.target.innerHTML;
-
       tagsUstResults = recipes.filter((recipe) =>
         recipe.ustensils.includes(eventValue)
       );
@@ -32,8 +30,6 @@ const installEventUstensils = () => {
       displayRecette(tagsUstResults);
     });
   });
-
-  displayRecette(recipes);
 };
 
 const installEventIngredients = () => {
@@ -41,20 +37,17 @@ const installEventIngredients = () => {
   listeIngredients.forEach((ingredient) => {
     ingredient.addEventListener("click", function (e) {
       eventValue = e.target.innerHTML;
-      tagsIngResults = recipes.filter((recipe) =>
+      tagsIngResults = recipes.filter((recipe) => {
         recipe.ingredients.forEach((ingredient) => {
-          console.log(ingredient);
           ingredientMap = ingredient.ingredient;
-          console.log(ingredientMap);
-          console.log(ingredientMap.includes(eventValue));
-          ingredientMap.includes(eventValue);
-        })
-      );
+        });
+        ingredientMap.includes(eventValue);
+      });
+
       affichageTagsIngredients();
       supprimerTagsIngredient();
-      console.log(tagsIngResults);
       displayRecette(tagsIngResults);
+      console.log(tagsIngResults);
     });
   });
-  displayRecette(recipes);
 };
