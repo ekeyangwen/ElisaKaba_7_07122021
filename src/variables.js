@@ -3,7 +3,6 @@
 let ingredientsT = [];
 let applianceT = [];
 let ustensilsT = [];
-let ingredientsFiltered = [];
 let BtnIngredient;
 let listIng;
 let BtnAppareils;
@@ -14,6 +13,7 @@ let recette;
 let elem;
 let BtnUstensiles = document.getElementById("triBtnUstensiles");
 let inputUst = document.querySelector("#inputUstensiles");
+let inputIng;
 let content;
 const triIngredients = document.getElementById("triIngredientsInput");
 const triAppliance = document.getElementById("triAppareilsInput");

@@ -2,9 +2,11 @@ const generateFiltersForIngredients = (recipes) => {
   recipes.forEach((recette) => {
     recette.ingredients.map((ingredient) => {
       ingredientMap = ingredient.ingredient;
-      ingredientsT.push(ingredientMap);
-      ingredientsT.sort();
+      console.log(ingredientMap);
     });
+    ingredientsT.push(ingredientMap);
+    ingredientsT.sort();
+    console.log(ingredientsT);
   });
 
   const filteredIngredients = new Set(ingredientsT);
