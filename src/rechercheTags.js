@@ -3,7 +3,6 @@ const installEventAppliances = () => {
   listeAppliance.forEach((app) => {
     app.addEventListener("click", function (e) {
       eventValue = e.target.innerHTML;
-
       tagsAppResults = recipes.filter((items) =>
         items.appliance.toLowerCase().includes(eventValue.toLowerCase())
       );
@@ -12,7 +11,6 @@ const installEventAppliances = () => {
       supprimerTagsAppliance();
       displayRecette(tagsAppResults);
     });
-    generateFiltersForAppliance(tagsAppResults);
   });
 };
 
@@ -46,6 +44,7 @@ const installEventIngredients = () => {
 
       affichageTagsIngredients();
       supprimerTagsIngredient();
+      generateFiltersForIngredients(tagsIngResults);
       displayRecette(tagsIngResults);
       console.log(tagsIngResults);
     });
