@@ -8,6 +8,7 @@ const generateFiltersForIngredients = (recipes) => {
   });
 
   const filteredIngredients = new Set(ingredientsT);
+  console.log("==> filteredIngredients:", filteredIngredients);
 
   inputIng = document.querySelector("#inputIngredients");
   BtnIngredient = document.querySelector("#triBtnIngredients");
@@ -37,6 +38,7 @@ const generateFiltersForAppliance = (recipes) => {
   });
 
   const filteredAppliance = new Set(applianceT);
+  console.log("==> filteredAppliance:", filteredAppliance);
 
   inputApp = document.querySelector("#inputAppareils");
   BtnAppareils = document.getElementById("triBtnAppareil");
@@ -68,7 +70,7 @@ const generateFiltersForUstensils = (recipes) => {
   });
 
   const filteredUstensils = new Set(ustensilsT);
-  console.log("==> filteredIngredients:", filteredUstensils);
+  console.log("==> filteredUstensils:", filteredUstensils);
 
   BtnUstensiles.addEventListener("click", AfficherInputUstensiles);
   inputUst.addEventListener("click", AfficherInputUstensiles);
