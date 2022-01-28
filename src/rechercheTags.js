@@ -10,6 +10,7 @@ const installEventAppliances = () => {
       affichageTagsAppliance();
       supprimerTagsAppliance();
       displayRecette(tagsAppResults);
+      generateFiltersForAppliance(tagsAppResults);
     });
   });
 };
@@ -26,6 +27,7 @@ const installEventUstensils = () => {
       affichageTagsUstensiles();
       supprimerTagsUstensile();
       displayRecette(tagsUstResults);
+      generateFiltersForUstensils(tagsUstResults);
     });
   });
 };
@@ -44,9 +46,8 @@ const installEventIngredients = () => {
 
       affichageTagsIngredients();
       supprimerTagsIngredient();
-      generateFiltersForIngredients(tagsIngResults);
       displayRecette(tagsIngResults);
-      console.log(tagsIngResults);
+      generateFiltersForIngredients(tagsIngResults);
     });
   });
 };

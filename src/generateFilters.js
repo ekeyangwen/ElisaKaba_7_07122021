@@ -68,6 +68,7 @@ const generateFiltersForUstensils = (recipes) => {
   });
 
   const filteredUstensils = new Set(ustensilsT);
+  console.log("==> filteredIngredients:", filteredUstensils);
 
   BtnUstensiles.addEventListener("click", AfficherInputUstensiles);
   inputUst.addEventListener("click", AfficherInputUstensiles);
