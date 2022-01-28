@@ -1,11 +1,12 @@
 const generateFiltersForIngredients = (recipes) => {
-  recipes.filter((elem) => {
-    elem.ingredients.map((ingredient) => {
+  recipes.forEach((recette) => {
+    recette.ingredients.map((ingredient) => {
       ingredientMap = ingredient.ingredient;
       ingredientsT.push(ingredientMap);
       ingredientsT.sort();
     });
   });
+
   const filteredIngredients = new Set(ingredientsT);
 
   inputIng = document.querySelector("#inputIngredients");
@@ -59,12 +60,13 @@ const generateFiltersForAppliance = (recipes) => {
 };
 
 const generateFiltersForUstensils = (recipes) => {
-  recipes.filter((content) => {
-    content.ustensils.map((ustensil) => {
+  recipes.forEach((recette) => {
+    recette.ustensils.map((ustensil) => {
       ustensilsT.push(ustensil);
       ustensilsT.sort();
     });
   });
+
   const filteredUstensils = new Set(ustensilsT);
 
   BtnUstensiles.addEventListener("click", AfficherInputUstensiles);
