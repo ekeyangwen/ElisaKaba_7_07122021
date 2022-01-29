@@ -1,12 +1,10 @@
 const generateFiltersForIngredients = (recipes) => {
   recipes.forEach((recette) => {
-    recette.ingredients.map((ingredient) => {
-      ingredientMap = ingredient.ingredient;
-      console.log(ingredientMap);
+    recette.ingredients.forEach((ingredient) => {
+      ingredientsT.push(ingredient.ingredient);
+      ingredientsT.sort();
+      console.log(ingredientsT);
     });
-    ingredientsT.push(ingredientMap);
-    ingredientsT.sort();
-    console.log(ingredientsT);
   });
 
   const filteredIngredients = new Set(ingredientsT);
@@ -65,7 +63,7 @@ const generateFiltersForAppliance = (recipes) => {
 
 const generateFiltersForUstensils = (recipes) => {
   recipes.forEach((recette) => {
-    recette.ustensils.map((ustensil) => {
+    recette.ustensils.forEach((ustensil) => {
       ustensilsT.push(ustensil);
       ustensilsT.sort();
     });

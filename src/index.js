@@ -12,12 +12,13 @@ function displayRecette(recipes) {
 async function init() {
   displayRecette(recipes);
   afficherRechercherRecettes(recipes);
-  installEventAppliances();
-  installEventUstensils();
-  installEventIngredients();
   generateFiltersForIngredients(recipes);
   generateFiltersForAppliance(recipes);
   generateFiltersForUstensils(recipes);
+  installEventAppliances();
+  installEventUstensils();
+  installEventIngredients();
+
   addEventKeyupUstensils();
   addEventKeyupAppliance();
   addEventKeyupIngredients();

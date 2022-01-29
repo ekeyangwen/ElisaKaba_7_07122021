@@ -38,8 +38,7 @@ let pUstensiles = document.querySelectorAll(".pUstensiles");
 let close = document.querySelectorAll(".close");
 let p;
 let eventValue = [];
-const filteredUstensils = new Set(ustensilsT);
-const filteredIngredients = new Set(ingredientsT);
+
 //variable pour index
 
 let newRecette;
