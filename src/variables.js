@@ -17,7 +17,8 @@ let inputIng;
 let content;
 const triIngredients = document.getElementById("triIngredientsInput");
 const triAppliance = document.getElementById("triAppareilsInput");
-let newTabForUstensiles = [];
+const triUstensiles = document.getElementById("triUstensilesInput");
+let newTabIngredients = [];
 
 //variables pour rechercheTags
 

@@ -1,4 +1,4 @@
-const affichageTagsAppliance = () => {
+const afficherTagsAppliances = () => {
   appareilsResult = document.querySelector("#appareilsResult");
   spanApp = document.createElement("span");
   spanApp.setAttribute("class", "spanAppliances");
@@ -18,7 +18,7 @@ const affichageTagsAppliance = () => {
   });
 };
 
-const supprimerTagsAppliance = () => {
+const supprimerTagsAppliances = () => {
   pAppliances = document.querySelectorAll(".pAppliances");
   pAppliances.forEach((p) => {
     p.addEventListener("click", function (event) {
@@ -36,7 +36,7 @@ const supprimerTagsAppliance = () => {
   }
 };
 
-const affichageTagsIngredients = () => {
+const afficherTagsIngredients = () => {
   ingredientsResult = document.querySelector("#ingredientsResult");
   spanIng = document.createElement("span");
   spanIng.setAttribute("class", "spanIngredients");
@@ -56,7 +56,7 @@ const affichageTagsIngredients = () => {
   });
 };
 
-const supprimerTagsIngredient = () => {
+const supprimerTagsIngredients = () => {
   pIngredients = document.querySelectorAll(".pIngredients");
   pIngredients.forEach((p) => {
     p.addEventListener("click", function (event) {
@@ -74,7 +74,7 @@ const supprimerTagsIngredient = () => {
   }
 };
 
-const affichageTagsUstensiles = () => {
+const afficherTagsUstensiles = () => {
   ustensilesResult = document.querySelector("#ustensilesResult");
   spanUst = document.createElement("span");
   spanUst.setAttribute("class", "spanUstensiles");
@@ -85,6 +85,7 @@ const affichageTagsUstensiles = () => {
   spanUstensiles = document.querySelectorAll(".spanUstensiles");
   spanUstensiles.forEach((ustensile) => {
     ustensile.appendChild(pUst);
+    console.log(ustensile);
   });
   img = document.createElement("img");
   img.src = "./img/croix_fermeture_tag.png";
@@ -94,7 +95,7 @@ const affichageTagsUstensiles = () => {
   });
 };
 
-const supprimerTagsUstensile = () => {
+const supprimerTagsUstensiles = () => {
   pUstensiles = document.querySelectorAll(".pUstensiles");
   pUstensiles.forEach((p) => {
     p.addEventListener("click", function (event) {

@@ -1,52 +1,69 @@
 const installEventAppliances = () => {
-  listeAppliance = document.querySelectorAll(".listeApp");
-  listeAppliance.forEach((app) => {
-    app.addEventListener("click", function (e) {
-      eventValue = e.target.innerHTML;
-      tagsAppResults = recipes.filter((items) =>
-        items.appliance.toLowerCase().includes(eventValue.toLowerCase())
-      );
+  console.log("affichage appliance");
+  listeAppliance = document.querySelectorAll(".listApp");
+  listeAppliance.forEach((appliance) => {
+    console.log(appliance);
+    appliance.addEventListener("click", function (e) {
+      eventValue = e.target.innerHTML.toLowerCase();
+      tagsAppResults = recipes.filter((recette) => {
+        let applianceMap = [];
 
-      affichageTagsAppliance();
-      supprimerTagsAppliance();
+        applianceMap.push(recette.appliance.toLowerCase());
+
+        return applianceMap.includes(eventValue);
+      });
+
+      afficherTagsAppliances();
+      supprimerTagsAppliances();
+      console.log(tagsAppResults);
       displayRecette(tagsAppResults);
-      generateFiltersForAppliance(tagsAppResults);
+
+      generateFiltersForAppliances(tagsAppResults);
     });
   });
 };
 
 const installEventUstensils = () => {
-  listUstenstils = document.querySelectorAll(".listeUst");
-  listUstenstils.forEach((ust) => {
-    ust.addEventListener("click", function (e) {
-      eventValue = e.target.innerHTML;
-      tagsUstResults = recipes.filter((recipe) =>
-        recipe.ustensils.includes(eventValue)
-      );
+  listeUstensils = document.querySelectorAll(".listUst");
+  listeUstensils.forEach((ustensil) => {
+    ustensil.addEventListener("click", function (e) {
+      eventValue = e.target.innerHTML.toLowerCase();
+      tagsUstResults = recipes.filter((recette) => {
+        let ustensilMap = [];
+        recette.ustensils.forEach((ustensil) => {
+          ustensilMap.push(ustensil.toLowerCase());
+        });
+        return ustensilMap.includes(eventValue);
+      });
 
-      affichageTagsUstensiles();
-      supprimerTagsUstensile();
+      afficherTagsUstensiles();
+      supprimerTagsUstensiles();
       displayRecette(tagsUstResults);
+
       generateFiltersForUstensils(tagsUstResults);
     });
   });
 };
 
 const installEventIngredients = () => {
-  listeIngredients = document.querySelectorAll(".listeIng");
+  listeIngredients = document.querySelectorAll(".listIng");
   listeIngredients.forEach((ingredient) => {
     ingredient.addEventListener("click", function (e) {
-      eventValue = e.target.innerHTML;
-      tagsIngResults = recipes.filter((recipe) => {
-        recipe.ingredients.forEach((ingredient) => {
-          ingredientMap = ingredient.ingredient;
+      eventValue = e.target.innerHTML.toLowerCase();
+      tagsIngResults = recipes.filter((recette) => {
+        let ingredientMap = [];
+        console.log(recette.ingredients);
+        recette.ingredients.forEach((ingredient) => {
+          ingredientMap.push(ingredient.ingredient.toLowerCase());
+          console.log(ingredientMap);
         });
         return ingredientMap.includes(eventValue);
       });
 
-      affichageTagsIngredients();
-      supprimerTagsIngredient();
+      afficherTagsIngredients();
+      supprimerTagsIngredients();
       displayRecette(tagsIngResults);
+
       generateFiltersForIngredients(tagsIngResults);
     });
   });
