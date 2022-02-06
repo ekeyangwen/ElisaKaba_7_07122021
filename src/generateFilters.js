@@ -10,10 +10,10 @@ const generateFiltersForIngredients = (recipes) => {
 
   inputIng = document.querySelector("#inputIngredients");
   BtnIngredient = document.querySelector("#triBtnIngredients");
-  BtnIngredient.addEventListener("click", AfficherInputIngredients);
-  inputIng.addEventListener("click", AfficherInputIngredients);
+  BtnIngredient.addEventListener("click", afficherInputIngredient);
+  inputIng.addEventListener("click", afficherInputIngredient);
 
-  function AfficherInputIngredients(e) {
+  function afficherInputIngredient(e) {
     e.preventDefault();
     if (triIngredients.innerHTML == "") {
       for (item of filteredIngredients) {
@@ -41,10 +41,12 @@ const generateFiltersForAppliances = (recipes) => {
 
   inputApp = document.querySelector("#inputAppareils");
   BtnAppareils = document.getElementById("triBtnAppareil");
-  BtnAppareils.addEventListener("click", AfficherInputAppareils);
-  inputApp.addEventListener("click", AfficherInputAppareils);
+  BtnAppareils.addEventListener("click", afficherInputAppareils);
+  BtnAppareils.addEventListener("change", afficherInputAppareils);
+  inputApp.addEventListener("click", afficherInputAppareils);
+  inputApp.addEventListener("change", afficherInputAppareils);
 
-  function AfficherInputAppareils(e) {
+  function afficherInputAppareils(e) {
     e.preventDefault();
     if (triAppliance.innerHTML == "") {
       for (elem of filteredAppliances) {
@@ -73,10 +75,10 @@ const generateFiltersForUstensils = (recipes) => {
 
   inputUst = document.querySelector("#inputUstensiles");
   BtnUstensiles = document.getElementById("triBtnUstensiles");
-  BtnUstensiles.addEventListener("click", AfficherInputUstensiles);
-  inputUst.addEventListener("click", AfficherInputUstensiles);
+  BtnUstensiles.addEventListener("click", afficherInputUstensils);
+  inputUst.addEventListener("click", afficherInputUstensils);
 
-  function AfficherInputUstensiles(e) {
+  function afficherInputUstensils(e) {
     e.preventDefault();
     if (triUstensiles.innerHTML == "") {
       for (content of filteredUstensils) {

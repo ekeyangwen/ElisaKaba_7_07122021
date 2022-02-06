@@ -20,18 +20,22 @@ const afficherTagsAppliances = () => {
 
 const supprimerTagsAppliances = () => {
   pAppliances = document.querySelectorAll(".pAppliances");
-  pAppliances.forEach((p) => {
-    p.addEventListener("click", function (event) {
-      value = event.target.innerHTML;
-      console.log(value);
-      closed();
-    });
+
+  crosses = document.querySelectorAll(".close");
+  crosses.forEach((cross) => {
+    cross.addEventListener("click", closed);
   });
+
   function closed() {
     spanAppliances.forEach((span) => {
-      if (span.innerHTML.includes(value)) {
+      console.log(spanAppliances);
+      if (span.innerText.includes(eventValue)) {
         span.remove();
+        installEventAppliances();
       }
+
+      console.log(spanAppliances);
+      generateFiltersForAppliances(tagsAppResults);
     });
   }
 };
@@ -58,16 +62,14 @@ const afficherTagsIngredients = () => {
 
 const supprimerTagsIngredients = () => {
   pIngredients = document.querySelectorAll(".pIngredients");
-  pIngredients.forEach((p) => {
-    p.addEventListener("click", function (event) {
-      value = event.target.innerHTML;
-      console.log(value);
-      closed();
-    });
+  crosses = document.querySelectorAll(".close");
+  crosses.forEach((cross) => {
+    cross.addEventListener("click", closed);
   });
+
   function closed() {
     spanIngredients.forEach((span) => {
-      if (span.innerHTML.includes(value)) {
+      if (span.innerText.includes(eventValue)) {
         span.remove();
       }
     });
@@ -97,16 +99,13 @@ const afficherTagsUstensiles = () => {
 
 const supprimerTagsUstensiles = () => {
   pUstensiles = document.querySelectorAll(".pUstensiles");
-  pUstensiles.forEach((p) => {
-    p.addEventListener("click", function (event) {
-      value = event.target.innerHTML;
-      console.log(value);
-      closed();
-    });
+  crosses = document.querySelectorAll(".close");
+  crosses.forEach((cross) => {
+    cross.addEventListener("click", closed);
   });
   function closed() {
     spanUstensiles.forEach((span) => {
-      if (span.innerHTML.includes(value)) {
+      if (span.innerText.includes(eventValue)) {
         span.remove();
       }
     });

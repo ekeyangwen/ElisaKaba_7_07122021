@@ -2,23 +2,24 @@ const installEventAppliances = () => {
   console.log("affichage appliance");
   listeAppliance = document.querySelectorAll(".listApp");
   listeAppliance.forEach((appliance) => {
-    console.log(appliance);
     appliance.addEventListener("click", function (e) {
       eventValue = e.target.innerHTML.toLowerCase();
       tagsAppResults = recipes.filter((recette) => {
         let applianceMap = [];
-
         applianceMap.push(recette.appliance.toLowerCase());
-
         return applianceMap.includes(eventValue);
       });
-
+      console.log(eventValue);
       afficherTagsAppliances();
       supprimerTagsAppliances();
       console.log(tagsAppResults);
       displayRecette(tagsAppResults);
 
-      generateFiltersForAppliances(tagsAppResults);
+      generateFiltersForAppliances(
+        tagsAppResults,
+        tagsIngResults,
+        tagsUstResults
+      );
     });
   });
 };
