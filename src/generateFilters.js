@@ -42,9 +42,8 @@ const generateFiltersForAppliances = (recipes) => {
   inputApp = document.querySelector("#inputAppareils");
   BtnAppareils = document.getElementById("triBtnAppareil");
   BtnAppareils.addEventListener("click", afficherInputAppareils);
-  BtnAppareils.addEventListener("change", afficherInputAppareils);
   inputApp.addEventListener("click", afficherInputAppareils);
-  inputApp.addEventListener("change", afficherInputAppareils);
+  inputApp.addEventListener("keyup", afficherInputAppareils);
 
   function afficherInputAppareils(e) {
     e.preventDefault();

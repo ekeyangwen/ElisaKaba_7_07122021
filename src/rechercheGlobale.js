@@ -1,5 +1,5 @@
 function noResult() {
-  noResults = document.querySelector("#noResults");
+  let noResults = document.querySelector("#noResults");
   if (results.length == 0) {
     noResults.style.display = "block";
   }

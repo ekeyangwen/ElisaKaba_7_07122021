@@ -28,18 +28,24 @@ const supprimerTagsAppliances = () => {
 
   function closed() {
     spanAppliances.forEach((span) => {
-      console.log(spanAppliances);
-      if (span.innerText.includes(eventValue)) {
+      if (span.innerHTML.includes(eventValue)) {
         span.remove();
-        installEventAppliances();
       }
-
-      console.log(spanAppliances);
-      generateFiltersForAppliances(tagsAppResults);
     });
+
+    if (spanAppliances.length <= 1) {
+      console.log(spanAppliances.length);
+      console.log("Entrée dans spanappliances.length");
+      displayRecette(recipes);
+    }
+    if (spanAppliances.length > 1) {
+      let length = spanAppliances.length - 1;
+      console.log(length);
+      console.log(spanAppliances.length);
+      console.log("plusieurs tags restants");
+    }
   }
 };
-
 const afficherTagsIngredients = () => {
   ingredientsResult = document.querySelector("#ingredientsResult");
   spanIng = document.createElement("span");
