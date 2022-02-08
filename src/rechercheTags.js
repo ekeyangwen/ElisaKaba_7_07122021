@@ -1,5 +1,4 @@
 const installEventAppliances = () => {
-  console.log("affichage appliance");
   listeAppliance = document.querySelectorAll(".listApp");
   listeAppliance.forEach((appliance) => {
     appliance.addEventListener("click", function (e) {
@@ -9,7 +8,6 @@ const installEventAppliances = () => {
         applianceMap.push(recette.appliance.toLowerCase());
         return applianceMap.includes(eventValue);
       });
-      console.log(eventValue);
       afficherTagsAppliances();
       supprimerTagsAppliances();
       console.log(tagsAppResults);
@@ -50,10 +48,8 @@ const installEventIngredients = () => {
       eventValue = e.target.innerHTML.toLowerCase();
       tagsIngResults = recipes.filter((recette) => {
         let ingredientMap = [];
-        console.log(recette.ingredients);
         recette.ingredients.forEach((ingredient) => {
           ingredientMap.push(ingredient.ingredient.toLowerCase());
-          console.log(ingredientMap);
         });
         return ingredientMap.includes(eventValue);
       });

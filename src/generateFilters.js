@@ -30,7 +30,6 @@ const generateFiltersForIngredients = (recipes) => {
 };
 
 const generateFiltersForAppliances = (recipes) => {
-  console.log("entrée dans le filter appliances");
   applianceT = [];
   recipes.forEach((recette) => {
     applianceT.push(recette.appliance);
@@ -85,9 +84,7 @@ const generateFiltersForUstensils = (recipes) => {
         listUst = document.createElement("li");
         listUst.classList.add("listUst");
         listUst.innerHTML = content;
-        console.log(listUst);
         triUstensiles.appendChild(listUst);
-        console.log(triUstensiles);
       }
     } else {
       triUstensiles.innerHTML = "";

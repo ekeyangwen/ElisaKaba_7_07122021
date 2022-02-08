@@ -23,27 +23,64 @@ const supprimerTagsAppliances = () => {
 
   crosses = document.querySelectorAll(".close");
   crosses.forEach((cross) => {
-    cross.addEventListener("click", closed);
-  });
+    cross.addEventListener("click", (e) => {
+      let tagToRemove = e.target.previousSibling.innerHTML;
+      e.target.parentNode.remove();
 
-  function closed() {
-    spanAppliances.forEach((span) => {
-      if (span.innerHTML.includes(eventValue)) {
-        span.remove();
+      //recherche principale
+
+      let input = document.querySelector("input");
+      let value = input.value.toLowerCase();
+      if (value.length >= 3) {
+        results = recipes.filter(
+          (items) =>
+            items.name.toLowerCase().includes(value) ||
+            items.description.toLowerCase().includes(value) ||
+            items.ingredients.forEach((ingredient) => {
+              ingredientMap = ingredient.ingredient;
+              ingredientMap.toLowerCase().includes(value);
+            })
+        );
+        // recherche(value);
+      } else {
+        results = recipes;
       }
+      //récupération des tags
+      let tagAppliances = document.querySelectorAll(".pAppliances");
+      console.log(results);
+      console.log(tagAppliances);
+      tagAppliances.forEach((tag) => {
+        console.log(tag.innerHTML);
+        tagsAppResults = results.filter((recette) => {
+          let applianceMap = [];
+          applianceMap.push(recette.appliance.toLowerCase());
+          return applianceMap.includes(tag.innerHTML);
+        });
+        console.log(tagsAppResults);
+      });
+
+      // spanAppliances.forEach((span) => {
+      //   if (span.innerHTML.includes(eventValue)) {
+      //     span.remove();
+      //     tagsAppResults = [];
     });
-    console.log(tagsAppResults);
-    generateFiltersForAppliances(recipes);
-    if (spanAppliances.length <= 1) {
-      displayRecette(recipes);
-    }
-    // if (spanAppliances.length > 1) {
-    //   let length = spanAppliances.length - 1;
-    //   console.log(length);
-    //   console.log("plusieurs tags restants");
-    // }
+  });
+  console.log(tagsAppResults);
+  generateFiltersForAppliances(recipes);
+  if (spanAppliances.length <= 1) {
+    displayRecette(recipes);
   }
+  // if (spanAppliances.length > 1) {
+  //   let length = spanAppliances.length - 1;
+  //   console.log(length);
+  //   console.log("plusieurs tags restants");
+  // }
 };
+//   });
+//   // });
+
+//   // function closed() {
+// };
 const afficherTagsIngredients = () => {
   ingredientsResult = document.querySelector("#ingredientsResult");
   spanIng = document.createElement("span");
@@ -79,6 +116,7 @@ const supprimerTagsIngredients = () => {
     });
     generateFiltersForIngredients(recipes);
     if (spanIngredients.length <= 1) {
+      console.log(spanIngredients.length);
       displayRecette(recipes);
     }
   }
@@ -95,7 +133,6 @@ const afficherTagsUstensiles = () => {
   spanUstensiles = document.querySelectorAll(".spanUstensiles");
   spanUstensiles.forEach((ustensile) => {
     ustensile.appendChild(pUst);
-    console.log(ustensile);
   });
   img = document.createElement("img");
   img.src = "./img/croix_fermeture_tag.png";
