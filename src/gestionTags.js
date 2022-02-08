@@ -32,18 +32,16 @@ const supprimerTagsAppliances = () => {
         span.remove();
       }
     });
-
+    console.log(tagsAppResults);
+    generateFiltersForAppliances(recipes);
     if (spanAppliances.length <= 1) {
-      console.log(spanAppliances.length);
-      console.log("Entrée dans spanappliances.length");
       displayRecette(recipes);
     }
-    if (spanAppliances.length > 1) {
-      let length = spanAppliances.length - 1;
-      console.log(length);
-      console.log(spanAppliances.length);
-      console.log("plusieurs tags restants");
-    }
+    // if (spanAppliances.length > 1) {
+    //   let length = spanAppliances.length - 1;
+    //   console.log(length);
+    //   console.log("plusieurs tags restants");
+    // }
   }
 };
 const afficherTagsIngredients = () => {
@@ -79,6 +77,10 @@ const supprimerTagsIngredients = () => {
         span.remove();
       }
     });
+    generateFiltersForIngredients(recipes);
+    if (spanIngredients.length <= 1) {
+      displayRecette(recipes);
+    }
   }
 };
 
@@ -115,5 +117,9 @@ const supprimerTagsUstensiles = () => {
         span.remove();
       }
     });
+    generateFiltersForUstensils(recipes);
+    if (spanUstensiles.length <= 1) {
+      displayRecette(recipes);
+    }
   }
 };

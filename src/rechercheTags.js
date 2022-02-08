@@ -15,11 +15,7 @@ const installEventAppliances = () => {
       console.log(tagsAppResults);
       displayRecette(tagsAppResults);
 
-      generateFiltersForAppliances(
-        tagsAppResults,
-        tagsIngResults,
-        tagsUstResults
-      );
+      generateFiltersForAppliances(tagsAppResults);
     });
   });
 };
@@ -39,6 +35,7 @@ const installEventUstensils = () => {
 
       afficherTagsUstensiles();
       supprimerTagsUstensiles();
+      console.log(tagsUstResults);
       displayRecette(tagsUstResults);
 
       generateFiltersForUstensils(tagsUstResults);

@@ -30,6 +30,7 @@ const generateFiltersForIngredients = (recipes) => {
 };
 
 const generateFiltersForAppliances = (recipes) => {
+  console.log("entrée dans le filter appliances");
   applianceT = [];
   recipes.forEach((recette) => {
     applianceT.push(recette.appliance);
