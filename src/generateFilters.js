@@ -15,6 +15,7 @@ const generateFiltersForIngredients = (recipes) => {
 
   function afficherInputIngredient(e) {
     e.preventDefault();
+
     if (triIngredients.innerHTML == "") {
       for (item of filteredIngredients) {
         listIng = document.createElement("li");
@@ -47,6 +48,7 @@ const generateFiltersForAppliances = (recipes) => {
 
   function afficherInputAppareils(e) {
     e.preventDefault();
+    triAppliance.style.display = "flex";
     if (triAppliance.innerHTML == "") {
       for (elem of filteredAppliances) {
         listApp = document.createElement("li");
@@ -57,6 +59,7 @@ const generateFiltersForAppliances = (recipes) => {
     } else {
       triAppliance.innerHTML = "";
     }
+
     installEventAppliances();
   }
 };
@@ -93,3 +96,8 @@ const generateFiltersForUstensils = (recipes) => {
     installEventUstensils();
   }
 };
+
+function fermerDropBox() {
+  console.log("dropbox fermée");
+  triAppliance.style.display = "none";
+}

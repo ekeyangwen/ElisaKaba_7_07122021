@@ -16,6 +16,9 @@ function afficherRechercherRecettes(recipes) {
       recherche(value);
     } else if (value.length == 0) {
       displayRecette(recipes);
+      generateFiltersForAppliances(recipes);
+      generateFiltersForIngredients(recipes);
+      generateFiltersForUstensils(recipes);
     }
   }
 
@@ -32,6 +35,9 @@ function afficherRechercherRecettes(recipes) {
 
     console.log(results);
     displayRecette(results);
+    generateFiltersForAppliances(results);
+    generateFiltersForIngredients(results);
+    generateFiltersForUstensils(results);
     noResult();
   }
 }

@@ -8,11 +8,11 @@ const installEventAppliances = () => {
         applianceMap.push(recette.appliance.toLowerCase());
         return applianceMap.includes(eventValue);
       });
+
       afficherTagsAppliances();
       supprimerTagsAppliances();
       console.log(tagsAppResults);
       displayRecette(tagsAppResults);
-
       generateFiltersForAppliances(tagsAppResults);
     });
   });

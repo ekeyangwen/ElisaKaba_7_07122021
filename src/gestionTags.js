@@ -16,6 +16,8 @@ const afficherTagsAppliances = () => {
   spanAppliances.forEach((appliance) => {
     appliance.appendChild(img);
   });
+  fermerDropBox();
+  generateFiltersForAppliances(tagsAppResults);
 };
 
 const supprimerTagsAppliances = () => {
@@ -24,7 +26,7 @@ const supprimerTagsAppliances = () => {
   crosses = document.querySelectorAll(".close");
   crosses.forEach((cross) => {
     cross.addEventListener("click", (e) => {
-      let tagToRemove = e.target.previousSibling.innerHTML;
+      // let tagToRemove = e.target.previousSibling.innerHTML;
       e.target.parentNode.remove();
 
       //recherche principale
@@ -41,14 +43,18 @@ const supprimerTagsAppliances = () => {
               ingredientMap.toLowerCase().includes(value);
             })
         );
-        // recherche(value);
+        fermerDropBox();
+        displayRecette(results);
+        generateFiltersForAppliances(results);
       } else {
         results = recipes;
+        fermerDropBox();
+        displayRecette(results);
+        generateFiltersForAppliances(results);
       }
+
       //récupération des tags
       let tagAppliances = document.querySelectorAll(".pAppliances");
-      console.log(results);
-      console.log(tagAppliances);
       tagAppliances.forEach((tag) => {
         console.log(tag.innerHTML);
         tagsAppResults = results.filter((recette) => {
@@ -56,31 +62,12 @@ const supprimerTagsAppliances = () => {
           applianceMap.push(recette.appliance.toLowerCase());
           return applianceMap.includes(tag.innerHTML);
         });
-        console.log(tagsAppResults);
+        displayRecette(tagsAppResults);
+        generateFiltersForAppliances(tagsAppResults);
       });
-
-      // spanAppliances.forEach((span) => {
-      //   if (span.innerHTML.includes(eventValue)) {
-      //     span.remove();
-      //     tagsAppResults = [];
     });
   });
-  console.log(tagsAppResults);
-  generateFiltersForAppliances(recipes);
-  if (spanAppliances.length <= 1) {
-    displayRecette(recipes);
-  }
-  // if (spanAppliances.length > 1) {
-  //   let length = spanAppliances.length - 1;
-  //   console.log(length);
-  //   console.log("plusieurs tags restants");
-  // }
 };
-//   });
-//   // });
-
-//   // function closed() {
-// };
 const afficherTagsIngredients = () => {
   ingredientsResult = document.querySelector("#ingredientsResult");
   spanIng = document.createElement("span");
