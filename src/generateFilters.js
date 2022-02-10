@@ -49,7 +49,6 @@ const generateFiltersForAppliances = (recipes) => {
   inputApp.addEventListener("keyup", afficherInputAppareils);
 
   function afficherInputAppareils(e) {
-    triAppliance.style.display = "none";
     e.preventDefault();
     if (triAppliance.innerHTML == "") {
       triAppliance.style.display = "flex";
