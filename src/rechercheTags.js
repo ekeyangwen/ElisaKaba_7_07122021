@@ -33,7 +33,6 @@ const installEventUstensils = () => {
 
       afficherTagsUstensiles();
       supprimerTagsUstensiles();
-      console.log(tagsUstResults);
       displayRecette(tagsUstResults);
 
       generateFiltersForUstensils(tagsUstResults);

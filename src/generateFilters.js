@@ -12,11 +12,12 @@ const generateFiltersForIngredients = (recipes) => {
   BtnIngredient = document.querySelector("#triBtnIngredients");
   BtnIngredient.addEventListener("click", afficherInputIngredient);
   inputIng.addEventListener("click", afficherInputIngredient);
+  inputIng.addEventListener("keyup", afficherInputIngredient);
 
   function afficherInputIngredient(e) {
     e.preventDefault();
-
     if (triIngredients.innerHTML == "") {
+      triIngredients.style.display = "flex";
       for (item of filteredIngredients) {
         listIng = document.createElement("li");
         listIng.classList.add("listIng");
@@ -25,6 +26,7 @@ const generateFiltersForIngredients = (recipes) => {
       }
     } else {
       triIngredients.innerHTML = "";
+      triIngredients.style.display = "none";
     }
     installEventIngredients();
   }
@@ -47,9 +49,10 @@ const generateFiltersForAppliances = (recipes) => {
   inputApp.addEventListener("keyup", afficherInputAppareils);
 
   function afficherInputAppareils(e) {
+    triAppliance.style.display = "none";
     e.preventDefault();
-    triAppliance.style.display = "flex";
     if (triAppliance.innerHTML == "") {
+      triAppliance.style.display = "flex";
       for (elem of filteredAppliances) {
         listApp = document.createElement("li");
         listApp.classList.add("listApp");
@@ -58,6 +61,7 @@ const generateFiltersForAppliances = (recipes) => {
       }
     } else {
       triAppliance.innerHTML = "";
+      triAppliance.style.display = "none";
     }
 
     installEventAppliances();
@@ -83,6 +87,7 @@ const generateFiltersForUstensils = (recipes) => {
   function afficherInputUstensils(e) {
     e.preventDefault();
     if (triUstensiles.innerHTML == "") {
+      triUstensiles.style.display = "flex";
       for (content of filteredUstensils) {
         listUst = document.createElement("li");
         listUst.classList.add("listUst");
@@ -91,6 +96,7 @@ const generateFiltersForUstensils = (recipes) => {
       }
     } else {
       triUstensiles.innerHTML = "";
+      fermerDropBox();
     }
 
     installEventUstensils();
@@ -100,4 +106,6 @@ const generateFiltersForUstensils = (recipes) => {
 function fermerDropBox() {
   console.log("dropbox fermée");
   triAppliance.style.display = "none";
+  triIngredients.style.display = "none";
+  triUstensiles.style.display = "none";
 }
