@@ -48,7 +48,7 @@ let listeRecettes = "";
 //variables pour rechercheGlobale
 
 let value;
-let results;
+
 let rechercheValue;
 let input;
 let noResults;

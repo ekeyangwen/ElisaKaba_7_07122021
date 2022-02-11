@@ -1,9 +1,22 @@
+results = recipes.filter(
+  (items) =>
+    items.name.toLowerCase().includes(value) ||
+    items.description.toLowerCase().includes(value) ||
+    items.ingredients.forEach((ingredient) => {
+      ingredientMap = ingredient.ingredient;
+      ingredientMap.toLowerCase().includes(value);
+    })
+);
+if (results.length == 0) {
+  results = recipes;
+}
+console.log(results);
 const installEventAppliances = () => {
   listeAppliance = document.querySelectorAll(".listApp");
   listeAppliance.forEach((appliance) => {
     appliance.addEventListener("click", function (e) {
       eventValue = e.target.innerHTML.toLowerCase();
-      tagsAppResults = recipes.filter((recette) => {
+      tagsAppResults = results.filter((recette) => {
         let applianceMap = [];
         applianceMap.push(recette.appliance.toLowerCase());
         return applianceMap.includes(eventValue);
@@ -11,6 +24,7 @@ const installEventAppliances = () => {
 
       afficherTagsAppliances();
       supprimerTagsAppliances();
+      console.log(tagsAppResults);
       displayRecette(tagsAppResults);
       generateFiltersForAppliances(tagsAppResults);
     });
@@ -22,7 +36,7 @@ const installEventUstensils = () => {
   listeUstensils.forEach((ustensil) => {
     ustensil.addEventListener("click", function (e) {
       eventValue = e.target.innerHTML.toLowerCase();
-      tagsUstResults = recipes.filter((recette) => {
+      tagsUstResults = results.filter((recette) => {
         let ustensilMap = [];
         recette.ustensils.forEach((ustensil) => {
           ustensilMap.push(ustensil.toLowerCase());
@@ -32,6 +46,7 @@ const installEventUstensils = () => {
 
       afficherTagsUstensiles();
       supprimerTagsUstensiles();
+      console.log(tagsUstResults);
       displayRecette(tagsUstResults);
       generateFiltersForUstensils(tagsAppResults);
     });
@@ -43,7 +58,7 @@ const installEventIngredients = () => {
   listeIngredients.forEach((ingredient) => {
     ingredient.addEventListener("click", function (e) {
       eventValue = e.target.innerHTML.toLowerCase();
-      tagsIngResults = recipes.filter((recette) => {
+      tagsIngResults = results.filter((recette) => {
         let ingredientMap = [];
         recette.ingredients.forEach((ingredient) => {
           ingredientMap.push(ingredient.ingredient.toLowerCase());
@@ -53,6 +68,7 @@ const installEventIngredients = () => {
 
       afficherTagsIngredients();
       supprimerTagsIngredients();
+      console.log(tagsIngResults);
       displayRecette(tagsIngResults);
       generateFiltersForIngredients(tagsIngResults);
     });

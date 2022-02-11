@@ -1,9 +1,4 @@
-function noResult() {
-  let noResults = document.querySelector("#noResults");
-  if (results.length == 0) {
-    noResults.style.display = "block";
-  }
-}
+let results;
 
 function afficherRechercherRecettes(recipes) {
   rechercheValue = document.getElementById("barreRecherche");
@@ -39,5 +34,14 @@ function afficherRechercherRecettes(recipes) {
     generateFiltersForIngredients(results);
     generateFiltersForUstensils(results);
     noResult();
+  }
+
+  function noResult() {
+    let noResults = document.querySelector("#noResults");
+    if (results.length === 0) {
+      noResults.style.display = "block";
+    } else {
+      noResults.style.display = "none";
+    }
   }
 }

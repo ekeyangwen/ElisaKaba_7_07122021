@@ -38,7 +38,6 @@ const generateFiltersForAppliances = (recipes) => {
   });
 
   const filteredAppliances = new Set(applianceT);
-
   inputApp = document.querySelector("#inputAppareils");
   BtnAppareils = document.getElementById("triBtnAppareil");
   BtnAppareils.addEventListener("click", afficherInputAppareils);
