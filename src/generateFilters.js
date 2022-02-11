@@ -16,6 +16,7 @@ const generateFiltersForIngredients = (recipes) => {
 
   function afficherInputIngredient(e) {
     e.preventDefault();
+    triIngredients.innerHTML = "";
     if (triIngredients.innerHTML == "") {
       triIngredients.style.display = "flex";
       for (item of filteredIngredients) {
@@ -24,9 +25,6 @@ const generateFiltersForIngredients = (recipes) => {
         listIng.innerHTML = item;
         triIngredients.appendChild(listIng);
       }
-    } else {
-      triIngredients.innerHTML = "";
-      triIngredients.style.display = "none";
     }
     installEventIngredients();
   }
@@ -40,7 +38,6 @@ const generateFiltersForAppliances = (recipes) => {
   });
 
   const filteredAppliances = new Set(applianceT);
-  console.log("appareils filtrés", filteredAppliances);
 
   inputApp = document.querySelector("#inputAppareils");
   BtnAppareils = document.getElementById("triBtnAppareil");
@@ -50,6 +47,7 @@ const generateFiltersForAppliances = (recipes) => {
 
   function afficherInputAppareils(e) {
     e.preventDefault();
+    triAppliance.innerHTML = "";
     if (triAppliance.innerHTML == "") {
       triAppliance.style.display = "flex";
       for (elem of filteredAppliances) {
@@ -58,9 +56,6 @@ const generateFiltersForAppliances = (recipes) => {
         listApp.innerHTML = elem;
         triAppliance.appendChild(listApp);
       }
-    } else {
-      triAppliance.innerHTML = "";
-      triAppliance.style.display = "none";
     }
 
     installEventAppliances();
@@ -85,6 +80,7 @@ const generateFiltersForUstensils = (recipes) => {
 
   function afficherInputUstensils(e) {
     e.preventDefault();
+    triUstensiles.innerHTML = "";
     if (triUstensiles.innerHTML == "") {
       triUstensiles.style.display = "flex";
       for (content of filteredUstensils) {
@@ -93,18 +89,7 @@ const generateFiltersForUstensils = (recipes) => {
         listUst.innerHTML = content;
         triUstensiles.appendChild(listUst);
       }
-    } else {
-      triUstensiles.innerHTML = "";
-      fermerDropBox();
     }
-
     installEventUstensils();
   }
 };
-
-function fermerDropBox() {
-  console.log("dropbox fermée");
-  triAppliance.style.display = "none";
-  triIngredients.style.display = "none";
-  triUstensiles.style.display = "none";
-}
