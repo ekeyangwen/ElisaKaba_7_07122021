@@ -21,12 +21,14 @@ const installEventAppliances = () => {
         applianceMap.push(recette.appliance.toLowerCase());
         return applianceMap.includes(eventValue);
       });
-
+      results = tagsAppResults;
       afficherTagsAppliances();
       supprimerTagsAppliances();
       console.log(tagsAppResults);
       displayRecette(tagsAppResults);
-      generateFiltersForAppliances(tagsAppResults);
+      generateFiltersForAppliances(results);
+      generateFiltersForIngredients(results);
+      generateFiltersForUstensils(results);
     });
   });
 };
@@ -43,12 +45,14 @@ const installEventUstensils = () => {
         });
         return ustensilMap.includes(eventValue);
       });
-
+      results = tagsUstResults;
       afficherTagsUstensiles();
       supprimerTagsUstensiles();
       console.log(tagsUstResults);
       displayRecette(tagsUstResults);
-      generateFiltersForUstensils(tagsAppResults);
+      generateFiltersForAppliances(results);
+      generateFiltersForIngredients(results);
+      generateFiltersForUstensils(results);
     });
   });
 };
@@ -65,12 +69,14 @@ const installEventIngredients = () => {
         });
         return ingredientMap.includes(eventValue);
       });
-
+      results = tagsIngResults;
       afficherTagsIngredients();
       supprimerTagsIngredients();
       console.log(tagsIngResults);
       displayRecette(tagsIngResults);
-      generateFiltersForIngredients(tagsIngResults);
+      generateFiltersForAppliances(results);
+      generateFiltersForIngredients(results);
+      generateFiltersForUstensils(results);
     });
   });
 };

@@ -17,13 +17,13 @@ const afficherTagsAppliances = () => {
     appliance.appendChild(img);
   });
   triAppliance.style.display = "none";
+  triIngredients.style.display = "none";
+  triUstensiles.style.display = "none";
 
   generateFiltersForAppliances(tagsAppResults);
 };
 
 const supprimerTagsAppliances = () => {
-  pAppliances = document.querySelectorAll(".pAppliances");
-
   crosses = document.querySelectorAll(".close");
   crosses.forEach((cross) => {
     cross.addEventListener("click", (e) => {
@@ -45,12 +45,20 @@ const supprimerTagsAppliances = () => {
         );
         displayRecette(results);
         triAppliance.style.display = "none";
+        triIngredients.style.display = "none";
+        triUstensiles.style.display = "none";
         generateFiltersForAppliances(results);
+        generateFiltersForIngredients(results);
+        generateFiltersForUstensils(results);
       } else {
         results = recipes;
         displayRecette(results);
         triAppliance.style.display = "none";
+        triIngredients.style.display = "none";
+        triUstensiles.style.display = "none";
         generateFiltersForAppliances(results);
+        generateFiltersForIngredients(results);
+        generateFiltersForUstensils(results);
       }
 
       //récupération des tags
@@ -58,7 +66,7 @@ const supprimerTagsAppliances = () => {
       results = recipes.filter(
         (items) =>
           items.name.toLowerCase().includes(value) ||
-          items.description.toLowerCase().includes(value) ||
+          items.description.toLoerCase().includes(value) ||
           items.ingredients.forEach((ingredient) => {
             ingredientMap = ingredient.ingredient;
             ingredientMap.toLowerCase().includes(value);
@@ -70,10 +78,14 @@ const supprimerTagsAppliances = () => {
           applianceMap.push(recette.appliance.toLowerCase());
           return applianceMap.includes(tag.innerHTML);
         });
-
+        results = tagsAppResults;
         displayRecette(tagsAppResults);
         triAppliance.style.display = "none";
-        generateFiltersForAppliances(tagsAppResults);
+        triIngredients.style.display = "none";
+        triUstensiles.style.display = "none";
+        generateFiltersForAppliances(results);
+        generateFiltersForIngredients(results);
+        generateFiltersForUstensils(results);
       });
     });
   });
@@ -96,8 +108,11 @@ const afficherTagsIngredients = () => {
   spanIngredients.forEach((ingredient) => {
     ingredient.appendChild(img);
   });
+
+  triAppliance.style.display = "none";
   triIngredients.style.display = "none";
-  generateFiltersForAppliances(tagsIngResults);
+  triUstensiles.style.display = "none";
+  generateFiltersForIngredients(results);
 };
 
 const supprimerTagsIngredients = () => {
@@ -121,12 +136,15 @@ const supprimerTagsIngredients = () => {
             })
         );
         displayRecette(results);
+        triAppliance.style.display = "none";
         triIngredients.style.display = "none";
-        generateFiltersForIngredients(results);
+        triUstensiles.style.display = "none";
       } else {
         results = recipes;
         displayRecette(results);
+        triAppliance.style.display = "none";
         triIngredients.style.display = "none";
+        triUstensiles.style.display = "none";
         generateFiltersForIngredients(results);
       }
 
@@ -150,9 +168,14 @@ const supprimerTagsIngredients = () => {
           });
           return ingredientMap.includes(tag.innerHTML);
         });
+        results = tagsIngResults;
         displayRecette(tagsIngResults);
+        triAppliance.style.display = "none";
         triIngredients.style.display = "none";
-        generateFiltersForIngredients(tagsIngResults);
+        triUstensiles.style.display = "none";
+        generateFiltersForAppliances(results);
+        generateFiltersForIngredients(results);
+        generateFiltersForUstensils(results);
       });
     });
   });
@@ -176,7 +199,10 @@ const afficherTagsUstensiles = () => {
   spanUstensiles.forEach((ustensile) => {
     ustensile.appendChild(img);
   });
+  triAppliance.style.display = "none";
+  triIngredients.style.display = "none";
   triUstensiles.style.display = "none";
+
   generateFiltersForUstensils(tagsAppResults);
 };
 
@@ -200,11 +226,15 @@ const supprimerTagsUstensiles = () => {
               ingredientMap.toLowerCase().includes(value);
             })
         );
+        triAppliance.style.display = "none";
+        triIngredients.style.display = "none";
         triUstensiles.style.display = "none";
         displayRecette(results);
         generateFiltersForUstensils(results);
       } else {
         results = recipes;
+        triAppliance.style.display = "none";
+        triIngredients.style.display = "none";
         triUstensiles.style.display = "none";
         displayRecette(results);
         generateFiltersForUstensils(results);
@@ -222,16 +252,21 @@ const supprimerTagsUstensiles = () => {
               ingredientMap.toLowerCase().includes(value);
             })
         );
-        tagsUstResults = recipes.filter((recette) => {
+        tagsUstResults = results.filter((recette) => {
           let ustensilMap = [];
           recette.ustensils.forEach((ustensil) => {
             ustensilMap.push(ustensil.toLowerCase());
           });
           return ustensilMap.includes(tag.innerHTML);
         });
+        results = tagsUstResults;
+        triAppliance.style.display = "none";
+        triIngredients.style.display = "none";
         triUstensiles.style.display = "none";
         displayRecette(tagsUstResults);
-        generateFiltersForUstensils(tagsUstResults);
+        generateFiltersForAppliances(results);
+        generateFiltersForIngredients(results);
+        generateFiltersForUstensils(results);
       });
     });
   });

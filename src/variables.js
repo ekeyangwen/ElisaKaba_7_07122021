@@ -27,12 +27,12 @@ let listeIngredients = document.querySelectorAll(".listeIng");
 let listeUstensiles = document.querySelectorAll(".listeUst");
 let tagsAppResults = [];
 let tagsUstResults = [];
-let tagsIngResults = [];
+
 let appareilsResult;
 let pAppliance;
 let spanAppliances = document.querySelectorAll(".spanAppliances");
 let pAppliances = document.querySelectorAll(".pAppliances");
-let spanIngredients = document.querySelectorAll(".spanIngredients");
+
 let pIngredients = document.querySelectorAll(".pIngredients");
 let spanUstensiles = document.querySelectorAll(".spanUstensiles");
 let pUstensiles = document.querySelectorAll(".pUstensiles");

@@ -76,7 +76,7 @@ const generateFiltersForUstensils = (recipes) => {
   BtnUstensiles = document.getElementById("triBtnUstensiles");
   BtnUstensiles.addEventListener("click", afficherInputUstensils);
   inputUst.addEventListener("click", afficherInputUstensils);
-
+  ustensilsT = results;
   function afficherInputUstensils(e) {
     e.preventDefault();
     triUstensiles.innerHTML = "";
