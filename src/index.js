@@ -12,15 +12,15 @@ function displayRecette(recipes) {
 async function init() {
   displayRecette(recipes);
   afficherRechercherRecettes(recipes);
+  addEventKeyupUstensils();
+  addEventKeyupAppliance();
+  addEventKeyupIngredients();
   generateFiltersForIngredients(recipes);
   generateFiltersForAppliances(recipes);
   generateFiltersForUstensils(recipes);
   installEventAppliances();
   installEventUstensils();
   installEventIngredients();
-  addEventKeyupUstensils();
-  addEventKeyupAppliance();
-  addEventKeyupIngredients();
 }
 
 init();

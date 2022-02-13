@@ -10,7 +10,7 @@ results = recipes.filter(
 if (results.length == 0) {
   results = recipes;
 }
-console.log(results);
+
 const installEventAppliances = () => {
   listeAppliance = document.querySelectorAll(".listApp");
   listeAppliance.forEach((appliance) => {

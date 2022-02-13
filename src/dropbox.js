@@ -10,7 +10,6 @@ const addEventKeyupIngredients = () => {
         ingredient.innerHTML.toLowerCase().includes(eventValue.toLowerCase())
       ) {
         ingredient.style.display = "block";
-        // triIngredients.style.width = "240px";
       } else {
         ingredient.style.display = "none";
       }
