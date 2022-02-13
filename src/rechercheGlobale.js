@@ -3,13 +3,14 @@ let results;
 function afficherRechercherRecettes(recipes) {
   rechercheValue = document.getElementById("barreRecherche");
   rechercheValue.addEventListener("keyup", Verif);
-
+  console.log(results);
   function Verif() {
     input = document.querySelector("input");
     value = input.value.toLowerCase();
     if (value.length >= 3) {
       recherche(value);
     } else if (value.length == 0) {
+      noResult();
       displayRecette(recipes);
       generateFiltersForAppliances(recipes);
       generateFiltersForIngredients(recipes);
@@ -38,9 +39,13 @@ function afficherRechercherRecettes(recipes) {
 
   function noResult() {
     let noResults = document.querySelector("#noResults");
-    if (results.length === 0) {
+    console.log("resultsOK");
+    console.log(value.length);
+    if (results.length == 0 && value.length >= 3) {
+      console.log("results===none");
       noResults.style.display = "block";
-    } else {
+    } else if (value.length == 0) {
+      console.log("results=recipes");
       noResults.style.display = "none";
     }
   }

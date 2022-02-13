@@ -1,7 +1,7 @@
 const addEventKeyupIngredients = () => {
   let inputIng = document.querySelector("#inputIngredients");
   inputIng.addEventListener("keyup", function (event) {
-    let eventValue = event.target.value;
+    value = event.target.value;
 
     let listIngredients = document.querySelectorAll(".listeIng");
 
@@ -12,6 +12,7 @@ const addEventKeyupIngredients = () => {
         ingredient.style.display = "block";
       } else {
         ingredient.style.display = "none";
+        noresults();
       }
     });
   });
@@ -19,7 +20,7 @@ const addEventKeyupIngredients = () => {
 const addEventKeyupAppliance = () => {
   let inputApp = document.querySelector("#inputAppareils");
   inputApp.addEventListener("keyup", function (event) {
-    let eventValue = event.target.value;
+    value = event.target.value;
 
     let listeAppareil = document.querySelectorAll(".listeApp");
 
@@ -28,6 +29,7 @@ const addEventKeyupAppliance = () => {
         appareil.style.display = "block";
       } else {
         appareil.style.display = "none";
+        noresults();
       }
     });
   });
@@ -36,7 +38,7 @@ const addEventKeyupUstensils = () => {
   let inputUst = document.querySelector("#inputUstensiles");
 
   inputUst.addEventListener("keyup", function (event) {
-    let eventValue = event.target.value;
+    value = event.target.value;
 
     let listUstensiles = document.querySelectorAll(".listeUst");
     listUstensiles.forEach((ustensil) => {
@@ -44,6 +46,7 @@ const addEventKeyupUstensils = () => {
         ustensil.style.display = "block";
       } else {
         ustensil.style.display = "none";
+        noresults();
       }
     });
   });
