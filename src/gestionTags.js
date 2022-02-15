@@ -16,11 +16,11 @@ const afficherTagsAppliances = () => {
   spanAppliances.forEach((appliance) => {
     appliance.appendChild(img);
   });
-  triAppliance.style.display = "none";
-  triIngredients.style.display = "none";
-  triUstensiles.style.display = "none";
 
   generateFiltersForAppliances(tagsAppResults);
+  triIngredients.style.display = "none";
+  triUstensiles.style.display = "none";
+  triAppliance.style.display = "none";
 };
 
 const supprimerTagsAppliances = () => {
@@ -44,21 +44,21 @@ const supprimerTagsAppliances = () => {
             })
         );
         displayRecette(results);
-        triAppliance.style.display = "none";
-        triIngredients.style.display = "none";
-        triUstensiles.style.display = "none";
         generateFiltersForAppliances(results);
         generateFiltersForIngredients(results);
         generateFiltersForUstensils(results);
+        triAppliance.style.display = "none";
+        triIngredients.style.display = "none";
+        triUstensiles.style.display = "none";
       } else {
         results = recipes;
         displayRecette(results);
-        triAppliance.style.display = "none";
-        triIngredients.style.display = "none";
-        triUstensiles.style.display = "none";
         generateFiltersForAppliances(results);
         generateFiltersForIngredients(results);
         generateFiltersForUstensils(results);
+        triAppliance.style.display = "none";
+        triIngredients.style.display = "none";
+        triUstensiles.style.display = "none";
       }
 
       //récupération des tags
@@ -80,12 +80,12 @@ const supprimerTagsAppliances = () => {
         });
         results = tagsAppResults;
         displayRecette(tagsAppResults);
-        triAppliance.style.display = "none";
-        triIngredients.style.display = "none";
-        triUstensiles.style.display = "none";
         generateFiltersForAppliances(results);
         generateFiltersForIngredients(results);
         generateFiltersForUstensils(results);
+        triAppliance.style.display = "none";
+        triIngredients.style.display = "none";
+        triUstensiles.style.display = "none";
       });
     });
   });

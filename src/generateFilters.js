@@ -41,19 +41,22 @@ const generateFiltersForAppliances = (recipes) => {
   inputApp = document.querySelector("#inputAppareils");
   BtnAppareils = document.getElementById("triBtnAppareil");
   BtnAppareils.addEventListener("click", afficherInputAppareils);
-  inputApp.addEventListener("click", afficherInputAppareils);
-  inputApp.addEventListener("keyup", afficherInputAppareils);
+  inputApp.addEventListener("click", afficherKeyupAppareils);
+  BtnAppareils.addEventListener("click", afficherKeyupAppareils);
 
-  function afficherInputAppareils(e) {
+  function afficherKeyupAppareils(e) {
+    e.preventDefault();
     let listAppareils = document.querySelector("#listAppareils");
-    if (listAppareils.getAttribute("value") == "true") {
+    if (listAppareils.getAttribute("value") == "false") {
+      triAppliance.style.display = "flex";
+      afficherInputAppareils(results);
+      listAppareils.setAttribute("value", "true");
+    } else {
       listAppareils.setAttribute("value", "false");
       triAppliance.style.display = "none";
-    } else {
-      triAppliance.style.display = "flex";
     }
-
-    e.preventDefault();
+  }
+  function afficherInputAppareils() {
     triAppliance.innerHTML = "";
     if (triAppliance.innerHTML == "") {
       for (elem of filteredAppliances) {
