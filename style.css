@@ -1,139 +1,382 @@
-body {
-  max-width: 1440px;
-  height: 100vh;
-  margin: auto;
-}
+@media (min-width: 375px) {
+  body {
+    max-width: 1440px;
+    height: 100vh;
+  }
 
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-#logo {
-  height: 93px;
-  width: 268px;
-  margin-top: 42px;
-  border-radius: 0px;
-}
+  #logo {
+    height: 93px;
+    width: 100%;
+    margin-top: 42px;
+    border-radius: 0px;
+  }
+  #recherche {
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+  }
+  #barreRecherche {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #e7e7e7;
+    color: lightgray;
+    border: none;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    padding: 15px;
+    margin-top: 30px;
+  }
+  #barreRecherche:focus {
+    color: black;
+    font-weight: 700;
+    border: none;
+  }
+  #barreRecherche::placeholder {
+    border: none;
+    color: grey;
+    background-color: inherit;
+  }
+  #loupeBtn {
+    margin-left: -60px;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: #e7e7e7;
+  }
+  .fa-search {
+    font-size: 30px;
+    left: 5.5px;
+    top: 5.5px;
+    border-radius: 0px;
+  }
+  #main {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 
-#recherche {
-  display: flex;
-  flex-direction: row;
-  width: 85%;
-}
+  #appareilsResul,
+  #ingredientsResult,
+  #ustensilesResultt {
+    display: flex;
+    width: 100%;
+    font-family: Lato;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    cursor: pointer;
+    list-style: none;
+    margin-top: 30px;
+    align-self: flex-start;
+  }
 
-#barreRecherche {
-  width: 100%;
-  border-radius: 5px;
-  background-color: #e7e7e7;
-  color: lightgray;
-  border: none;
+  #inputUstensiles,
+  #inputIngredients,
+  #inputAppareils {
+    background-color: inherit;
+    border: none;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0em;
+    color: #fff;
+    padding: 20px;
+    width: 50%;
+  }
+
+  #tri {
+    display: flex;
+    height: 10%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    margin: 0px;
+    margin-top: 40px;
+    padding-left: 0px;
+  }
+  #ingredients,
+  #appareils,
+  #ustensiles {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    margin-top: -30px;
+    list-style: none;
+    width: 30%;
+    text-align: center;
+    padding: 5px;
+  }
+  #choixTriUstensiles,
+  #choixTriAppareils,
+  #choixTriIngredients {
+    display: flex;
+    flex-direction: column;
+    border: none;
+
+    color: #fff;
+    border-radius: 5px;
+  }
+  #choixTriAppareils {
+    background-color: #68d9a4;
+  }
+
+  #choixTriUstensiles {
+    background-color: #ed6454;
+  }
+  #choixTriIngredients {
+    background-color: #3282f7;
+  }
+  #triBtnIngredients {
+    background-color: #3282f7;
+    border: none;
+  }
+
+  #triBtnAppareil {
+    background-color: #68d9a4;
+    border: none;
+  }
+
+  #triBtnUstensiles {
+    background-color: #ed6454;
+    border: none;
+  }
+  #inputUstensiles::placeholder,
+  #inputIngredients::placeholder,
+  #inputAppareils::placeholder {
+    color: #fff;
+  }
+  #inputUstensiles:focus,
+  #inputIngredients:focus,
+  #inputAppareils:focus {
+    outline: none;
+  }
+  #listIngredients,
+  #listAppareils,
+  #listUstensiles {
+    width: 100%;
+  }
+  .listIngredients,
+  .pIngredients {
+    background-color: #3282f7;
+  }
+
+  .listAppareils,
+  .pAppliances {
+    background-color: #68d9a4;
+  }
+
+  .listUstensiles,
+  .pUstensiles {
+    background-color: #ed6454;
+  }
+
+  .spanAppliances,
+  .spanIngredients,
+  .spanUstensiles {
+    display: flex;
+    text-align: center;
+    background-color: #68d9a4;
+    border-radius: 5px;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-right: 20px;
+  }
+
+  .spanIngredients {
+    background-color: #3282f7;
+  }
+
+  .spanUstensiles {
+    background-color: #ed6454;
+  }
+  .close,
+  .pAppliance,
+  .pIngredients,
+  .pUstensiles {
+    display: flex;
+    width: 20px;
+    margin-left: 2px;
+    margin-top: 2px;
+    padding-left: 20px;
+    border-radius: 0px;
+  }
+  #triAppareilsInput {
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 20;
+    background-color: #68d9a4;
+    color: #fff;
+    padding: 5px;
+  }
+
+  #triUstensilesInput {
+    background-color: #ed6454;
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+    z-index: 20;
+    padding: 5px;
+  }
+  #triIngredientsInput {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #3282f7;
+    color: #fff;
+    z-index: 20;
+    padding: 5px;
+  }
+  .listIng,
+  .listApp,
+  .listUst,
+  #appareilsResult,
+  #ingredientsResult,
+  #ustensilesResult {
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+    cursor: pointer;
+    list-style: none;
+    margin: 5px;
+  }
+  #listeRecettes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .recetteImg {
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #c7bebe;
+  }
+  .titre {
+    width: 80%;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 0;
+  }
+  .listeIngredientsTemps {
+    display: flex;
+  }
+  .ingredients {
+    font-size: 12px;
+    padding: 17px;
+    margin: 0;
+    width: 136%;
+  }
+  .recetteAndTime {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+  }
+  .tempsRecette {
+    font-size: 12px;
+    margin-bottom: 0px;
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .fa-clock {
+    margin-right: 8px;
+  }
+
+  .clock {
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .temps {
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: -3px;
+  }
+  .description {
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: left;
+    width: 100%;
+  }
+  .recette {
+    width: 100%;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 0px;
+  }
+  .legendeRecette {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: #e7e7e7;
+    border-radius: 5px 5px 0px 0px;
+    padding: 10px;
+  }
+  #noResults {
+  display: none;
+  z-index: 100;
   font-family: Lato;
   font-size: 18px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 22px;
   letter-spacing: 0em;
-  padding: 15px;
-  margin-top: 30px;
-}
-
-#barreRecherche:focus {
-  color: black;
-  font-weight: 700;
-  border: none;
-}
-
-#loupeBtn {
-  margin-left: -60px;
-  margin-top: 30px;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
   border-radius: 5px;
-  border: none;
-  background-color: #e7e7e7;
+  background-color: #c7bebe;
+} 
 }
 
-.fa-search {
-  font-size: 30px;
-  left: 5.5px;
-  top: 5.5px;
-  border-radius: 0px;
+@media (min-width: 576px) {
 }
-
-#main {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.recette {
-  display: block;
-  width: 30%;
-  margin: 19px;
-}
-
-.hiddenRecipe {
+/* .hiddenRecipe {
   display: none;
 }
 
-.recetteImg {
-  height: 178px;
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px 5px 0px 0px;
-  background-color: #c7bebe;
-}
-
-.legendeRecette {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 50%;
-  flex-wrap: nowrap;
-  background-color: #e7e7e7;
-  border-radius: 5px 5px 0px 0px;
-  margin-bottom: 20px;
-  padding: 10px;
-}
-
-.listeIngredientsTemps {
-  display: flex;
-}
-
-.recetteAndTime {
-  width: 66%;
-  display: flex;
-  flex-direction: column;
-}
 #titreListe {
   width: 100%;
 }
 
-.titre {
-  font-family: Lato;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: left;
-}
-
-#ingredients,
-#appareils,
-#ustensiles {
-  font-size: 12px;
-  display: flex;
-  flex-direction: column;
-  margin-top: -30px;
-  list-style: none;
-  padding: 3px;
-  padding-right: 12px;
-}
 .gras {
   font-weight: 900;
 }
@@ -150,28 +393,6 @@ header {
   list-style: none;
   padding: 0px;
   z-index: inherit;
-}
-
-.description {
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 12px;
-  letter-spacing: 0em;
-  text-align: left;
-  width: 100%;
-}
-
-.temps {
-  font-family: Lato;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: left;
-  margin-top: -3px;
 }
 
 .recetteDescription {
@@ -191,100 +412,7 @@ header {
 
 .titre {
   margin-top: 0px;
-}
-
-.tempsRecette {
-  width: 20%;
-  margin-top: -55px;
-  margin-left: 170px;
-}
-
-.fa-clock {
-  margin-right: 8px;
-}
-
-.clock {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 18px;
-  margin-left: 75px;
-}
-
-#choixTriAppareils {
-  background-color: #68d9a4;
-}
-
-#choixTriUstensiles {
-  background-color: #ed6454;
-}
-
-#inputUstensiles,
-#inputIngredients,
-#inputAppareils {
-  background-color: inherit;
-  border: none;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: center;
-}
-
-#inputUstensiles::placeholder,
-#inputIngredients::placeholder,
-#inputAppareils::placeholder {
-  color: #fff;
-}
-
-#inputUstensiles:focus,
-#inputIngredients:focus,
-#inputAppareils:focus {
-  outline: none;
-}
-
-#choixTriIngredients {
-  background-color: #3282f7;
-}
-
-#ingredients,
-#ustensiles,
-#appareils {
-  height: 69px;
-  width: 300px;
-}
-
-#choixTriUstensiles,
-#choixTriAppareils,
-#choixTriIngredients {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  border: none;
-  margin: 10px;
-  color: #fff;
-  border-radius: 5px;
-}
-
-#triBtnIngredients {
-  background-color: #3282f7;
-  border: none;
-}
-
-#triBtnAppareil {
-  background-color: #68d9a4;
-  border: none;
-}
-
-#triBtnUstensiles {
-  background-color: #ed6454;
-  border: none;
-}
-
-#barreRecherche::placeholder {
-  border: none;
-  color: grey;
-  background-color: inherit;
+  width: 70%;
 }
 
 .hiddenchoice {
@@ -293,29 +421,6 @@ header {
 
 .filter {
   display: none;
-}
-
-#tri {
-  display: flex;
-  height: 10%;
-  width: 85%;
-  border-radius: 5px;
-  border: none;
-  font-family: Lato;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  letter-spacing: 0em;
-  padding: 15px;
-  margin-top: 40px;
-  padding-left: 0px;
-}
-
-#listeRecettes {
-  display: flex;
-  flex-wrap: wrap;
-  width: 85%;
 }
 
 input::-webkit-calendar-picker-indicator {
@@ -333,136 +438,10 @@ aside {
   width: 700px;
 }
 
-.listIngredients,
-.pIngredients {
-  background-color: #3282f7;
-}
-
-.listAppareils,
-.pAppliances {
-  background-color: #68d9a4;
-}
-
-.listUstensiles,
-.pUstensiles {
-  background-color: #ed6454;
-}
-#triAppareilsInput {
-  width: 375px;
-  display: flex;
-  flex-wrap: wrap;
-  z-index: 20;
-  background-color: #68d9a4;
-  color: #fff;
-}
-
-#triIngredientsInput {
-  width: 500px;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #3282f7;
-  color: #fff;
-  z-index: 20;
-}
-#triUstensilesInput {
-  width: 500px;
-  background-color: #ed6454;
-  display: flex;
-  flex-wrap: wrap;
-  color: #fff;
-  z-index: 20;
-}
-
-.listIng,
-.listApp,
-.listUst,
-#appareilsResult,
-#ingredientsResult,
-#ustensilesResult {
-  font-family: Lato;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: left;
-  cursor: pointer;
-  width: 30%;
-  list-style: none;
-}
-
-#appareilsResul,
-#ingredientsResult,
-#ustensilesResultt {
-  display: flex;
-  width: 100%;
-  font-family: Lato;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: left;
-  cursor: pointer;
-  list-style: none;
-  margin-top: 30px;
-  align-self: flex-start;
-  margin-left: 70px;
-}
-
-.spanAppliances,
-.spanIngredients,
-.spanUstensiles {
-  display: flex;
-  background-color: #68d9a4;
-  height: 37px;
-  border-radius: 5px;
-  color: #fff;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  margin-right: 20px;
-}
-
-.spanIngredients {
-  background-color: #3282f7;
-}
-
-.spanUstensiles {
-  background-color: #ed6454;
-}
-
-.close,
-.pAppliance,
-.pIngredients,
-.pUstensiles {
-  display: flex;
-  height: 20px;
-  width: 20px;
-  margin-left: 2px;
-  margin-top: 2px;
-  padding-left: 20px;
-  border-radius: 0px;
-}
-
 .pAppliance,
 .pIngredients,
 .pUstensiles {
   width: 100%;
 }
 
-#noResults {
-  display: none;
-  z-index: 100;
-  font-family: Lato;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: center;
-  color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #c7bebe;
-}
+

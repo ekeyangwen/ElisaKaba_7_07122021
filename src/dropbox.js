@@ -21,15 +21,14 @@ const addEventKeyupAppliance = () => {
   let inputApp = document.querySelector("#inputAppareils");
   inputApp.addEventListener("keyup", function (event) {
     value = event.target.value;
-
-    let listeAppareil = document.querySelectorAll(".listeApp");
-
+    let listeAppareil = document.querySelectorAll(".listApp");
+    console.log(listeAppareil);
     listeAppareil.forEach((appareil) => {
-      if (appareil.innerHTML.toLowerCase().includes(eventValue.toLowerCase())) {
+      console.log(appareil.innerHTML.toLowerCase());
+      if (appareil.innerHTML.toLowerCase().includes(value.toLowerCase())) {
         appareil.style.display = "block";
       } else {
         appareil.style.display = "none";
-        noresults();
       }
     });
   });

@@ -15,7 +15,14 @@ class recipe {
     <section class="recette"> 
      <div class="recetteImg"></div>
       <div class="legendeRecette">
-     <h1 class="titre">${this.name}</h1>
+       <section class="tempsRecette">
+        <h1 class="titre">${this.name}</h1>
+        <div class="clock">
+         <img src="./img/cadran.png" alt="Cadran d'horloge">
+         <div class="temps">${this.time}</div>
+        </div>        
+      </section>
+    
      <section class= "listeIngredientsTemps">
      <ul class="ingredients">${this.ingredients
        .map((ingredient) => {
@@ -27,14 +34,7 @@ class recipe {
          return `<li class="ingredientsTab"><span class="gras">${ingredientContent}</span> ${quantityContent}${unitContent}</li>`;
        })
        .join("")}</ul>
-     <section class="recetteAndTime">  
-      <section class="tempsRecette">
-        <div class="clock">
-            <i class="far fa-clock"></i>
-         <div class="temps">${this.time}</div>
-        </div>        
-      </section>
-      <section class= "recetteDescription">    
+           <section class= "recetteDescription">    
         <div class="description">${this.description}</div>
       </section>
       </section

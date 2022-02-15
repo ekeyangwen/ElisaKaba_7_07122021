@@ -45,10 +45,17 @@ const generateFiltersForAppliances = (recipes) => {
   inputApp.addEventListener("keyup", afficherInputAppareils);
 
   function afficherInputAppareils(e) {
+    let listAppareils = document.querySelector("#listAppareils");
+    if (listAppareils.getAttribute("value") == "true") {
+      listAppareils.setAttribute("value", "false");
+      triAppliance.style.display = "none";
+    } else {
+      triAppliance.style.display = "flex";
+    }
+
     e.preventDefault();
     triAppliance.innerHTML = "";
     if (triAppliance.innerHTML == "") {
-      triAppliance.style.display = "flex";
       for (elem of filteredAppliances) {
         listApp = document.createElement("li");
         listApp.classList.add("listApp");

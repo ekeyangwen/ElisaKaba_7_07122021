@@ -9,7 +9,8 @@ function afficherRechercherRecettes(recipes) {
     value = input.value.toLowerCase();
     if (value.length >= 3) {
       recherche(value);
-    } else if (value.length == 0) {
+    } else {
+      results = recipes;
       noResult();
       displayRecette(recipes);
       generateFiltersForAppliances(recipes);
@@ -39,12 +40,11 @@ function afficherRechercherRecettes(recipes) {
 
   function noResult() {
     let noResults = document.querySelector("#noResults");
-    console.log("resultsOK");
-    console.log(value.length);
-    if (results.length == 0 && value.length >= 3) {
+    console.log(results.length);
+    if (results.length == 0) {
       console.log("results===none");
       noResults.style.display = "block";
-    } else if (value.length == 0) {
+    } else {
       console.log("results=recipes");
       noResults.style.display = "none";
     }
