@@ -18,13 +18,13 @@ let content;
 const triIngredients = document.getElementById("triIngredientsInput");
 const triAppliance = document.getElementById("triAppareilsInput");
 const triUstensiles = document.getElementById("triUstensilesInput");
-let newTabIngredients = [];
+let listIngredient = document.querySelector("#listIngredients");
 
 //variables pour rechercheTags
 
-let listeAppliance = document.querySelectorAll(".listeApp");
-let listeIngredients = document.querySelectorAll(".listeIng");
-let listeUstensiles = document.querySelectorAll(".listeUst");
+let listeAppliance = document.querySelectorAll(".listApp");
+let listeIngredients = document.querySelectorAll(".listIng");
+let listeUstensiles = document.querySelectorAll(".listUst");
 let tagsAppResults = [];
 let tagsUstResults = [];
 

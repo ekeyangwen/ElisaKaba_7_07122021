@@ -7,7 +7,9 @@ const addEventKeyupIngredients = () => {
 
     listIngredients.forEach((ingredient) => {
       if (
-        ingredient.innerHTML.toLowerCase().includes(eventValue.toLowerCase())
+        ingredient.ingredient.innerHTML
+          .toLowerCase()
+          .includes(value.toLowerCase())
       ) {
         ingredient.style.display = "block";
       } else {
@@ -39,13 +41,12 @@ const addEventKeyupUstensils = () => {
   inputUst.addEventListener("keyup", function (event) {
     value = event.target.value;
 
-    let listUstensiles = document.querySelectorAll(".listeUst");
-    listUstensiles.forEach((ustensil) => {
-      if (ustensil.innerHTML.toLowerCase().includes(eventValue.toLowerCase())) {
+    let listUst = document.querySelectorAll(".listUst");
+    listUst.forEach((ustensil) => {
+      if (ustensil.innerHTML.toLowerCase().includes(value.toLowerCase())) {
         ustensil.style.display = "block";
       } else {
         ustensil.style.display = "none";
-        noresults();
       }
     });
   });

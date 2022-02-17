@@ -225,8 +225,7 @@
     border-radius: 0px;
   }
   #triAppareilsInput {
-    display: flex;
-    flex-wrap: wrap;
+       flex-wrap: wrap;
     z-index: 20;
     background-color: #68d9a4;
     color: #fff;
@@ -235,20 +234,19 @@
 
   #triUstensilesInput {
     background-color: #ed6454;
-    display: flex;
     flex-wrap: wrap;
     color: #fff;
     z-index: 20;
     padding: 5px;
   }
-  #triIngredientsInput {
-    display: flex;
+  #triIngredientsInput {    
     flex-wrap: wrap;
     background-color: #3282f7;
     color: #fff;
     z-index: 20;
     padding: 5px;
   }
+
   .listIng,
   .listApp,
   .listUst,
