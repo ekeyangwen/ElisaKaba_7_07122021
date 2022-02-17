@@ -1,3 +1,22 @@
+let listeAppliance = document.querySelectorAll(".listApp");
+let listeIngredients = document.querySelectorAll(".listIng");
+let listeUstensiles = document.querySelectorAll(".listUst");
+let tagsAppResults = [];
+let tagsUstResults = [];
+let tagsIngResults = [];
+let ingredientMap = [];
+let appareilsResult;
+let pAppliance;
+let spanAppliances = document.querySelectorAll(".spanAppliances");
+let pAppliances = document.querySelectorAll(".pAppliances");
+
+let pIngredients = document.querySelectorAll(".pIngredients");
+let spanUstensiles = document.querySelectorAll(".spanUstensiles");
+let pUstensiles = document.querySelectorAll(".pUstensiles");
+let close = document.querySelectorAll(".close");
+let p;
+let eventValue = [];
+
 results = recipes.filter(
   (items) =>
     items.name.toLowerCase().includes(value) ||
@@ -34,8 +53,8 @@ const installEventAppliances = () => {
 };
 
 const installEventUstensils = () => {
-  listeUstensils = document.querySelectorAll(".listUst");
-  listeUstensils.forEach((ustensil) => {
+  listeUstensiles = document.querySelectorAll(".listUst");
+  listeUstensiles.forEach((ustensil) => {
     ustensil.addEventListener("click", function (e) {
       eventValue = e.target.innerHTML.toLowerCase();
       tagsUstResults = results.filter((recette) => {

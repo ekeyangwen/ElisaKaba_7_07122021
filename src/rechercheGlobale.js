@@ -1,4 +1,8 @@
 let results;
+let value;
+let rechercheValue;
+let input;
+let noResults;
 
 function afficherRechercherRecettes(recipes) {
   rechercheValue = document.getElementById("barreRecherche");
@@ -45,7 +49,7 @@ function afficherRechercherRecettes(recipes) {
       console.log("results===none");
       noResults.style.display = "block";
     } else {
-      console.log("results=recipes");
+      console.log("results===recipes");
       noResults.style.display = "none";
     }
   }

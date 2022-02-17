@@ -1,3 +1,6 @@
+let newRecette;
+let listeRecettes = "";
+
 // fonction pour créer les fiches recettes
 function displayRecette(recipes) {
   listeRecettes.innerHTML = "";

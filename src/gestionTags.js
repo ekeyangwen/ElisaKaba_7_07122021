@@ -79,7 +79,7 @@ const supprimerTagsAppliances = () => {
           return applianceMap.includes(tag.innerHTML);
         });
         results = tagsAppResults;
-        displayRecette(tagsAppResults);
+        displayRecette(results);
         generateFiltersForAppliances(results);
         generateFiltersForIngredients(results);
         generateFiltersForUstensils(results);
@@ -173,7 +173,7 @@ const supprimerTagsIngredients = () => {
           return ingredientMap.includes(tag.innerHTML);
         });
         results = tagsIngResults;
-        displayRecette(tagsIngResults);
+        displayRecette(results);
         generateFiltersForAppliances(results);
         generateFiltersForIngredients(results);
         generateFiltersForUstensils(results);
@@ -269,7 +269,7 @@ const supprimerTagsUstensiles = () => {
           return ustensilMap.includes(tag.innerHTML);
         });
         results = tagsUstResults;
-        displayRecette(tagsUstResults);
+        displayRecette(results);
         generateFiltersForAppliances(results);
         generateFiltersForIngredients(results);
         generateFiltersForUstensils(results);

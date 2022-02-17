@@ -1,3 +1,22 @@
+let ingredientsT = [];
+let applianceT = [];
+let ustensilsT = [];
+let BtnIngredient;
+let listIng;
+let BtnAppareils;
+let inputApp;
+let item;
+let recette;
+let elem;
+let BtnUstensiles = document.getElementById("triBtnUstensiles");
+let inputUst = document.querySelector("#inputUstensiles");
+let inputIng;
+let content;
+const triIngredients = document.getElementById("triIngredientsInput");
+const triAppliance = document.getElementById("triAppareilsInput");
+const triUstensiles = document.getElementById("triUstensilesInput");
+let listIngredient = document.querySelector("#listIngredients");
+
 const generateFiltersForIngredients = (recipes) => {
   ingredientsT = [];
   recipes.forEach((recette) => {
