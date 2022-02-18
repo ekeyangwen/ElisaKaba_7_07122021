@@ -1,4 +1,4 @@
-@media (min-width: 375px) {
+@media screen and (min-width: 375px) {
   body {
     max-width: 1440px;
     height: 100vh;
@@ -38,7 +38,6 @@
     margin-top: 30px;
   }
   #barreRecherche:focus {
-    color: black;
     font-weight: 700;
     border: none;
   }
@@ -69,9 +68,9 @@
     align-items: center;
   }
 
-  #appareilsResul,
+  #appareilsResult,
   #ingredientsResult,
-  #ustensilesResultt {
+  #ustensilesResult {
     display: flex;
     width: 100%;
     font-family: Lato;
@@ -86,10 +85,24 @@
     margin-top: 30px;
     align-self: flex-start;
   }
-
+  .listIng,
+  .listApp,
+  .listUst {
+    display: flex;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+    cursor: pointer;
+    list-style: none;
+    align-self: flex-start;
+  }
   #inputUstensiles,
   #inputIngredients,
   #inputAppareils {
+    font-family: Lato;
     background-color: inherit;
     border: none;
     font-size: 12px;
@@ -127,6 +140,14 @@
     width: 30%;
     text-align: center;
     padding: 5px;
+  }
+
+  .listIng,
+  .listApp,
+  .listUst {
+    list-style: none;
+    margin: 3px;
+    width: 60px;
   }
   #choixTriUstensiles,
   #choixTriAppareils,
@@ -166,6 +187,8 @@
   #inputIngredients::placeholder,
   #inputAppareils::placeholder {
     color: #fff;
+    font-family: Lato;
+    font-size: 12px;
   }
   #inputUstensiles:focus,
   #inputIngredients:focus,
@@ -175,7 +198,8 @@
   #listIngredients,
   #listAppareils,
   #listUstensiles {
-    width: 100%;
+    height: 20px;
+    z-index: 20;
   }
   .listIngredients,
   .pIngredients {
@@ -197,6 +221,7 @@
   .spanUstensiles {
     display: flex;
     text-align: center;
+    width: 100%;
     background-color: #68d9a4;
     border-radius: 5px;
     color: #fff;
@@ -214,22 +239,23 @@
     background-color: #ed6454;
   }
   .close,
-  .pAppliance,
+  .pAppliances,
   .pIngredients,
   .pUstensiles {
     display: flex;
-    width: 20px;
     margin-left: 2px;
     margin-top: 2px;
     padding-left: 20px;
     border-radius: 0px;
   }
   #triAppareilsInput {
-       flex-wrap: wrap;
+    flex-wrap: wrap;
     z-index: 20;
     background-color: #68d9a4;
     color: #fff;
-    padding: 5px;
+    padding: 0px;
+    width: 201%;
+    border-radius: 0px 5px 5px 5px;
   }
 
   #triUstensilesInput {
@@ -237,32 +263,26 @@
     flex-wrap: wrap;
     color: #fff;
     z-index: 20;
-    padding: 5px;
+    padding: 0px;
+    width: 104%;
+    border-radius: 0px 5px 5px 5px;
   }
-  #triIngredientsInput {    
+  #triIngredientsInput {
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     background-color: #3282f7;
     color: #fff;
     z-index: 20;
-    padding: 5px;
+    padding: 0px;
+    width: 326%;
+    max-height: 700px;
+    border-radius: 0px 5px 5px 5px;
+  }
+  .gras {
+    font-weight: 900;
   }
 
-  .listIng,
-  .listApp,
-  .listUst,
-  #appareilsResult,
-  #ingredientsResult,
-  #ustensilesResult {
-    font-family: Lato;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: 0em;
-    text-align: left;
-    cursor: pointer;
-    list-style: none;
-    margin: 5px;
-  }
   #listeRecettes {
     display: flex;
     flex-wrap: wrap;
@@ -288,10 +308,10 @@
     display: flex;
   }
   .ingredients {
+    font-family: Roboto;
     font-size: 12px;
     padding: 17px;
     margin: 0;
-    width: 136%;
   }
   .recetteAndTime {
     width: 55%;
@@ -310,7 +330,7 @@
   }
 
   .clock {
-    width: 15%;
+    width: 10%;
     display: flex;
     justify-content: space-between;
   }
@@ -330,7 +350,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 12px;
-    letter-spacing: 0em;
+    line-height: 20px;
     text-align: left;
     width: 100%;
   }
@@ -345,101 +365,151 @@
     flex-direction: column;
     flex-wrap: nowrap;
     background-color: #e7e7e7;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 0px 0px 5px 5px;
     padding: 10px;
   }
   #noResults {
-  display: none;
-  z-index: 100;
-  font-family: Lato;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: center;
-  color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #c7bebe;
-} 
+    display: none;
+    z-index: 100;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #c7bebe;
+  }
 }
 
-@media (min-width: 576px) {
-}
-/* .hiddenRecipe {
-  display: none;
-}
+@media screen and (min-width: 576px) {
+  #triAppareilsInput {
+    width: 200%;
+  }
+  #barreRecherche {
+    font-size: 15px;
+  }
 
-#titreListe {
-  width: 100%;
-}
+  #triUstensilesInput {
+    width: 119%;
+  }
+  #triIngredientsInput {
+    max-height: 950px;
+    flex-direction: column;
+  }
+  #inputUstensiles,
+  #inputIngredients,
+  #inputAppareils {
+    font-size: 15px;
+  }
+  #appareilsResult,
+  #ingredientsResult,
+  #ustensilesResult {
+    font-size: 14px;
+  }
+  .listIng,
+  .listApp,
+  .listUst {
+    font-size: 14px;
+    margin: 4px;
+  }
+  #inputUstensiles::placeholder,
+  #inputIngredients::placeholder,
+  #inputAppareils::placeholder {
+    font-size: 15px;
+  }
 
-.gras {
-  font-weight: 900;
-}
-
-#listeIngredients {
-  margin: 0px;
-  font-family: Lato;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 14px;
-  letter-spacing: 0em;
-  text-align: left;
-  list-style: none;
-  padding: 0px;
-  z-index: inherit;
-}
-
-.recetteDescription {
-  display: flex;
-  width: 85%;
-  justify-content: center;
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 12px;
-  letter-spacing: 0em;
-  text-align: left;
-  margin-top: 10px;
-  padding-left: 12px;
-}
-
-.titre {
-  margin-top: 0px;
-  width: 70%;
+  .titre,
+  .temps,
+  .ingredients,
+  .description {
+    font-size: 15px;
+  }
 }
 
-.hiddenchoice {
-  display: none;
+@media screen and (min-width: 768px) {
+  #barreRecherche {
+    font-size: 15px;
+  }
+  #appareilsResult,
+  #ingredientsResult,
+  #ustensilesResult {
+    font-size: 15px;
+  }
+
+  .listIng,
+  .listApp,
+  .listUst {
+    font-size: 15px;
+    margin: 7px;
+  }
+  #inputUstensiles,
+  #inputIngredients,
+  #inputAppareils {
+    font-size: 15px;
+  }
+  #inputUstensiles::placeholder,
+  #inputIngredients::placeholder,
+  #inputAppareils::placeholder {
+    font-size: 15px;
+  }
 }
 
-.filter {
-  display: none;
+@media (min-width: 992px) {
+  .description {
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+  }
+  .recette {
+    margin: 10px;
+    width: 45%;
+    height: 350px;
+    margin: 24px;
+  }
+  .recetteImg {
+    height: 30%;
+  }
+  .legendeRecette {
+    height: 70%;
+  }
+  .listeIngredientsTemps {
+    display: flex;
+    max-width: 400px;
+    justify-content: center;
+  }
 }
 
-input::-webkit-calendar-picker-indicator {
-  display: none;
-  background-color: inherit;
-  opacity: 0;
+@media (min-width: 1200px) {
+  .recette {
+    width: 29%;
+  }
+  .temps {
+    margin-left: 5px;
+  }
+
+  #inputUstensiles,
+  #inputIngredients,
+  #inputAppareils {
+    font-size: 12px;
+  }
+  #inputUstensiles::placeholder,
+  #inputIngredients::placeholder,
+  #inputAppareils::placeholder {
+    font-size: 12px;
+  }
+
+  .titre,
+  .temps,
+  .ingredients,
+  .description {
+    font-size: 12px;
+  }
 }
 
-.triInput {
-  list-style: none;
+@media (min-width: 1400px) {
 }
-
-aside {
-  z-index: 30;
-  width: 700px;
-}
-
-.pAppliance,
-.pIngredients,
-.pUstensiles {
-  width: 100%;
-}
-
-

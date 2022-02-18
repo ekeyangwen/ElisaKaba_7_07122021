@@ -34,9 +34,8 @@ class recipe {
          return `<li class="ingredientsTab"><span class="gras">${ingredientContent}</span> ${quantityContent}${unitContent}</li>`;
        })
        .join("")}</ul>
-           <section class= "recetteDescription">    
-        <div class="description">${this.description}</div>
-      </section>
+          
+        <p class="description">${this.description}</p>
       </section
     </section>
         `;

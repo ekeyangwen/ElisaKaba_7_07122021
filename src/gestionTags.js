@@ -79,7 +79,7 @@ const supprimerTagsAppliances = () => {
           return applianceMap.includes(tag.innerHTML);
         });
         results = tagsAppResults;
-        displayRecette(results);
+        displayRecette(tagsAppResults);
         generateFiltersForAppliances(results);
         generateFiltersForIngredients(results);
         generateFiltersForUstensils(results);
