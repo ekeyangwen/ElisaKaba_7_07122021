@@ -1,3 +1,5 @@
+noResults = document.querySelector("#noResults");
+
 const addEventKeyupIngredients = () => {
   let inputIng = document.querySelector("#inputIngredients");
   inputIng.addEventListener("keyup", function (event) {
@@ -6,13 +8,10 @@ const addEventKeyupIngredients = () => {
     let listeIngredients = document.querySelectorAll(".listIng");
     console.log(listeIngredients);
     listeIngredients.forEach((ingredient) => {
-      if (!ingredient.innerHTML.toLowerCase().includes(value.toLowerCase())) {
-        ingredient.style.display = "none";
-        noTagsResult();
-      } else {
+      if (ingredient.innerHTML.toLowerCase().includes(value.toLowerCase())) {
         ingredient.style.display = "block";
-        noResults.style.display = "none";
-        listeRecettes.style.display = "block";
+      } else {
+        ingredient.style.display = "none";
       }
     });
   });
@@ -22,16 +21,14 @@ const addEventKeyupAppliance = () => {
   inputApp.addEventListener("keyup", function (event) {
     value = event.target.value;
     let listeAppareil = document.querySelectorAll(".listApp");
-    console.log(listeAppareil);
     listeAppareil.forEach((appareil) => {
-      console.log(appareil.innerHTML.toLowerCase());
-      if (!appareil.innerHTML.toLowerCase().includes(value.toLowerCase())) {
-        appareil.style.display = "none";
-        noTagsResult();
-      } else {
+      console.log(
+        appareil.innerHTML.toLowerCase().includes(value.toLowerCase())
+      );
+      if (appareil.innerHTML.toLowerCase().includes(value.toLowerCase())) {
         appareil.style.display = "block";
-        noResults.style.display = "none";
-        listeRecettes.style.display = "block";
+      } else {
+        appareil.style.display = "none";
       }
     });
   });
@@ -44,13 +41,10 @@ const addEventKeyupUstensils = () => {
 
     let listUst = document.querySelectorAll(".listUst");
     listUst.forEach((ustensil) => {
-      if (!ustensil.innerHTML.toLowerCase().includes(value.toLowerCase())) {
-        ustensil.style.display = "none";
-        noTagsResult();
-      } else {
+      if (ustensil.innerHTML.toLowerCase().includes(value.toLowerCase())) {
         ustensil.style.display = "block";
-        noResults.style.display = "none";
-        listeRecettes.style.display = "block";
+      } else {
+        ustensil.style.display = "none";
       }
     });
   });

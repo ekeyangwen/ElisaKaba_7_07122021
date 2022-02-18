@@ -134,7 +134,6 @@ const generateFiltersForUstensils = (recipes) => {
   BtnUstensiles.addEventListener("click", afficherInputUstensils);
   inputUst.addEventListener("click", afficherKeyupUstensils);
   BtnUstensiles.addEventListener("click", afficherKeyupUstensils);
-  inputUst.addEventListener("keyup", afficherKeyupUstensils);
 
   function afficherKeyupUstensils(e) {
     e.preventDefault();
