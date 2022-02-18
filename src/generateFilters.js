@@ -29,26 +29,9 @@ const generateFiltersForIngredients = (recipes) => {
   const filteredIngredients = new Set(ingredientsT);
 
   inputIng = document.querySelector("#inputIngredients");
-  BtnIngredients = document.getElementById("triBtnIngredients");
-  BtnIngredients.addEventListener("click", afficherInputIngredients);
+  BtnIngredient = document.getElementById("triBtnIngredients");
+  BtnIngredient.addEventListener("click", afficherInputIngredients);
   inputIng.addEventListener("click", afficherInputIngredients);
-  BtnIngredients.addEventListener("click", afficherKeyupIngredients);
-  inputIng.addEventListener("click", afficherKeyupIngredients);
-
-  function afficherKeyupIngredients(e) {
-    e.preventDefault();
-    let listIngredient = document.querySelector("#listIngredients");
-    if (listIngredient.getAttribute("value") == "false") {
-      triIngredients.style.display = "flex";
-      afficherInputIngredients(results);
-      console.log("display===flex");
-      listIngredient.setAttribute("value", "true");
-    } else {
-      triIngredients.style.display = "none";
-      console.log("display===none");
-      listIngredient.setAttribute("value", "false");
-    }
-  }
 
   function afficherInputIngredients() {
     triIngredients.innerHTML = "";
@@ -61,6 +44,34 @@ const generateFiltersForIngredients = (recipes) => {
       }
     }
     installEventIngredients();
+  }
+};
+
+const afficherKeyupIngredients = () => {
+  inputIng = document.querySelector("#inputIngredients");
+  BtnIngredient = document.getElementById("triBtnIngredients");
+  BtnIngredient.addEventListener(
+    "click",
+    afficherKeyupIngredientsWithPreventDefault
+  );
+  inputIng.addEventListener(
+    "click",
+    afficherKeyupIngredientsWithPreventDefault
+  );
+  function afficherKeyupIngredientsWithPreventDefault(e) {
+    e.preventDefault();
+
+    let listIngredient = document.querySelector("#listIngredients");
+    if (listIngredient.getAttribute("value") == "false") {
+      triIngredients.style.display = "flex";
+
+      console.log("display===flex");
+      listIngredient.setAttribute("value", "true");
+    } else {
+      triIngredients.style.display = "none";
+      console.log("display===none");
+      listIngredient.setAttribute("value", "false");
+    }
   }
 };
 
@@ -83,7 +94,7 @@ const generateFiltersForAppliances = (recipes) => {
     let listAppareils = document.querySelector("#listAppareils");
     if (listAppareils.getAttribute("value") == "false") {
       triAppliance.style.display = "flex";
-      afficherInputAppareils(results);
+      afficherInputAppareils();
       listAppareils.setAttribute("value", "true");
       console.log("display===flex");
     } else {

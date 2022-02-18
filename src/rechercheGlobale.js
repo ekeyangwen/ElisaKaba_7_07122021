@@ -41,16 +41,16 @@ function afficherRechercherRecettes(recipes) {
     generateFiltersForUstensils(results);
     noResult();
   }
+}
 
-  function noResult() {
-    let noResults = document.querySelector("#noResults");
-    console.log(results.length);
-    if (results.length == 0) {
-      console.log("results===none");
-      noResults.style.display = "block";
-    } else {
-      console.log("results===recipes");
-      noResults.style.display = "none";
-    }
+function noResult() {
+  let noResults = document.querySelector("#noResults");
+  console.log(results.length);
+  if (results.length == 0) {
+    console.log("results===none");
+    noResults.style.display = "block";
+  } else {
+    console.log("results===recipes");
+    noResults.style.display = "none";
   }
 }
