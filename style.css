@@ -174,16 +174,19 @@
   #triBtnIngredients {
     background-color: #3282f7;
     border: none;
+    cursor: pointer;
   }
 
   #triBtnAppareil {
     background-color: #68d9a4;
     border: none;
+    cursor: pointer;
   }
 
   #triBtnUstensiles {
     background-color: #ed6454;
     border: none;
+    cursor: pointer;
   }
   #inputUstensiles::placeholder,
   #inputIngredients::placeholder,
@@ -467,8 +470,9 @@
   .description {
     overflow: hidden;
     white-space: nowrap;
-    word-wrap: break-word;
     text-overflow: ellipsis;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
   }
   .recette {
     margin: 10px;

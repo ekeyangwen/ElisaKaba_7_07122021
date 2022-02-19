@@ -16,7 +16,8 @@ async function init() {
   displayRecette(recipes);
   afficherRechercherRecettes(recipes);
   afficherKeyupIngredients();
-
+  afficherKeyupAppareils();
+  afficherKeyupUstensils();
   generateFiltersForIngredients(recipes);
   generateFiltersForAppliances(recipes);
   generateFiltersForUstensils(recipes);

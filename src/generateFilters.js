@@ -16,6 +16,7 @@ const triIngredients = document.getElementById("triIngredientsInput");
 const triAppliance = document.getElementById("triAppareilsInput");
 const triUstensiles = document.getElementById("triUstensilesInput");
 let listIngredient = document.querySelector("#listIngredients");
+let listAppareils = document.querySelector("#listAppareils");
 
 const generateFiltersForIngredients = (recipes) => {
   ingredientsT = [];
@@ -63,13 +64,13 @@ const afficherKeyupIngredients = () => {
 
     let listIngredient = document.querySelector("#listIngredients");
     if (listIngredient.getAttribute("value") == "false") {
-      triIngredients.style.display = "flex";
+      triIngredients.style.display = "none";
 
-      console.log("display===flex");
+      console.log("display===none");
       listIngredient.setAttribute("value", "true");
     } else {
-      triIngredients.style.display = "none";
-      console.log("display===none");
+      triIngredients.style.display = "flex";
+      console.log("display===flex");
       listIngredient.setAttribute("value", "false");
     }
   }
@@ -86,23 +87,7 @@ const generateFiltersForAppliances = (recipes) => {
   inputApp = document.querySelector("#inputAppareils");
   BtnAppareils = document.getElementById("triBtnAppareil");
   BtnAppareils.addEventListener("click", afficherInputAppareils);
-  inputApp.addEventListener("click", afficherKeyupAppareils);
-  BtnAppareils.addEventListener("click", afficherKeyupAppareils);
-
-  function afficherKeyupAppareils(e) {
-    e.preventDefault();
-    let listAppareils = document.querySelector("#listAppareils");
-    if (listAppareils.getAttribute("value") == "false") {
-      triAppliance.style.display = "flex";
-      afficherInputAppareils();
-      listAppareils.setAttribute("value", "true");
-      console.log("display===flex");
-    } else {
-      triAppliance.style.display = "none";
-      listAppareils.setAttribute("value", "false");
-      console.log("display===none");
-    }
-  }
+  inputApp.addEventListener("click", afficherInputAppareils);
   function afficherInputAppareils() {
     triAppliance.innerHTML = "";
     if (triAppliance.innerHTML == "") {
@@ -115,6 +100,30 @@ const generateFiltersForAppliances = (recipes) => {
     }
 
     installEventAppliances();
+  }
+};
+const afficherKeyupAppareils = () => {
+  inputApp = document.querySelector("#inputAppareils");
+  BtnAppareils = document.getElementById("triBtnAppareil");
+  inputApp.addEventListener("click", afficherKeyupAppareilsWithPreventDefault);
+  BtnAppareils.addEventListener(
+    "click",
+    afficherKeyupAppareilsWithPreventDefault
+  );
+
+  function afficherKeyupAppareilsWithPreventDefault(e) {
+    e.preventDefault();
+    let listAppareils = document.querySelector("#listAppareils");
+    if (listAppareils.getAttribute("value") == "false") {
+      triAppliance.style.display = "flex";
+      console.log("display===flex");
+      listAppareils.setAttribute("value", "true");
+    } else {
+      triAppliance.style.display = "none";
+      console.log("display===none");
+      console.log(listIngredient);
+      listAppareils.setAttribute("value", "false");
+    }
   }
 };
 
@@ -132,24 +141,10 @@ const generateFiltersForUstensils = (recipes) => {
   inputUst = document.querySelector("#inputUstensiles");
   BtnUstensiles = document.getElementById("triBtnUstensiles");
   BtnUstensiles.addEventListener("click", afficherInputUstensils);
-  inputUst.addEventListener("click", afficherKeyupUstensils);
-  BtnUstensiles.addEventListener("click", afficherKeyupUstensils);
+  inputUst.addEventListener("click", afficherInputUstensils);
 
-  function afficherKeyupUstensils(e) {
+  function afficherInputUstensils(e) {
     e.preventDefault();
-    let listUstensiles = document.querySelector("#listUstensiles");
-    if (listUstensiles.getAttribute("value") == "false") {
-      triUstensiles.style.display = "flex";
-      afficherInputUstensils(results);
-      listUstensiles.setAttribute("value", "true");
-      console.log("display===flex");
-    } else {
-      triUstensiles.style.display = "none";
-      listUstensiles.setAttribute("value", "false");
-      console.log("display===none");
-    }
-  }
-  function afficherInputUstensils() {
     triUstensiles.innerHTML = "";
     if (triUstensiles.innerHTML == "") {
       for (elem of filteredUstensils) {
@@ -161,5 +156,26 @@ const generateFiltersForUstensils = (recipes) => {
     }
 
     installEventUstensils();
+  }
+};
+const afficherKeyupUstensils = () => {
+  inputUst.addEventListener("click", afficherKeyupUstensilesWithPreventDefault);
+  BtnUstensiles.addEventListener(
+    "click",
+    afficherKeyupUstensilesWithPreventDefault
+  );
+
+  function afficherKeyupUstensilesWithPreventDefault(e) {
+    e.preventDefault();
+    let listUstensiles = document.querySelector("#listUstensiles");
+    if (listUstensiles.getAttribute("value") == "false") {
+      triUstensiles.style.display = "flex";
+      listUstensiles.setAttribute("value", "true");
+      console.log("display===flex");
+    } else {
+      triUstensiles.style.display = "none";
+      listUstensiles.setAttribute("value", "false");
+      console.log("display===none");
+    }
   }
 };
