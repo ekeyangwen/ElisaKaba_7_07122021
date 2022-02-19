@@ -31,6 +31,7 @@
           type="search"
           name="recherche"
           placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
+          autocomplete="off"
         />
 
         <button id="loupeBtn">
@@ -42,6 +43,11 @@
       </section>
     </header>
     <section id="main">
+      <section id="result">
+        <div id="appareilsResult"></div>
+        <div id="ingredientsResult"></div>
+        <div id="ustensilesResult"></div>
+      </section>
       <section id="tri">
         <div id="ingredients">
           <div id="choixTriIngredients">
@@ -49,7 +55,7 @@
               <input
                 name="triIngredients"
                 id="inputIngredients"
-                type="search"
+                type="text"
                 placeholder="Ingrédients"
                 autocomplete="off"
               />
@@ -61,7 +67,7 @@
                 />
               </button>
             </form>
-            <aside id="listIngredients">
+            <aside id="listIngredients" value="false">
               <ul id="triIngredientsInput"></ul>
             </aside>
           </div>
@@ -72,7 +78,7 @@
               <input
                 name="triAppareils"
                 id="inputAppareils"
-                type="search"
+                type="text"
                 placeholder="Appareil"
                 autocomplete="off"
               />
@@ -84,7 +90,7 @@
                 />
               </button>
             </form>
-            <aside id="listAppareils">
+            <aside id="listAppareils" value="false">
               <ul id="triAppareilsInput"></ul>
             </aside>
           </div>
@@ -95,7 +101,7 @@
               <input
                 name="triUstensiles"
                 id="inputUstensiles"
-                type="search"
+                type="text"
                 placeholder="Ustensiles"
                 autocomplete="off"
               />
@@ -107,20 +113,22 @@
                 />
               </button>
             </form>
-            <aside id="listUstensiles">
+            <aside id="listUstensiles" value="false">
               <ul id="triUstensilesInput"></ul>
             </aside>
           </div>
         </div>
       </section>
       <section id="listeRecettes"></section>
+      <div id="noResults">Nous n'avons trouvé aucun résultat</div>
     </section>
-    <script type="module" src="./src/Recipes.js"></script>
-    <script type="module" src="./src/recettes.js"></script>
-    <script type="module" src="./src/index.js"></script>
-    <script type="module" src="./src/rechercheGlobale.js"></script>
-    <script type="module" src="./src/generateFilters.js"></script>
-    <script type="module" src="./src/tags.js"></script>
-    <!-- <script type="module" src="./src/rechercheTags.js"></script> -->
+    <script src="./src/data.js"></script>
+    <script src="./src/Recettes.js"></script>
+    <script src="./src/rechercheGlobale.js"></script>
+    <script src="./src/generateFilters.js"></script>
+    <script src="./src/rechercheTags.js"></script>
+    <script src="./src/gestionTags.js"></script>
+    <script src="./src/dropbox.js"></script>
+    <script src="./src/index.js"></script>
   </body>
 </html>

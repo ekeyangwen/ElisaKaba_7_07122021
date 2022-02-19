@@ -1,19 +1,32 @@
-import { recipe } from "./recettes.js";
-import { recipes } from "./Recipes.js";
+let newRecette;
+let listeRecettes = "";
 
 // fonction pour créer les fiches recettes
-export function displayRecette(recipes) {
+function displayRecette(recipes) {
   listeRecettes.innerHTML = "";
-  for (let recette of recipes) {
-    let newRecette = new recipe(recette);
-    let listeRecettes = document.getElementById("listeRecettes");
+  recipes.forEach((recette) => {
+    newRecette = new recipe(recette);
+    listeRecettes = document.getElementById("listeRecettes");
     listeRecettes.innerHTML += newRecette.createRecipe();
-  }
+  });
 }
 
 // fonction globale d'intialisation de toutes les fonctions
 async function init() {
   displayRecette(recipes);
+  afficherRechercherRecettes(recipes);
+  afficherKeyupIngredients();
+  afficherKeyupAppareils();
+  afficherKeyupUstensils();
+  generateFiltersForIngredients(recipes);
+  generateFiltersForAppliances(recipes);
+  generateFiltersForUstensils(recipes);
+  installEventAppliances();
+  installEventUstensils();
+  installEventIngredients();
+  addEventKeyupUstensils();
+  addEventKeyupAppliance();
+  addEventKeyupIngredients();
 }
 
 init();

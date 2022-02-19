@@ -1,8 +1,8 @@
-import { recipes } from "./Recipes.js";
-import { displayRecette } from "./index.js";
-
-let value;
 let results = [];
+let value;
+let rechercheValue;
+let input;
+let noResults;
 
 const afficherRechercherRecettes = (recipes) => {
   let rechercheValue = document.getElementById("barreRecherche");
@@ -13,6 +13,13 @@ const afficherRechercherRecettes = (recipes) => {
     value = input.value.toLowerCase();
     if (value.length >= 3) {
       recherche(value);
+    } else {
+      results = recipes;
+      noResult();
+      displayRecette(recipes);
+      generateFiltersForAppliances(recipes);
+      generateFiltersForIngredients(recipes);
+      generateFiltersForUstensils(recipes);
     }
   }
 };
@@ -40,11 +47,21 @@ function recherche(value) {
 
   console.log(results);
   displayRecette(results);
+  displayRecette(results);
+  generateFiltersForAppliances(results);
+  generateFiltersForIngredients(results);
+  generateFiltersForUstensils(results);
+  noResult();
 }
 
-// fonction globale d'intialisation de toutes les fonctions
-async function init() {
-  afficherRechercherRecettes(recipes);
+function noResult() {
+  let noResults = document.querySelector("#noResults");
+  console.log(results.length);
+  if (results.length == 0) {
+    console.log("results===none");
+    noResults.style.display = "block";
+  } else {
+    console.log("results===recipes");
+    noResults.style.display = "none";
+  }
 }
-
-init();
