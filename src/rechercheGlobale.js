@@ -1,4 +1,4 @@
-let results = [];
+let results;
 let value;
 let rechercheValue;
 let input;
@@ -43,15 +43,13 @@ function recherche(value) {
     ) {
       results.push(recipes[i]);
     }
+    console.log(results);
+    displayRecette(results);
+    generateFiltersForAppliances(results);
+    generateFiltersForIngredients(results);
+    generateFiltersForUstensils(results);
+    noResult();
   }
-
-  console.log(results);
-  displayRecette(results);
-  displayRecette(results);
-  generateFiltersForAppliances(results);
-  generateFiltersForIngredients(results);
-  generateFiltersForUstensils(results);
-  noResult();
 }
 
 function noResult() {
