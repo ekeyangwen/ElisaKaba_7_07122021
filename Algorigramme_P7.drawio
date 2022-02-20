@@ -1,0 +1,107 @@
+<mxfile host="65bd71144e">
+    <diagram id="m8Vcmy-GyVS4bj_dM7SO" name="Page-1">
+        <mxGraphModel dx="576" dy="470" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-1" value="&lt;font color=&quot;#000000&quot; style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;DEBUT&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="10" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-2" value="&lt;font color=&quot;#000000&quot;&gt;Saisie de + de 3 lettres dans l'input de la barre de recherche&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFF99;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="160" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-3" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#000000;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="359.5" y="80" as="sourcePoint"/>
+                        <mxPoint x="359.5" y="140" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-5" value="&lt;font style=&quot;font-size: 12px&quot; color=&quot;#000000&quot;&gt;&lt;b&gt;L'algorithme vérifie si la valeur entrée dans l'input de la barre de recherche&amp;nbsp;&lt;/b&gt;&lt;b&gt;est inclue dans&amp;nbsp;&lt;/b&gt;&lt;b&gt;les ingredients de la recette&lt;/b&gt;&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FF9999;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="340" width="220" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-23" value="&lt;span style=&quot;&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 12px&quot; color=&quot;#000000&quot;&gt;OU&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;arcSize=42;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="360" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-24" value="&lt;span style=&quot;&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 12px&quot; color=&quot;#000000&quot;&gt;OU&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="360" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-25" value="" style="endArrow=none;html=1;rounded=0;fontSize=9;strokeColor=#000000;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1" target="19">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="120" y="480" as="sourcePoint"/>
+                        <mxPoint x="650" y="480" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-29" value="" style="endArrow=none;html=1;rounded=0;fontSize=9;strokeColor=#000000;startArrow=none;" parent="1" edge="1" source="PGUhtDEqbn3UTOn2lU88-31">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="240" y="560" as="sourcePoint"/>
+                        <mxPoint x="240" y="480" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-30" value="" style="endArrow=none;html=1;rounded=0;fontSize=9;startArrow=none;strokeColor=#000000;" parent="1" edge="1" source="PGUhtDEqbn3UTOn2lU88-32">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489.5" y="560" as="sourcePoint"/>
+                        <mxPoint x="489.5" y="480" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-33" value="&lt;font style=&quot;font-size: 12px&quot; color=&quot;#000000&quot;&gt;Interface actualisée&amp;nbsp; avec résultats de recherche&lt;/font&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;labelBackgroundColor=none;fontSize=9;strokeColor=#000000;strokeWidth=1;fillColor=#66B2FF;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="570" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-34" value="&lt;font style=&quot;font-size: 12px&quot; color=&quot;#000000&quot;&gt;Message d'erreur&lt;/font&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;labelBackgroundColor=none;fontSize=9;strokeColor=#000000;fillColor=#66B2FF;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="570" width="270" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-36" value="" style="endArrow=none;html=1;rounded=0;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="160" y="630" as="sourcePoint"/>
+                        <mxPoint x="160" y="760" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-37" value="" style="endArrow=none;html=1;rounded=0;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="520" y="720" as="sourcePoint"/>
+                        <mxPoint x="520" y="630" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-39" value="" style="endArrow=none;html=1;rounded=0;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="160" y="720" as="sourcePoint"/>
+                        <mxPoint x="520" y="720" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-40" value="&lt;font style=&quot;font-size: 12px&quot;&gt;FIN&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontSize=9;fontColor=#000000;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="760" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#FFFFFF;labelBorderColor=#000000;fontColor=#000000;strokeColor=#000000;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="359.5" y="220" as="sourcePoint"/>
+                        <mxPoint x="359.5" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-32" value="&lt;b&gt;&lt;font style=&quot;font-size: 12px&quot; color=&quot;#cc0000&quot;&gt;NON&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="510" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="PGUhtDEqbn3UTOn2lU88-31" value="&lt;b&gt;&lt;font color=&quot;#006600&quot; style=&quot;font-size: 11px&quot;&gt;OUI&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontSize=9;arcSize=0;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="510" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#FFFFFF;labelBorderColor=#000000;fontColor=#000000;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="PGUhtDEqbn3UTOn2lU88-31">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="210" y="580" as="sourcePoint"/>
+                        <mxPoint x="240" y="560" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#FFFFFF;labelBorderColor=#000000;fontColor=#000000;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="530" as="sourcePoint"/>
+                        <mxPoint x="489" y="560" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="&lt;font style=&quot;font-size: 12px&quot; color=&quot;#000000&quot;&gt;&lt;b&gt;L'algorithme vérifie si la valeur entrée dans l'input de la barre de recherche&amp;nbsp;&lt;/b&gt;&lt;b&gt;est inclue dans&amp;nbsp;&lt;/b&gt;&lt;b&gt;le nom de la recette&lt;/b&gt;&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FF9999;strokeColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="340" width="220" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;font style=&quot;font-size: 12px&quot; color=&quot;#000000&quot;&gt;&lt;b&gt;L'algorithme vérifie si la valeur entrée dans l'input de la barre de recherche&amp;nbsp;&lt;/b&gt;&lt;b&gt;est inclue dans&amp;nbsp;&lt;/b&gt;&lt;b&gt;la description de la recette&lt;/b&gt;&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FF9999;strokeColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="340" width="220" height="140" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
