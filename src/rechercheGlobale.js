@@ -1,4 +1,4 @@
-let results;
+let results = [];
 let value;
 let rechercheValue;
 let input;
@@ -9,13 +9,14 @@ const afficherRechercherRecettes = (recipes) => {
   rechercheValue.addEventListener("keyup", Verif);
 
   function Verif() {
+    console.log("entrée dans fonction verif");
     let input = document.querySelector("input");
     value = input.value.toLowerCase();
     if (value.length >= 3) {
       recherche(value);
     } else {
       results = recipes;
-      noResult();
+      // noResult();
       displayRecette(recipes);
       generateFiltersForAppliances(recipes);
       generateFiltersForIngredients(recipes);
@@ -34,27 +35,36 @@ function recherche(value) {
     for (let j = 0; j < recipes[i].ingredients.length; j++) {
       if (recipes[i].ingredients[j].ingredient.toLowerCase().includes(value)) {
         ingredientIncluded = true;
+        console.log("TOPTOPTOP");
+        console.log(ingredientIncluded);
       }
+
+      if (
+        nameIncluded == true ||
+        descriptionIncluded == true ||
+        ingredientIncluded == true
+      ) {
+        console.log("validation included");
+        console.log(
+          nameIncluded == true ||
+            descriptionIncluded == true ||
+            ingredientIncluded == true
+        );
+        console.log(recipes[i]);
+        results.push(recipes[i]);
+        console.log(results);
+      }
+      // console.log(results);
+      // displayRecette(results);
+      // generateFiltersForAppliances(results);
+      // generateFiltersForIngredients(results);
+      // generateFiltersForUstensils(results);
+      // noResult();
     }
-    if (
-      nameIncluded == true ||
-      descriptionIncluded == true ||
-      ingredientIncluded == true
-    ) {
-      results.push(recipes[i]);
-    }
-    console.log(results);
-    displayRecette(results);
-    generateFiltersForAppliances(results);
-    generateFiltersForIngredients(results);
-    generateFiltersForUstensils(results);
-    noResult();
   }
 }
-
 function noResult() {
   let noResults = document.querySelector("#noResults");
-  console.log(results.length);
   if (results.length == 0) {
     console.log("results===none");
     noResults.style.display = "block";
