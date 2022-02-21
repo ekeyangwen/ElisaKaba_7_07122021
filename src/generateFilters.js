@@ -65,11 +65,14 @@ const afficherKeyupIngredients = () => {
     let listIngredient = document.querySelector("#listIngredients");
     if (listIngredient.getAttribute("value") == "false") {
       triIngredients.style.display = "flex";
-
+      document.getElementsByName("triIngredients")[0].placeholder =
+        "Rechercher un ingredient";
       console.log("display===none");
       listIngredient.setAttribute("value", "true");
     } else {
       triIngredients.style.display = "none";
+      document.getElementsByName("triIngredients")[0].placeholder =
+        "Ingredients";
       console.log("display===flex");
       listIngredient.setAttribute("value", "false");
     }
@@ -116,10 +119,13 @@ const afficherKeyupAppareils = () => {
     let listAppareils = document.querySelector("#listAppareils");
     if (listAppareils.getAttribute("value") == "false") {
       triAppliance.style.display = "flex";
+      document.getElementsByName("triAppareils")[0].placeholder =
+        "Rechercher un appareil";
       console.log("display===flex");
       listAppareils.setAttribute("value", "true");
     } else {
       triAppliance.style.display = "none";
+      document.getElementsByName("triAppareils")[0].placeholder = "Appareils";
       console.log("display===none");
       console.log(listIngredient);
       listAppareils.setAttribute("value", "false");
@@ -170,10 +176,13 @@ const afficherKeyupUstensils = () => {
     let listUstensiles = document.querySelector("#listUstensiles");
     if (listUstensiles.getAttribute("value") == "false") {
       triUstensiles.style.display = "flex";
+      document.getElementsByName("triUstensiles")[0].placeholder =
+        "Rechercher un ustensile";
       listUstensiles.setAttribute("value", "true");
       console.log("display===flex");
     } else {
       triUstensiles.style.display = "none";
+      document.getElementsByName("triUstensiles")[0].placeholder = "Ustensiles";
       listUstensiles.setAttribute("value", "false");
       console.log("display===none");
     }
