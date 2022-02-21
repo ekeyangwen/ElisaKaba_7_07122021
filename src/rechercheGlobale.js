@@ -35,7 +35,6 @@ function recherche(value) {
     for (let j = 0; j < recipes[i].ingredients.length; j++) {
       if (recipes[i].ingredients[j].ingredient.toLowerCase().includes(value)) {
         ingredientIncluded = true;
-        console.log("TOPTOPTOP");
         console.log(ingredientIncluded);
       }
 
