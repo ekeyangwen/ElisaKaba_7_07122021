@@ -49,3 +49,10 @@ const addEventKeyupUstensils = () => {
     });
   });
 };
+
+function noTagsResult() {
+  listeRecettes = document.querySelector("#listeRecettes");
+  listeRecettes.style.display = "none";
+  noResults = document.querySelector("#noResults");
+  noResults.style.display = "block";
+}

@@ -27,7 +27,7 @@
     width: 100%;
     border-radius: 5px;
     background-color: #e7e7e7;
-    color: lightgray;
+    color: black;
     border: none;
     font-family: Lato;
     font-size: 12px;
@@ -297,6 +297,7 @@
   #listeRecettes {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     width: 100%;
   }
   .recetteImg {
@@ -363,7 +364,6 @@
     line-height: 12px;
     line-height: 20px;
     text-align: left;
-    width: 100%;
   }
   .recette {
     width: 100%;
@@ -468,7 +468,7 @@
 
 @media (min-width: 992px) {
   .description {
-    width: 200px;
+    width: 300px;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 6;
