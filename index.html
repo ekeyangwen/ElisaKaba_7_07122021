@@ -17,7 +17,6 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/08db705dca.js"></script>
 
     <link rel="stylesheet" href=" ./style.css" />
   </head>
@@ -32,6 +31,7 @@
           type="search"
           name="recherche"
           placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
+          autocomplete="off"
         />
 
         <button id="loupeBtn">
@@ -43,64 +43,92 @@
       </section>
     </header>
     <section id="main">
+      <section id="result">
+        <div id="appareilsResult"></div>
+        <div id="ingredientsResult"></div>
+        <div id="ustensilesResult"></div>
+      </section>
       <section id="tri">
-        <div class="inputTag"></div>
-        <div class="input">
-          <input
-            name="triIngredients"
-            id="choixTriIngredients"
-            type="search"
-            placeholder="Ingrédients"
-            list="inputIngredients"
-          />
-          <datalist id="inputIngredients"></datalist>
-
-          <button id="triBtnIngredients">
-            <img
-              src="./img/fleche_bas.png"
-              alt="bouton loupe pour lancer la recherche"
-            />
-          </button>
+        <div id="ingredients">
+          <div id="choixTriIngredients">
+            <form class="ingredientsForm">
+              <input
+                name="triIngredients"
+                id="inputIngredients"
+                type="text"
+                placeholder="Ingrédients"
+                autocomplete="off"
+              />
+              <button id="triBtnIngredients">
+                <img
+                  class="imgFlechBas"
+                  src="./img/fleche_bas.png"
+                  alt="bouton flèche pour faire descendre menu déroulant"
+                />
+              </button>
+            </form>
+            <aside id="listIngredients" value="false">
+              <ul id="triIngredientsInput"></ul>
+            </aside>
+          </div>
         </div>
-        <div class="inputTag"></div>
-        <div class="input">
-          <input
-            name="triAppareils"
-            id="choixTriAppareil"
-            type="search"
-            placeholder="Appareil"
-            list="inputAppareils"
-          />
-          <datalist id="inputAppareils"></datalist>
-          <button id="triBtnAppareil">
-            <img
-              src="./img/fleche_bas.png"
-              alt="bouton loupe pour lancer la recherche"
-            />
-          </button>
+        <div id="appareils">
+          <div id="choixTriAppareils">
+            <form class="applianceForm">
+              <input
+                name="triAppareils"
+                id="inputAppareils"
+                type="text"
+                placeholder="Appareil"
+                autocomplete="off"
+              />
+              <button id="triBtnAppareil">
+                <img
+                  class="imgFlechBas"
+                  src="./img/fleche_bas.png"
+                  alt="bouton flèche pour faire descendre menu déroulant"
+                />
+              </button>
+            </form>
+            <aside id="listAppareils" value="false">
+              <ul id="triAppareilsInput"></ul>
+            </aside>
+          </div>
         </div>
-        <div class="inputTag"></div>
-        <div class="input">
-          <input
-            name="triUstensiles"
-            id="choixTriUstensiles"
-            type="search"
-            placeholder="Ustensiles"
-            list="inputUstensiles"
-          />
-          <datalist id="inputUstensiles"></datalist>
-          <button id="triBtnUstensiles">
-            <img
-              src="./img/fleche_bas.png"
-              alt="bouton loupe pour lancer la recherche"
-            />
-          </button>
+        <div id="ustensiles">
+          <div id="choixTriUstensiles">
+            <form id="ustensilsForm">
+              <input
+                name="triUstensiles"
+                id="inputUstensiles"
+                type="text"
+                placeholder="Ustensiles"
+                autocomplete="off"
+              />
+              <button id="triBtnUstensiles">
+                <img
+                  class="imgFlechBas"
+                  src="./img/fleche_bas.png"
+                  alt="bouton flèche pour faire descendre menu déroulant"
+                />
+              </button>
+            </form>
+            <aside id="listUstensiles" value="false">
+              <ul id="triUstensilesInput"></ul>
+            </aside>
+          </div>
         </div>
       </section>
       <section id="listeRecettes"></section>
+      <div id="noResults">Nous n'avons trouvé aucun résultat</div>
     </section>
-    <script type="module" src="./src/Recipes.js"></script>
-    <script type="module" src="./src/recettes.js"></script>
-    <script type="module" src="./src/index.js"></script>
+    <script src="./src/data.js"></script>
+    <script src="./src/Recettes.js"></script>
+    <script src="./src/rechercheGlobale.js"></script>
+    <script src="./src/generateFilters.js"></script>
+    <script src="./src/rechercheTags.js"></script>
+    <script src="./src/gestionTags.js"></script>
+    <script src="./src/dropbox.js"></script>
+    <script src="./src/index.js"></script>
   </body>
 </html>

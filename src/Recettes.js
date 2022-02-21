@@ -1,4 +1,4 @@
-export class recipe {
+class recipe {
   constructor(data) {
     this.id = data.id;
     this.name = data.name;
@@ -30,10 +30,7 @@ export class recipe {
      <section class="recetteAndTime">  
       <section class="tempsRecette">
         <div class="clock">
-             <img
-            src="./img/cadran.png"
-            alt="bouton loupe pour lancer la recherche"
-          />
+            <i class="far fa-clock"></i>
          <div class="temps">${this.time}</div>
         </div>        
       </section>
