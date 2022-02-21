@@ -470,10 +470,10 @@
   .description {
     width: 200px;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
+    display: -webkit-box;
   }
   .recette {
     margin: 10px;
