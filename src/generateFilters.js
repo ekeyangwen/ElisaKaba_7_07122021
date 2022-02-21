@@ -64,12 +64,12 @@ const afficherKeyupIngredients = () => {
 
     let listIngredient = document.querySelector("#listIngredients");
     if (listIngredient.getAttribute("value") == "false") {
-      triIngredients.style.display = "none";
+      triIngredients.style.display = "flex";
 
       console.log("display===none");
       listIngredient.setAttribute("value", "true");
     } else {
-      triIngredients.style.display = "flex";
+      triIngredients.style.display = "none";
       console.log("display===flex");
       listIngredient.setAttribute("value", "false");
     }
