@@ -1,4 +1,5 @@
 class recipe {
+  //Création de la classe recipe
   constructor(data) {
     this.id = data.id;
     this.name = data.name;
@@ -10,6 +11,7 @@ class recipe {
     this.ustensils = data.ustensils;
   }
 
+  //Affiche les vignettes recette
   createRecipe() {
     return `
     <section class="recette"> 
@@ -27,9 +29,11 @@ class recipe {
      <ul class="ingredients">${this.ingredients
        .map((ingredient) => {
          let ingredientContent = ingredient.ingredient;
+         //Isole la quantité des ingredients(?)
          let quantityContent = ingredient.quantity
            ? `:${ingredient.quantity}`
            : "";
+         //Isole l'unité de mesure des ingredients(?)
          let unitContent = ingredient.unit ? ingredient.unit : "";
          return `<li class="ingredientsTab"><span class="gras">${ingredientContent}</span> ${quantityContent}${unitContent}</li>`;
        })

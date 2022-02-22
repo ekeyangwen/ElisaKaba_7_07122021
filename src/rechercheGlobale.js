@@ -4,10 +4,13 @@ let rechercheValue;
 let input;
 let noResults;
 
+//base de la recheche principale
 function afficherRechercherRecettes(recipes) {
   rechercheValue = document.getElementById("barreRecherche");
   rechercheValue.addEventListener("keyup", Verif);
   console.log(results);
+
+  //Vérification des 3 caractères minimum
   function Verif() {
     input = document.querySelector("input");
     value = input.value.toLowerCase();
@@ -23,6 +26,7 @@ function afficherRechercherRecettes(recipes) {
     }
   }
 
+  //Recherche PRINCIPALE
   function recherche(value) {
     results = recipes.filter(
       (items) =>
@@ -34,7 +38,6 @@ function afficherRechercherRecettes(recipes) {
         })
     );
 
-    console.log(results);
     displayRecette(results);
     generateFiltersForAppliances(results);
     generateFiltersForIngredients(results);
@@ -47,6 +50,7 @@ function afficherRechercherRecettes(recipes) {
   }
 }
 
+//function pour envoyer le message d'erreur en cas d'absence de résultats
 function noResult() {
   let noResults = document.querySelector("#noResults");
   console.log(results.length);

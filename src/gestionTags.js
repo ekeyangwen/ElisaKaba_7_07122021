@@ -1,3 +1,4 @@
+//création des tags
 const afficherTagsAppliances = () => {
   appareilsResult = document.querySelector("#appareilsResult");
   spanApp = document.createElement("span");
@@ -16,21 +17,22 @@ const afficherTagsAppliances = () => {
   spanAppliances.forEach((appliance) => {
     appliance.appendChild(img);
   });
-
+  //récupération de la fonction de MAJ des listes
   generateFiltersForAppliances(results);
+  //Fermeture des dropbox pour MAJ
   triIngredients.style.display = "none";
   triUstensiles.style.display = "none";
   triAppliance.style.display = "none";
 };
 
+//Function de suppression des tags
 const supprimerTagsAppliances = () => {
   crosses = document.querySelectorAll(".close");
   crosses.forEach((cross) => {
     cross.addEventListener("click", (e) => {
       e.target.parentNode.remove();
 
-      //recherche principale
-
+      //Relance la recherche principale
       let input = document.querySelector("input");
       let value = input.value.toLowerCase();
       if (value.length >= 3) {
@@ -43,6 +45,7 @@ const supprimerTagsAppliances = () => {
               ingredientMap.toLowerCase().includes(value);
             })
         );
+        //affiche les recettes de la recherche
         displayRecette(results);
         generateFiltersForAppliances(results);
         generateFiltersForIngredients(results);
@@ -61,7 +64,7 @@ const supprimerTagsAppliances = () => {
         triUstensiles.style.display = "none";
       }
 
-      //récupération des tags
+      //Relance la recherche par tags
       let tagAppliances = document.querySelectorAll(".pAppliances");
       results = recipes.filter(
         (items) =>
@@ -78,6 +81,7 @@ const supprimerTagsAppliances = () => {
           applianceMap.push(recette.appliance.toLowerCase());
           return applianceMap.includes(tag.innerHTML);
         });
+        //MAJ du tableau results en fonction des résultats
         results = tagsAppResults;
         displayRecette(tagsAppResults);
         generateFiltersForAppliances(results);
@@ -90,6 +94,8 @@ const supprimerTagsAppliances = () => {
     });
   });
 };
+
+//création des tags
 const afficherTagsIngredients = () => {
   ingredientsResult = document.querySelector("#ingredientsResult");
   spanIng = document.createElement("span");
@@ -108,20 +114,23 @@ const afficherTagsIngredients = () => {
   spanIngredients.forEach((ingredient) => {
     ingredient.appendChild(img);
   });
+
+  //récupération de la fonction de MAJ des listes
   generateFiltersForIngredients(results);
+  //Fermeture des dropbox pour MAJ
   triAppliance.style.display = "none";
   triIngredients.style.display = "none";
   triUstensiles.style.display = "none";
 };
 
+//Function de suppression des tags
 const supprimerTagsIngredients = () => {
   crosses = document.querySelectorAll(".close");
   crosses.forEach((cross) => {
     cross.addEventListener("click", (e) => {
       e.target.parentNode.remove();
 
-      //recherche principale
-
+      //Relance la recherche principale
       let input = document.querySelector("input");
       let value = input.value.toLowerCase();
       if (value.length >= 3) {
@@ -134,6 +143,7 @@ const supprimerTagsIngredients = () => {
               ingredientMap.toLowerCase().includes(value);
             })
         );
+        //affiche les recettes en fonction des résultats de la recherche
         displayRecette(results);
         generateFiltersForAppliances(results);
         generateFiltersForIngredients(results);
@@ -152,7 +162,7 @@ const supprimerTagsIngredients = () => {
         triUstensiles.style.display = "none";
       }
 
-      //récupération des tags
+      //Relance la recherche par tags
       tagIngredients = document.querySelectorAll(".pIngredients");
 
       tagIngredients.forEach((tag) => {
@@ -172,6 +182,8 @@ const supprimerTagsIngredients = () => {
           });
           return ingredientMap.includes(tag.innerHTML);
         });
+
+        //MAJ du tableau results en fonction des résultats de la recherche
         results = tagsIngResults;
         displayRecette(results);
         generateFiltersForAppliances(results);
@@ -185,6 +197,7 @@ const supprimerTagsIngredients = () => {
   });
 };
 
+//Création des tags
 const afficherTagsUstensiles = () => {
   ustensilesResult = document.querySelector("#ustensilesResult");
   spanUst = document.createElement("span");
@@ -203,21 +216,22 @@ const afficherTagsUstensiles = () => {
   spanUstensiles.forEach((ustensile) => {
     ustensile.appendChild(img);
   });
-
+  //MAJ des liste en fonction du contenu de results
   generateFiltersForUstensils(results);
+  //Fermeture des dropbox pour MAJ des liste
   triAppliance.style.display = "none";
   triIngredients.style.display = "none";
   triUstensiles.style.display = "none";
 };
 
+//Supression des tags
 const supprimerTagsUstensiles = () => {
   crosses = document.querySelectorAll(".close");
   crosses.forEach((cross) => {
     cross.addEventListener("click", (e) => {
       e.target.parentNode.remove();
 
-      //recherche principale
-
+      //Relance la recherche principale
       let input = document.querySelector("input");
       let value = input.value.toLowerCase();
       if (value.length >= 3) {
@@ -230,6 +244,7 @@ const supprimerTagsUstensiles = () => {
               ingredientMap.toLowerCase().includes(value);
             })
         );
+        //Affiche les recette en fonction des résultats de la recherche
         displayRecette(results);
         generateFiltersForAppliances(results);
         generateFiltersForIngredients(results);
@@ -238,6 +253,7 @@ const supprimerTagsUstensiles = () => {
         triIngredients.style.display = "none";
         triUstensiles.style.display = "none";
       } else {
+        //Si pas de résultat toute les recettes sont affichées
         results = recipes;
         displayRecette(results);
         generateFiltersForAppliances(results);
@@ -249,7 +265,7 @@ const supprimerTagsUstensiles = () => {
         triUstensiles.style.display = "none";
       }
 
-      //récupération des tags
+      //Relance de la recherche par tags
       tagsUstResults = document.querySelectorAll(".pUstensiles");
       tagsUstResults.forEach((tag) => {
         results = recipes.filter(

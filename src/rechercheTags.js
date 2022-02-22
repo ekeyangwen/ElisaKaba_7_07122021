@@ -30,6 +30,7 @@ if (results.length == 0) {
   results = recipes;
 }
 
+//Event et recherche par tags
 const installEventAppliances = () => {
   listeAppliance = document.querySelectorAll(".listApp");
   listeAppliance.forEach((appliance) => {
@@ -40,11 +41,14 @@ const installEventAppliances = () => {
         applianceMap.push(recette.appliance.toLowerCase());
         return applianceMap.includes(eventValue);
       });
+      //MAJ de results en fonction des résultats de la recherche par tags
       results = tagsAppResults;
+      //Rappel des fonction assurant le bon comportement du tag (affichage et suppression)
       afficherTagsAppliances();
       supprimerTagsAppliances();
-      console.log(tagsAppResults);
+      //Affichage des recette en fonction des résultats
       displayRecette(results);
+      //MAJ des liste des dropbox
       generateFiltersForAppliances(results);
       generateFiltersForIngredients(results);
       generateFiltersForUstensils(results);
@@ -52,6 +56,7 @@ const installEventAppliances = () => {
   });
 };
 
+//cf. installEventAppliance
 const installEventUstensils = () => {
   listeUstensiles = document.querySelectorAll(".listUst");
   listeUstensiles.forEach((ustensil) => {
@@ -76,6 +81,7 @@ const installEventUstensils = () => {
   });
 };
 
+//cf. installEventAppliance
 const installEventIngredients = () => {
   listeIngredients = document.querySelectorAll(".listIng");
   listeIngredients.forEach((ingredient) => {
