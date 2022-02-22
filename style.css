@@ -21,7 +21,7 @@
   #recherche {
     display: flex;
     flex-direction: row;
-    width: 85%;
+    width: 100%;
   }
   #barreRecherche {
     width: 100%;
@@ -116,7 +116,9 @@
   }
 
   #tri {
+    align-self: flex-start;
     display: flex;
+    flex-direction: column;
     height: 10%;
     width: 100%;
     border-radius: 5px;
@@ -139,11 +141,14 @@
     flex-direction: column;
     margin-top: -30px;
     list-style: none;
-    width: 30%;
+    width: 50%;
     text-align: center;
     padding: 5px;
+    margin-bottom: 30px;
   }
-
+  .ingredientsTab {
+    list-style: none;
+  }
   .listIng,
   .listApp,
   .listUst {
@@ -205,7 +210,7 @@
   #listUstensiles {
     height: 20px;
     z-index: 20;
-    width: 100%;
+    width: 197%;
   }
   .listIngredients,
   .pIngredients {
@@ -261,8 +266,7 @@
     background-color: #68d9a4;
     color: #fff;
     padding: 0px;
-    width: 201%;
-    max-height: 700px;
+    max-height: 900px;
     border-radius: 0px 5px 5px 5px;
   }
 
@@ -274,8 +278,7 @@
     color: #fff;
     z-index: 20;
     padding: 0px;
-    width: 104%;
-    max-height: 700px;
+    max-height: 900px;
     border-radius: 0px 5px 5px 5px;
   }
   #triIngredientsInput {
@@ -286,8 +289,7 @@
     color: #fff;
     z-index: 20;
     padding: 0px;
-    width: 326%;
-    max-height: 700px;
+    max-height: 900px;
     border-radius: 0px 5px 5px 5px;
   }
   .gras {
@@ -335,14 +337,14 @@
     margin-bottom: 0px;
     display: flex;
     margin-bottom: 20px;
-    width: 100%;
+    margin: 20px;
   }
   .fa-clock {
     margin-right: 8px;
   }
 
   .clock {
-    width: 10%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
   }
@@ -459,6 +461,9 @@
   #inputAppareils {
     font-size: 15px;
   }
+  #tri {
+    flex-direction: row;
+  }
   #inputUstensiles::placeholder,
   #inputIngredients::placeholder,
   #inputAppareils::placeholder {
@@ -475,22 +480,30 @@
     -webkit-box-orient: vertical;
     display: -webkit-box;
   }
+  .ingredients {
+    margin-top: 20px;
+    padding: 0;
+  }
   .recette {
     margin: 10px;
     width: 45%;
     height: 350px;
-    margin: 24px;
+  }
+
+  .legendeRecette {
+    height: 200px;
   }
   .recetteImg {
     height: 30%;
-  }
-  .legendeRecette {
-    height: 70%;
   }
   .listeIngredientsTemps {
     display: flex;
     max-width: 400px;
     justify-content: center;
+    margin-top: 0px;
+  }
+  .tempsRecette {
+    margin: 0;
   }
 }
 
@@ -501,7 +514,9 @@
   .temps {
     margin-left: 5px;
   }
-
+  #tri {
+    width: 50%;
+  }
   #inputUstensiles,
   #inputIngredients,
   #inputAppareils {
