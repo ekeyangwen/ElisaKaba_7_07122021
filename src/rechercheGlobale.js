@@ -39,6 +39,10 @@ function afficherRechercherRecettes(recipes) {
     generateFiltersForAppliances(results);
     generateFiltersForIngredients(results);
     generateFiltersForUstensils(results);
+    triAppliance.style.display = "none";
+    triIngredients.style.display = "none";
+    triUstensiles.style.display = "none";
+    document.getElementsByName("triIngredients")[0].placeholder = "Ingredients";
     noResult();
   }
 }
