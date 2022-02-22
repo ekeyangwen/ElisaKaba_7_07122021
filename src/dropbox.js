@@ -1,5 +1,6 @@
 noResults = document.querySelector("#noResults");
 
+//gestion de la MAJ des ingredients dans la dropbox
 const addEventKeyupIngredients = () => {
   let inputIng = document.querySelector("#inputIngredients");
   inputIng.addEventListener("keyup", function (event) {
@@ -16,6 +17,8 @@ const addEventKeyupIngredients = () => {
     });
   });
 };
+
+//gestion de la MAJ des appareils dans la dropbox
 const addEventKeyupAppliance = () => {
   let inputApp = document.querySelector("#inputAppareils");
   inputApp.addEventListener("keyup", function (event) {
@@ -33,6 +36,8 @@ const addEventKeyupAppliance = () => {
     });
   });
 };
+
+//gestion de la MAJ des ustensiles dans la dropbox
 const addEventKeyupUstensils = () => {
   let inputUst = document.querySelector("#inputUstensiles");
 

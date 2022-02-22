@@ -4,11 +4,13 @@ let rechercheValue;
 let input;
 let noResults;
 
+//base de la recherche globale
 const afficherRechercherRecettes = (recipes) => {
   console.log("afficherRechercherRecettes");
   let rechercheValue = document.getElementById("barreRecherche");
   rechercheValue.addEventListener("keyup", Verif);
 
+  //Vérification que 3 caractères sont entrés dans la barre de recherche
   function Verif() {
     console.log("entrée dans fonction verif");
     let input = document.querySelector("input");
@@ -26,6 +28,7 @@ const afficherRechercherRecettes = (recipes) => {
   }
 };
 
+//Recherche PRINCIPALE
 function recherche(value) {
   results = [];
   for (let i = 0; i < recipes.length; i++) {
@@ -47,7 +50,7 @@ function recherche(value) {
       results.push(recipes[i]);
     }
   }
-  console.log(results);
+  //Affichage des recette en fonction du resultat de la recherche
   displayRecette(results);
   generateFiltersForAppliances(results);
   generateFiltersForIngredients(results);
@@ -58,6 +61,7 @@ function recherche(value) {
   noResult();
 }
 
+//Affichage du message d'erreur si pas de résultat
 function noResult() {
   let noResults = document.querySelector("#noResults");
   if (results.length == 0) {
