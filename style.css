@@ -143,7 +143,7 @@
     width: 50%;
     text-align: center;
     padding: 5px;
-    margin-bottom: 15px;
+    border-radius: 5px;
   }
   .ingredientsTab {
     list-style: none;
@@ -162,8 +162,7 @@
     flex-direction: column;
     border: none;
     color: #fff;
-    border-radius: 5px;
-    height: 80%;
+    border-radius: 5px 5px 5px 5px;
   }
   #choixTriAppareils {
     background-color: #68d9a4;
@@ -207,7 +206,7 @@
   #listIngredients,
   #listAppareils,
   #listUstensiles {
-    height: 20px;
+    height: 0px;
     z-index: 20;
   }
   #listIngredients,
@@ -274,7 +273,7 @@
     background-color: #ed6454;
     flex-wrap: wrap;
     color: #fff;
-    z-index: 20;
+    z-index: 200;
     padding: 0px;
     max-height: 900px;
     border-radius: 0px 5px 5px 5px;
@@ -319,12 +318,6 @@
   }
   .listeIngredientsTemps {
     display: flex;
-  }
-  .ingredients {
-    font-family: Roboto;
-    font-size: 12px;
-    padding: 17px;
-    margin: 0;
   }
   .recetteAndTime {
     width: 55%;
@@ -400,6 +393,7 @@
 @media screen and (min-width: 576px) {
   #triAppareilsInput {
     max-height: 950px;
+    margin: 0;
     flex-direction: column;
   }
   #barreRecherche {
@@ -410,11 +404,13 @@
     width: 100%;
     max-height: 950px;
     flex-direction: column;
+    margin: 0;
   }
   #triIngredientsInput {
     max-height: 950px;
     flex-direction: column;
-    width: 197%;
+    width: 300%;
+    margin: 0;
   }
   #inputUstensiles,
   #inputIngredients,
@@ -429,7 +425,6 @@
   .listIng,
   .listApp,
   .listUst {
-    font-size: 14px;
     margin: 4px;
   }
   #inputUstensiles::placeholder,
@@ -452,7 +447,6 @@
   .listIng,
   .listApp,
   .listUst {
-    font-size: 15px;
     width: 25%;
   }
   #inputUstensiles,
