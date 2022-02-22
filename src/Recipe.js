@@ -19,7 +19,7 @@ class recipe {
         <h1 class="titre">${this.name}</h1>
         <div class="clock">
          <img src="./img/cadran.png" alt="Cadran d'horloge">
-         <div class="temps">${this.time}</div>
+         <span class="temps">${this.time} min</span>
         </div>        
       </section>
     

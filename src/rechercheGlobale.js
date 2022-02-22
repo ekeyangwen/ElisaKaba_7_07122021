@@ -44,14 +44,9 @@ function recherche(value) {
         ingredientIncluded == true
       ) {
         console.log("validation included");
-        console.log(
-          nameIncluded == true ||
-            descriptionIncluded == true ||
-            ingredientIncluded == true
-        );
         console.log(recipes[i]);
-        results.push(recipes[i]);
-        console.log(results);
+        // results.push(recipes[i]);
+        // console.log(results);
       }
       // console.log(results);
       // displayRecette(results);
