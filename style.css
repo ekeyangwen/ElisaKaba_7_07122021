@@ -210,19 +210,18 @@
   #listUstensiles {
     height: 20px;
     z-index: 20;
-    width: 197%;
   }
-  .listIngredients,
+  #listIngredients,
   .pIngredients {
     background-color: #3282f7;
   }
 
-  .listAppareils,
+  #listAppareils,
   .pAppliances {
     background-color: #68d9a4;
   }
 
-  .listUstensiles,
+  #listUstensiles,
   .pUstensiles {
     background-color: #ed6454;
   }
@@ -400,7 +399,6 @@
 
 @media screen and (min-width: 576px) {
   #triAppareilsInput {
-    width: 200%;
     max-height: 950px;
     flex-direction: column;
   }
@@ -409,13 +407,14 @@
   }
 
   #triUstensilesInput {
-    width: 119%;
+    width: 100%;
     max-height: 950px;
     flex-direction: column;
   }
   #triIngredientsInput {
     max-height: 950px;
     flex-direction: column;
+    width: 197%;
   }
   #inputUstensiles,
   #inputIngredients,

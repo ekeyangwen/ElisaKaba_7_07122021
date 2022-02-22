@@ -5,6 +5,7 @@ let input;
 let noResults;
 
 const afficherRechercherRecettes = (recipes) => {
+  console.log("afficherRechercherRecettes");
   let rechercheValue = document.getElementById("barreRecherche");
   rechercheValue.addEventListener("keyup", Verif);
 
@@ -15,17 +16,18 @@ const afficherRechercherRecettes = (recipes) => {
     if (value.length >= 3) {
       recherche(value);
     } else {
-      results = recipes;
-      // noResult();
-      displayRecette(recipes);
-      generateFiltersForAppliances(recipes);
-      generateFiltersForIngredients(recipes);
-      generateFiltersForUstensils(recipes);
+      results = [...recipes];
+      noResult();
+      displayRecette(results);
+      generateFiltersForAppliances(results);
+      generateFiltersForIngredients(results);
+      generateFiltersForUstensils(results);
     }
   }
 };
 
 function recherche(value) {
+  results = [];
   for (let i = 0; i < recipes.length; i++) {
     let nameIncluded = recipes[i].name.toLowerCase().includes(value);
     let descriptionIncluded = recipes[i].description
@@ -35,28 +37,27 @@ function recherche(value) {
     for (let j = 0; j < recipes[i].ingredients.length; j++) {
       if (recipes[i].ingredients[j].ingredient.toLowerCase().includes(value)) {
         ingredientIncluded = true;
-        console.log(ingredientIncluded);
       }
-
-      if (
-        nameIncluded == true ||
-        descriptionIncluded == true ||
-        ingredientIncluded == true
-      ) {
-        console.log("validation included");
-        console.log(recipes[i]);
-        // results.push(recipes[i]);
-        // console.log(results);
-      }
-      // console.log(results);
-      // displayRecette(results);
-      // generateFiltersForAppliances(results);
-      // generateFiltersForIngredients(results);
-      // generateFiltersForUstensils(results);
-      // noResult();
+    }
+    if (
+      nameIncluded == true ||
+      descriptionIncluded == true ||
+      ingredientIncluded == true
+    ) {
+      results.push(recipes[i]);
     }
   }
+  console.log(results);
+  displayRecette(results);
+  generateFiltersForAppliances(results);
+  generateFiltersForIngredients(results);
+  generateFiltersForUstensils(results);
+  triAppliance.style.display = "none";
+  triIngredients.style.display = "none";
+  triUstensiles.style.display = "none";
+  noResult();
 }
+
 function noResult() {
   let noResults = document.querySelector("#noResults");
   if (results.length == 0) {
